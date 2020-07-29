@@ -1,0 +1,61 @@
+//- === to extend
+//- extends ./assets/pug/templates/_index-template.pug
+
+
+//- === to connect empty block
+//- block block-name
+//-   p NEW CONTENT!
+
+
+//- === to clear default block
+//- block block-name
+
+//- === to prepend default block
+//- prepend block-name
+//-   p NEW PREPEND CONTENT!
+
+//- === to append default block
+//- append block-name
+//-   p NEW APPEND CONTENT!
+//- ============================================================================
+
+<!DOCTYPE html>
+html(lang="ru")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible" content="ie=edge")
+
+    block style
+      link(rel="shortcut icon" href="./assets/img/favicon.ico")
+      link(rel="stylesheet" href="./assets/vendors/liba-biba-pupa-lupa/css/liba-biba-pupa-lupa.css")
+      link(rel="stylesheet" href="./assets/vendors/mmenu/css/mmenu.css")
+      link(rel="stylesheet" href="./assets/css/style.css")
+
+    block upper-script
+      //- script(src="../assets/vendors/jquery/jquery-3.5.1.min.js")
+
+    block title
+      title Template
+
+  body
+    div#page
+
+      block top-body
+        header.s-header
+          h1 I'm header h1
+
+      block middle-body
+        section.s-body
+          h2 I'm body h2
+          p I'm body paragraph
+
+      block bottom-body
+        footer.s-footer
+          h3 I'm footer h3
+
+      block lower-script
+        script(src="./assets/vendors/jquery/jquery-3.5.1.min.js")
+        script(src="./assets/vendors/liba-biba-pupa-lupa/js/liba-biba-pupa-lupa.js")
+        script(src="./assets/vendors/mmenu/js/mmenu.js")
+        script(src="./assets/js/index.js")

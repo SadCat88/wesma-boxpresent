@@ -1,0 +1,28 @@
+//- to include
+//- include ./assets/components/blocks/city-choice-menu/_city-choice-menu.jade
+
+nav.component-city-choice-menu.js-component-city-choice-menu
+  span.menu-heading.js-component-city-choice-menu-heading
+    span.menu-heading__title Ваш город:
+    span.menu-heading__selected.js-city-selected Москва
+
+  //- .--js-show
+  .menu-dropdown.js-component-city-choice-menu-dropdown
+    .city-menu-list__title Выберите ваш регион
+
+    ul.big-city-list
+      li.big-city-item 
+        a(href="#").big-city-item__link.js-city-name Москва
+      li.big-city-item 
+        a(href="#").big-city-item__link.js-city-name Санкт-Петербург
+
+    ul.small-city-list
+      li.small-city-item-letter Н
+      li.small-city-item-name
+        a(href="#").small-city-list__item-link.js-city-name Новые петушки
+
+      li.small-city-item-letter Б
+      li.small-city-item-name
+        a(href="#").small-city-list__item-link.js-city-name Брянск
+      li.small-city-item-name
+        a(href="#").small-city-list__item-link.js-city-name Бобруйск

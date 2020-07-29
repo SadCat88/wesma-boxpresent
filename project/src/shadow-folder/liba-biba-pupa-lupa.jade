@@ -1,0 +1,423 @@
+extends ./assets/pug/templates/_index-template.jade
+
+//- block style
+
+//- block upper-script
+
+block title
+  title Liba Biba Pupa Lupa :D
+
+block top-body
+  header.s-header
+    .l-container
+      .w-header-1
+        a.logo(href="./liba-biba-pupa-lupa.html")
+          img.logo__img(src="./assets/img/SadCat.svg" alt="Logotype")
+        h1.main-title.--title-h1 CSS3 library - Liba Biba Pupa Lupa
+
+block middle-body
+  main.s-main
+    .l-container
+      .w-paper
+        .w-sidebar
+          nav.table-of-content
+            h2.main-title.--title-h3 Оглавление:
+            ul.content-list
+              li.content-list__item
+                a.content-link(href="#title-1") Предисловие
+              li.content-list__item
+                a.content-link(href="#title-2") Быстрый старт
+
+        .w-content
+ 
+          section.section
+            h2.main-title.--title-h2#title-1 Предисловие
+            
+            h3.main-title.--title-h3 Где я?
+            .content-paragraph
+              span.one-line.red-line.
+                В Нарнии. Здесь навалены в кучу всякие CSS сетки, блоки-заготовки и багофичи для web-фронтенда. Если ты попал сюда случайно и тебе неуютно, можешь выйти из шкафа. Автор не планировал пускать сюда гостей. Если хочешь, можешь остаться, только не жалуйся потом. Для связи с автором можно написать письмо на деревню дедушке.
+            
+            h3.main-title.--title-h3 Зачем?
+            .content-paragraph
+              span.one-line.red-line.
+                Основа данной библиотеки - система сеток. Сетки имеют устройство и принципы применения примерно схожие с Bootstrap 4, но тут гораздо меньше свистоперделок в виде библиотеки классов и основной контейнер имеет резиновый размер. В Bootstrap же он скачет по брейкпоинтам то оставляя огромные уши по бокам, вначале брейкпоинта, то сжимаясь к концу.
+              span.one-line.red-line.
+                Главная идея библиотеки им. Пупы-Лупы заключается в том, что перед началом проекта верстальщик определяет ширину контейнера согласно дизайна, вносит эту ширину в переменную #[span.code $container-width ], компилирует библиотеку и начинает пользоваться оберткой #[span.code div.l-container ] в качестве основной обертки для всего сайта, независимо от того будет ли внутри сетка с колонками из библиотеки или кастомная разметка. Ну а когда понадобится сетка, можно ее добавлять, определять другие переменные (количество колонок, размер отступов и т.д.), компилировать на лету и пользоваться дальше.
+              span.one-line.red-line.
+                То есть, тут многое как в привычном Bootstrap, но меньше лишнего и больше гибкости. В принципе можно пилить сайт с дизайном "не по сетке", а потом запилить "карточки товаров" опираясь на библиотеку им. Пупы-Лупы. Как-то так...
+            
+            h3.main-title.--title-h3 Договор с самим собой об условности
+            .content-paragraph
+              span.one-line.red-line.
+                Автор данной библиотеки, помимо того что обращается к самому себе в третьем лице, еще и вступил с самим собой в договор:
+              ul.content-list
+                li.content-list__item.
+                  1) Описывать HTML через синтаксис Pug;
+                li.content-list__item.
+                  2) Описывать CSS через синтаксис Sass (SCSS);
+                li.content-list__item.
+                  3) Описывать JS через vanilla или jQuery (в зависимости от того, на чем написан обсуждаемый модуль).
+              span.one-line.red-line.
+                Так происходит просто потому что автор пишет эту библиотеку для самого себя, на понятном ему языке.
+
+
+            h2.main-title.--title-h2#title-2 Быстрый старт
+            .content-paragraph
+              dl.term
+                dt.term__title .l-container
+                dd.term-description
+                  span.one-line.term-description__definition Основной контейнер сетки.
+                  span.one-line.term-description__add-info Используется как главный контейнер сайта (для всей контентной части).
+              
+              .component.spoiler 
+                .spoiler-header 
+                  .spoiler-header__title Устройство контейнера:
+                  .spoiler-header__indicator X
+
+                .spoiler-body
+                  .example
+                    pre.monospace.code.
+                      .l-container {
+                        width: 100%;
+                        max-width: calc(1500px + 5vw * 2);
+                        margin: 0 auto;
+                        padding: 0 5vw;
+                      }
+                  span.one-line.
+                    #[span.code "width: 100%" ] Заставляет тянуться контейнер на 100% доступной ширины.
+                  span.one-line.
+                    #[span.code "max-width: calc(1500px + 5vw * 2)" ] Ограничивает максимальную ширину контейнера из расчета внутренняя часть + два уха.
+                  span.one-line.
+                    #[span.code "margin: 0 auto" ] Центрирует контейнер по горизонтали, в случае если максимальный размер контейнера меньше ширины экрана.
+                  span.one-line.
+                    #[span.code "padding: 0 5vw" ] Уши контейнера, резиновые по 5vw.
+
+
+
+              .example
+                pre.code.
+                  .l-container
+                    | some content
+              .screenshot
+                img(src="./assets/img/index/example_1.png", alt="example picture")
+
+
+
+
+            .wrapper-test
+              .test-block kek
+              .l-row
+                .l-col-03 1
+                .l-col-03 2
+                .l-col-03 3
+                .l-col-03 4
+
+block bottom-body
+
+//- block lower-script
+
+
+//- <!DOCTYPE html>
+//- html(lang="ru")
+//-   head
+//-     meta(charset="UTF-8")
+//-     meta(name="viewport" content="width=device-width, initial-scale=1.0")
+//-     meta(http-equiv="X-UA-Compatible" content="ie=edge")
+//-     link(rel="stylesheet" href="./assets/css/style.css")
+//-     title Document
+//-   body
+//-     header.s-header
+//-       .l-container
+//-         h1 test
+//-         //- .box
+//-       .l-container
+
+//-         .l-row
+//-           .l-col-01
+//-             p kek
+//-           .l-col-02
+//-             p kek
+//-           .l-col-03
+//-             p kek
+//-           .l-col-01
+//-             p kek
+//-           .l-col-02
+//-             p kek
+//-           .l-col-03
+//-             p kek
+//-         br
+//-         br
+
+//-         p Выравнивание отдельной колонки в строке
+//-         .l-row._h-100
+//-           .l-col-01._self-top
+//-             p kek
+//-           .l-col-02._self-middle
+//-             p kek
+//-           .l-col-03._self-bottom
+//-             p kek
+//-           .l-col-01._self-top
+//-             p kek
+//-           .l-col-02._self-middle
+//-             p kek
+//-           .l-col-03._self-bottom
+//-             p kek
+//-         br
+//-         br
+
+//-         p Выравнивание колонок в строке
+//-         .l-row._h-100._col-top
+//-           .l-col-01
+//-             p kek
+//-           .l-col-02
+//-             p kek
+//-           .l-col-03
+//-             p kek
+//-           .l-col-01
+//-             p kek
+//-           .l-col-02
+//-             p kek
+//-           .l-col-03
+//-             p kek
+//-         br
+//-         br
+
+//-         p Выравнивание колонок в строке
+//-         .l-row._h-100._col-middle
+//-           .l-col-01
+//-             p kek
+//-           .l-col-02
+//-             p kek
+//-           .l-col-03
+//-             p kek
+//-           .l-col-01
+//-             p kek
+//-           .l-col-02
+//-             p kek
+//-           .l-col-03
+//-             p kek
+//-         br
+//-         br
+
+//-         p Выравнивание колонок в строке
+//-         .l-row._h-100._col-bottom
+//-           .l-col-01
+//-             p kek
+//-           .l-col-02
+//-             p kek
+//-           .l-col-03
+//-             p kek
+//-           .l-col-01
+//-             p kek
+//-           .l-col-02
+//-             p kek
+//-           .l-col-03
+//-             p kek
+//-         br
+//-         br
+
+//-         p Выравнивание контента в строке
+//-         .l-row._h-100
+//-           .l-col-01._content-right
+//-             p kek
+//-           .l-col-02._content-left
+//-             p kek
+//-           .l-col-03._content-center
+//-             p kek
+//-           .l-col-01._content-top
+//-             p kek
+//-           .l-col-02._content-middle
+//-             p kek
+//-           .l-col-03._content-bottom
+//-             p kek
+//-         br
+//-         br
+
+//-         p Выравнивание контента в строке
+//-         .l-row._col-left
+//-           .l-col-01._content-right
+//-             p kek
+//-           .l-col-02._content-left
+//-             p kek
+//-           .l-col-03._content-center
+//-             p kek
+//-           .l-col-01._content-top
+//-             p kek
+//-           .l-col-02._content-middle
+//-             p kek
+//-         br
+//-         br
+
+//-         p Выравнивание контента в строке
+//-         .l-row._col-center
+//-           .l-col-01._content-right
+//-             p kek
+//-           .l-col-02._content-left
+//-             p kek
+//-           .l-col-03._content-center
+//-             p kek
+//-           .l-col-01._content-top
+//-             p kek
+//-           .l-col-02._content-middle
+//-             p kek
+//-         br
+//-         br
+
+//-         p Выравнивание контента в строке
+//-         .l-row._col-right
+//-           .l-col-01._content-right
+//-             p kek
+//-           .l-col-02._content-left
+//-             p kek
+//-           .l-col-03._content-center
+//-             p kek
+//-           .l-col-01._content-top
+//-             p kek
+//-           .l-col-02._content-middle
+//-             p kek
+//-         br
+//-         br
+
+//-         p Выравнивание контента в строке
+//-         .l-row._justify-between
+//-           .l-col-01._content-right
+//-             p kek
+//-           .l-col-02._content-left
+//-             p kek
+//-           .l-col-03._content-center
+//-             p kek
+//-           .l-col-01._content-top
+//-             p kek
+//-           .l-col-02._content-middle
+//-             p kek
+//-         br
+//-         br
+
+//-         p Выравнивание контента в строке
+//-         .l-row._justify-around
+//-           .l-col-01._content-right
+//-             p kek
+//-           .l-col-02._content-left
+//-             p kek
+//-           .l-col-03._content-center
+//-             p kek
+//-           .l-col-01._content-top
+//-             p kek
+//-           .l-col-02._content-middle
+//-             p kek
+//-         br
+//-         br
+
+//-         p Выравнивание контента в строке
+//-         .l-row._justify-evenly
+//-           .l-col-01._content-right
+//-             p kek
+//-           .l-col-02._content-left
+//-             p kek
+//-           .l-col-03._content-center
+//-             p kek
+//-           .l-col-01._content-top
+//-             p kek
+//-           .l-col-02._content-middle
+//-             p kek
+//-         br
+//-         br
+
+//-         p Переполнение строки
+//-         .l-row
+//-           .l-col-01
+//-             p kek
+//-           .l-col-02
+//-             p kek
+//-           .l-col-03
+//-             p kek
+//-           .l-col-01
+//-             p kek
+//-           .l-col-02
+//-             p kek
+//-           .l-col-03
+//-             p kek
+//-           .l-col-01
+//-             p kek
+//-         br
+//-         br
+//-         p Пустота внутри
+//-         .l-row
+//-           .l-col-01
+//-             p kek
+//-           .l-col-01
+//-             p kek
+//-           .l-col-01
+//-             p kek
+//-           .l-col-01
+//-             p kek
+//-           .l-col-01._offset-left-1
+//-             p kek
+//-           .l-col-01
+//-             p kek
+//-           .l-col-01
+//-             p kek
+//-           .l-col-01._offset-right-1
+//-             p kek
+//-           .l-col-01
+//-             p kek
+//-           .l-col-01
+//-             p kek
+//-           .l-col-01
+//-             p kek
+//-           .l-col-01
+//-             p kek
+//-         br
+//-         br
+
+//-         p Адаптивные префиксы
+//-         .l-row
+//-           .l-col-01
+//-             p kek
+//-           .l-col-01
+//-             p kek
+//-           .l-col-01
+//-             p kek
+//-           .l-col-01
+//-             p kek
+//-           .l-col-01
+//-             p kek
+//-           .l-col-01
+//-             p kek
+//-           .l-col-01._col-a-02._col-b-04._col-c-06
+//-             p kek
+//-           .l-col-01
+//-             p kek
+//-           .l-col-01
+//-             p kek
+//-           .l-col-01
+//-             p kek
+//-           .l-col-01
+//-             p kek
+//-           .l-col-01
+//-             p kek
+//-         br
+//-         br
+
+//-         .l-row
+//-           .l-wrap
+//-             .l-row
+//-               .l-col-04
+//-                 p kek
+//-               .l-col-04
+//-                 p kek
+//-               .l-col-04
+//-                 p kek
+
+//-           .l-wrap
+//-             .l-row
+//-               .l-col-03
+//-                 p kek
+//-               .l-col-03
+//-                 p kek
+//-               .l-col-03
+//-                 p kek
+//-               .l-col-03
+//-                 p kek
+

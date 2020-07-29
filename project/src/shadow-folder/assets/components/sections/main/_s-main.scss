@@ -1,0 +1,119 @@
+body {
+  background: linear-gradient(60deg, $color-panel-second-1, $color-panel-second-2);
+}
+
+.s-main {
+  padding-top: 1.5%;
+  padding-bottom: 1.5%;
+
+  .w-paper {
+    display: flex;
+
+    padding: 2% 2%;
+    background-color: $color-content-bg-1;
+    @extend %shadow-1;
+    border-radius: $border-radius-1;
+  }
+
+  .w-sidebar {
+    align-self: flex-start;
+    position: sticky;
+    top: 0;
+
+    margin-right: 2%;
+    width: 25%;
+  }
+
+  .w-content {
+    width: 75%;
+  }
+}
+
+.example {
+  padding: 1%;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+
+  background-color: $color-panel-example-bg-1;
+  border-radius: $border-radius-1;
+}
+
+.screenshot {
+  display: flex;
+  align-items: center;
+
+  padding: 1%;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+
+  background-color: $color-panel-screenshot-bg-1;
+  border-radius: $border-radius-1;
+}
+
+.wrapper-test {
+  display: flex;
+
+  .test-block {
+    background-color: rgba(247, 0, 255, 0.342);
+    width: 120px;
+  }
+}
+
+// temporality block
+.component.spoiler {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .spoiler-header {
+    display: flex;
+    width: 100%;
+    padding: 1% 2%;
+    cursor: pointer;
+    border-radius: $border-radius-1;
+    background-color: pink;
+
+    .spoiler-header__title {
+      user-select: none;
+    }
+
+    .spoiler-header__indicator {
+      margin-left: auto;
+      user-select: none;
+    }
+  }
+
+  .spoiler-body {
+    width: 100%;
+    padding-left: 2%;
+    padding-bottom: 2%;
+    border-radius: $border-radius-bottom-1;
+    background-color: rgb(255, 239, 241);
+    opacity: 0;
+    height: 0;
+    transition: padding 0.3s ease;
+
+
+  }
+
+  &.--js-show {
+    .spoiler-header {
+      border-radius: $border-radius-top-1;
+
+      .spoiler-header__indicator {
+        color: red;
+      }
+
+      .spoiler-header__title {
+        user-select: initial;
+      }
+    }
+
+    .spoiler-body {
+      height: auto;
+      opacity: 1;
+      padding-top: 1%;
+      padding-bottom: 1%;
+    }
+  }
+}

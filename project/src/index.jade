@@ -1,0 +1,119 @@
+extends ./assets/pug/templates/_index-template.jade
+
+block title
+  title Boxpresent.ru - index page
+
+block top-body
+  header.s-header
+
+    //- мобильная шапка
+    include ./assets/components/blocks/mobile-top-panel/_mobile-top-panel.jade
+
+    //- .w-top-menu
+    .l-container
+      .w-top-menu
+
+        //- меню с выбором городов
+        include ./assets/components/blocks/city-choice-menu/_city-choice-menu.jade
+
+        //- главное меню сайта
+        include ./assets/components/blocks/main-menu/_main-menu.jade
+
+        //- проверить статус заказа
+        include ./assets/components/blocks/check-order-status/_check-order-status.jade
+
+    .l-container
+      .w-middle-menu
+        include ./assets/components/blocks/logotype/_logotype.jade
+
+        nav.w-communication-methods
+          include ./assets/components/blocks/communication-methods/_communication-methods.jade
+
+        nav.w-user-navigation
+          ul.user-navigation-list
+            li.user-navigation-item.user-navigation-item__cart
+              button(type="button").user-navigation-item-action.btn-as-wrapper
+                span.w-cart-qty
+                  span.cart-qty 12
+                span.w-cart-description
+                  span.cart-title.one-line Корзина
+                  span.cart-total.one-line #[span.value 35 350] руб.
+
+            li.user-navigation-item.user-navigation-item__favorites
+              a(href="#").user-navigation-item-action
+                span.visually-hidden Избранное
+
+            li.user-navigation-item.user-navigation-item__search
+              button(type="button").user-navigation-item-action.btn-as-wrapper
+                span.visually-hidden Поиск
+
+            li.user-navigation-item.user-navigation-item__account
+              button(type="button").user-navigation-item-action.btn-as-wrapper
+                span.visually-hidden Личный кабинет
+
+
+
+
+
+
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    br
+    p test
+
+    //- a.js-show-modal(href="#popup" data-target-modal="#modal_1") кекнуть 111
+    //-   button.js-show-modal(data-target-modal="#modal_2") кекнуть 222
+
+    //- .modal-overlay#modal_1
+    //-   .modal-body
+    //-     a(href="#").modal-close x
+    //-     p 111
+    //-     p kek
+    //-     p dsf sdf sd sd  df sdfh dfh sdf sdfh sdf bsdfb sdfg sdfh dsfh 
+
+

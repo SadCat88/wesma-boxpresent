@@ -1,0 +1,47 @@
+// =============================================
+// === classes utilities
+// =============================================
+
+
+
+// // === центральная вертикальная линия
+// // ровно по середине видимой части окна, прокрутка отнимает эту часть
+
+// body {
+//   &::after {
+//     content: "";
+
+//     position: absolute;
+//     top: 0;
+//     left: 50%;
+//     width: 0px;
+//     height: 100%;
+//     transform: translate(-1px);
+//     border-left: 1px dashed green;
+//     border-right: 1px dashed red;
+//   }
+// }
+
+// === устраняет схлопывание маргинов
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+// === невидимый, безразмерный, выделяемый, доступный для читалок
+.visually-hidden:not(:focus):not(:active),
+input[type="checkbox"].visually-hidden,
+input[type="radio"].visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}

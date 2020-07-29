@@ -1,0 +1,51 @@
+// === === цвета
+// =============================================================================
+
+// === по цветам
+$color-orange-1: #ffba82;
+$color-orange-2: #ffe77a;
+$color-orange-3: #c75a00;
+$color-orange-4: #d15e00;
+$color-orange-5: #818300;
+
+$color-green-1: #93c87e;
+$color-green-2: #98dab7;
+$color-green-3: #e1ffe5;
+
+$color-blue-1: #92a4e2;
+$color-blue-2: #9dd4f5;
+$color-blue-3: #0000ff;
+$color-blue-4: #485a9b;
+$color-blue-5: #879dec;
+$color-blue-5: #ecf8ff;
+
+$color-white-1: #ffffff;
+$color-black-1: #000000;
+
+// === по блокам
+$color-panel-main-1: $color-orange-1;
+$color-panel-main-2: $color-orange-2;
+
+$color-panel-second-1: $color-green-1;
+$color-panel-second-2: $color-green-2;
+
+$color-contrast-1: #fff;
+
+$color-content-bg-1: $color-white-1;
+
+$color-panel-example-bg-1: $color-blue-5;
+$color-panel-screenshot-bg-1: $color-green-3;
+
+// === типографика
+$color-content-text-1: $color-black-1;
+$color-content-link-1: $color-blue-4;
+$color-content-link-2: $color-blue-5;
+$color-code-1: $color-blue-3;
+$color-term-title-1: $color-orange-3;
+$color-term-description-1: $color-orange-4;
+$color-term-add-info-1: $color-orange-5;
+
+// === формы
+$border-radius-1: 6px;
+$border-radius-top-1: 6px 6px 0 0;
+$border-radius-bottom-1: 0 0 6px 6px;

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <link rel="shortcut icon" href="./assets/img/favicon.ico"/>
+    <link rel="stylesheet" href="../assets/vendors/liba-biba-pupa-lupa/css/liba-biba-pupa-lupa.css"/>
+    <link rel="stylesheet" href="./assets/css/style.css"/>
+    <script src="../assets/vendors/jquery/jquery-3.5.1.min.js" defer="defer"></script>
+    <script src="../assets/vendors/liba-biba-pupa-lupa/js/liba-biba-pupa-lupa.js" defer="defer"></script>
+    <title>Liba Biba Pupa Lupa :D</title>
+  </head>
+  <body>
+    <header class="s-header">
+      <div class="l-container">
+        <div class="w-header-1"><a class="logo" href="./liba-biba-pupa-lupa.html"><img class="logo__img" src="./assets/img/SadCat.svg" alt="Logotype"/></a>
+          <h1 class="main-title --title-h1">CSS3 library - Liba Biba Pupa Lupa</h1>
+        </div>
+      </div>
+    </header>
+    <main class="s-main">
+      <div class="l-container">
+        <div class="w-paper">
+          <div class="w-sidebar">
+            <nav class="table-of-content">
+              <h2 class="main-title --title-h3">Оглавление:</h2>
+              <ul class="content-list">
+                <li class="content-list__item"><a class="content-link" href="#title-1">Предисловие</a></li>
+                <li class="content-list__item"><a class="content-link" href="#title-2">Быстрый старт</a></li>
+              </ul>
+            </nav>
+          </div>
+          <div class="w-content">
+            <section class="section">
+              <h2 class="main-title --title-h2" id="title-1">Предисловие</h2>
+              <h3 class="main-title --title-h3">Где я?</h3>
+              <div class="content-paragraph"><span class="one-line red-line">
+                  В Нарнии. Здесь навалены в кучу всякие CSS сетки, блоки-заготовки и багофичи для web-фронтенда. Если ты попал сюда случайно и тебе неуютно, можешь выйти из шкафа. Автор не планировал пускать сюда гостей. Если хочешь, можешь остаться, только не жалуйся потом. Для связи с автором можно написать письмо на деревню дедушке.
+                  </span></div>
+              <h3 class="main-title --title-h3">Зачем?</h3>
+              <div class="content-paragraph"><span class="one-line red-line">Основа данной библиотеки - система сеток. Сетки имеют устройство и принципы применения примерно схожие с Bootstrap 4, но тут гораздо меньше свистоперделок в виде библиотеки классов и основной контейнер имеет резиновый размер. В Bootstrap же он скачет по брейкпоинтам то оставляя огромные уши по бокам, вначале брейкпоинта, то сжимаясь к концу.</span><span class="one-line red-line">Главная идея библиотеки им. Пупы-Лупы заключается в том, что перед началом проекта верстальщик определяет ширину контейнера согласно дизайна, вносит эту ширину в переменную <span class="code">$container-width </span>, компилирует библиотеку и начинает пользоваться оберткой <span class="code">div.l-container </span> в качестве основной обертки для всего сайта, независимо от того будет ли внутри сетка с колонками из библиотеки или кастомная разметка. Ну а когда понадобится сетка, можно ее добавлять, определять другие переменные (количество колонок, размер отступов и т.д.), компилировать на лету и пользоваться дальше.</span><span class="one-line red-line">
+                  То есть, тут многое как в привычном Bootstrap, но меньше лишнего и больше гибкости. В принципе можно пилить сайт с дизайном "не по сетке", а потом запилить "карточки товаров" опираясь на библиотеку им. Пупы-Лупы. Как-то так...
+                  </span></div>
+              <h3 class="main-title --title-h3">Договор с самим собой об условности</h3>
+              <div class="content-paragraph"><span class="one-line red-line">Автор данной библиотеки, помимо того что обращается к самому себе в третьем лице, еще и вступил с самим собой в договор:</span>
+                <ul class="content-list">
+                  <li class="content-list__item">1) Описывать HTML через синтаксис Pug;</li>
+                  <li class="content-list__item">2) Описывать CSS через синтаксис Sass (SCSS);</li>
+                  <li class="content-list__item">3) Описывать JS через vanilla или jQuery (в зависимости от того, на чем написан обсуждаемый модуль).</li>
+                </ul><span class="one-line red-line">
+                  Так происходит просто потому что автор пишет эту библиотеку для самого себя, на понятном ему языке.
+                  
+                  </span>
+              </div>
+              <h2 class="main-title --title-h2" id="title-2">Быстрый старт</h2>
+              <div class="content-paragraph">
+                <dl class="term">
+                  <dt class="term__title">.l-container</dt>
+                  <dd class="term-description"><span class="one-line term-description__definition">Основной контейнер сетки.</span><span class="one-line term-description__add-info">Используется как главный контейнер сайта (для всей контентной части).</span></dd>
+                </dl>
+                <div class="component spoiler"> 
+                  <div class="spoiler-header"> 
+                    <div class="spoiler-header__title">Устройство контейнера:</div>
+                    <div class="spoiler-header__indicator">X</div>
+                  </div>
+                  <div class="spoiler-body">
+                    <div class="example">
+                      <pre class="monospace code">.l-container {
+  width: 100%;
+  max-width: calc(1500px + 5vw * 2);
+  margin: 0 auto;
+  padding: 0 5vw;
+}</pre>
+                    </div><span class="one-line"><span class="code">"width: 100%" </span> Заставляет тянуться контейнер на 100% доступной ширины.</span><span class="one-line"><span class="code">"max-width: calc(1500px + 5vw * 2)" </span> Ограничивает максимальную ширину контейнера из расчета внутренняя часть + два уха.</span><span class="one-line"><span class="code">"margin: 0 auto" </span> Центрирует контейнер по горизонтали, в случае если максимальный размер контейнера меньше ширины экрана.</span><span class="one-line"><span class="code">"padding: 0 5vw" </span> Уши контейнера, резиновые по 5vw.
+                      
+                      
+                      </span>
+                  </div>
+                </div>
+                <div class="example">
+                  <pre class="code">.l-container
+  | some content</pre>
+                </div>
+                <div class="screenshot"><img src="./assets/img/index/example_1.png" alt="example picture"/></div>
+              </div>
+              <div class="wrapper-test">
+                <div class="test-block">kek</div>
+                <div class="l-row">
+                  <div class="l-col-03">1</div>
+                  <div class="l-col-03">2</div>
+                  <div class="l-col-03">3</div>
+                  <div class="l-col-03">4</div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

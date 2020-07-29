@@ -1,0 +1,28 @@
+// === style
+// =============================================================================
+.logo {
+  position: relative;
+  height: 75px;
+  top: -8px;
+
+  display: block;
+  width: 166px;
+
+  .logo__img {
+    object-fit: contain;
+  }
+
+  .logo__title {
+    position: absolute;
+    left: 39px;
+    bottom: -8px;
+
+    display: inline-block;
+    font-size: 10px;
+    line-height: 13px;
+    max-width: 115px;
+
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+}

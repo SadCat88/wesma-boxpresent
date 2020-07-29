@@ -1,0 +1,160 @@
+@import "./_variables.scss";
+
+// =============================================
+// === font-face and font placeholders
+// =============================================
+
+// === font-size
+// thin--------100
+// extra-light-200
+// light-------300
+// regular-----400
+// medium------500
+// semi-bold---600
+// bold--------700
+// extra-bold--800
+// black-------900
+
+// === font-style
+// normal - нормальный
+// italic - курсивный
+// oblique - наклонный
+
+// === font-family
+// serif - с засечками
+// sans-serif - без засечек
+// cursive - курсив
+// fantasy - декоративный
+// monospace - моноширинный
+// 
+// system-ui - дефолтный шрифт системы
+// math - математические выражения
+// emoji - эмодзи
+// inherit
+// initial
+// unset
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  color: $color-content-text-1;
+  font-weight: 400;
+  line-height: 1.5625;
+}
+
+a {
+  text-decoration: none;
+  color: $color-content-text-1;
+}
+
+// === заголовки
+.main-title {
+  font-family: 'Roboto', sans-serif;
+  margin-bottom: calc(0.5% + 0.25em);
+  margin-top: calc(1% + 0.5em);
+
+  &.--title-h1 {
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+  &.--title-h2 {
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  &.--title-h3 {
+    font-size: 17px;
+    font-weight: 500;
+  }
+}
+
+// === абзац текста
+span.one-line {
+  display: inline-block;
+  width: 100%;
+}
+
+// === красная строка
+.red-line {
+  text-indent: 1.5em;
+}
+
+
+
+// =============================================================================
+// === @font-face
+// === путь указывается от имени файла style.css до шрифта
+// =============================================================================
+
+// @font-face {
+//   font-family: 'Name';
+//   src: local('Name'), local('Alter Name'),
+//     url('../../assets/fonts/Name.ttf') format('truetype'),
+//     url('../../assets/fonts/Name.eot?#iefix') format('embedded-opentype'),
+//     url('../../assets/fonts/Name.woff2') format('woff2'),
+//     url('../../assets/fonts/Name.woff') format('woff'),
+//     url('../../assets/fonts/Name.svg#Name') format('svg');
+//   font-weight: 700;
+//   font-style: normal;
+// }
+
+// // === тест подключения
+// @font-face {
+//   font-family: 'TestFont';
+//   src: url('../../assets/fonts/test.ttf') format('truetype');
+//   font-weight: 400;
+//   font-style: normal;
+// }
+
+// === normal 
+// =============================================================================
+
+@font-face {
+  font-family: 'Roboto';
+  src: local('Roboto Light'),
+    local('Roboto-Light'),
+    url('../../assets/fonts/Roboto-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: local('Roboto'),
+    local('Roboto-Regular'),
+    url('../../assets/fonts/Roboto-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: local('Roboto Medium'),
+    local('Roboto-Medium'),
+    url('../../assets/fonts/Roboto-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: local('Roboto'),
+    local('Roboto-Bold'),
+    url('../../assets/fonts/Roboto-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: local('Roboto Black'),
+    local('Roboto-Black'),
+    url('../../assets/fonts/Roboto-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}

@@ -1,0 +1,6 @@
+// === общее ядро проекта
+@import "../scss/_main.scss";
+
+// === компоненты
+@import "../components/blocks/**/*.scss";
+@import "../components/sections/**/*.scss";

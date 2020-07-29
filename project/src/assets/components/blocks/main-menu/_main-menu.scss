@@ -1,0 +1,265 @@
+// === variables
+$main-menu-item-border-size: 1px;
+$main-menu-item-color-bg--hover: $color-green-2;
+$main-menu-item-color-text--hover: $color-content-text-1--hover;
+$main-menu-item-color-bg: $color-white-1;
+
+// $main-menu-item-color--hover: $color-green-1;
+
+// === style
+// =============================================================================
+.w-main-menu {
+  height: 100%;
+  width: 100%;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: $color-border-1;
+  }
+}
+
+.main-menu-list {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+
+  font-size: 13px;
+  text-decoration: none;
+  height: 100%;
+  width: 100%;
+
+  .main-menu-item {
+    &:not(:first-child) {
+      margin-left: -$main-menu-item-border-size;
+    }
+
+    flex-grow: 1;
+    flex-shrink: 1;
+
+    margin-bottom: -$main-menu-item-border-size
+  }
+
+  .main-menu-item__link {
+    position: relative;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding-left: 12px;
+    padding-right: 12px;
+
+    height: 100%;
+    width: 100%;
+
+    text-decoration: none;
+    white-space: nowrap;
+
+    background-color: $main-menu-item-color-bg;
+    color: $color-content-text-1;
+    border-left: $main-menu-item-border-size solid $color-border-1;
+    border-right: $main-menu-item-border-size solid $color-border-1;
+    border-bottom: $main-menu-item-border-size solid $color-border-1;
+
+    // === точка снизу
+    // &::after {
+    //   content: "";
+
+    //   position: absolute;
+    //   bottom: -3px;
+    //   left: 50%;
+
+    //   transform: translate(-50%, 50%);
+    //   width: 7px;
+    //   height: 7px;
+    //   border-radius: 50%;
+    //   background-color: $main-menu-item-color--hover;
+    // }
+  }
+}
+
+// === animations and actions
+// =============================================================================
+.w-main-menu {
+  .main-menu-item__link {
+    transform: translateZ(0);
+    // transition: all 0.3s ease 0s;
+
+    // === псевдо бэкграунд для ховер эффекта
+    &::before {
+      content: "";
+
+      position: absolute;
+      z-index: -1;
+      bottom: 0;
+      top: 0;
+      left: 0;
+      right: 0;
+
+      background: $main-menu-item-color-bg;
+      transition: left 0.3s ease 0s, right 0.3s ease 0s, box-shadow 0.3s ease 0s;
+    }
+
+    &::after {
+      transition: all 0.3s ease 0s;
+      opacity: 0;
+    }
+
+    &:hover {
+      z-index: 2;
+      //   color: $main-menu-item-color-text--hover;
+      padding-top: 3px;
+
+      // === точка снизу
+      // &::after {
+      //   opacity: 1;
+      // }
+
+      // === псевдо бэкграунд во время ховера
+      &::before {
+        left: -5px;
+        right: -5px;
+        bottom: -3px;
+
+        background: radial-gradient(circle, $main-menu-item-color-bg 20%, lighten($main-menu-item-color-bg--hover, 5%) 100%);
+        border-left: $main-menu-item-border-size solid $color-border-1;
+        border-right: $main-menu-item-border-size solid $color-border-1;
+        border-bottom: $main-menu-item-border-size solid $color-border-1;
+
+        @extend %shadow-2;
+      }
+    }
+  }
+}
+
+
+// === adaptive and plugin
+// =============================================================================
+// === скрывает мобильное меню до нужного размера
+@media (min-width: 993px) {
+  #mm-mmenu {
+    display: none !important;
+  }
+}
+
+// === скрывает основное меню после нужного размера
+@media (max-width: 992px) {
+  #mmenu {
+    display: none !important;
+  }
+}
+
+// === mmenu plugin
+.w-main-menu.mm-menu {
+  --mm-color-background: #f4f6f1;
+  --mm-color-text: #313640;
+  $mm-color-text-hover: #819b74;
+
+  display: none;
+  flex-direction: column;
+  flex-shrink: 0;
+  flex-grow: 0;
+  height: auto;
+  margin: 0;
+  max-width: none;
+
+  width: 80%;
+  min-width: 240px;
+  max-width: 440px;
+
+  &.mm-menu_opened {
+    display: flex;
+  }
+
+
+  // === верхняя панель
+  .mm-navbar {
+    user-select: none;
+  }
+
+  // === список пунктов
+  .mm-listview {
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+
+    // === li
+    .mm-listitem {
+      padding-right: 20px;
+
+      &:hover {
+        .mm-listitem__text {
+          color: $mm-color-text-hover;
+        }
+      }
+
+      // === подчеркивание
+      &::after {
+        content: '';
+        border-color: inherit;
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+        display: block;
+        position: absolute;
+        left: 24px;
+        right: 24px;
+        bottom: 0;
+        transition: all 0.3s ease 0s;
+      }
+
+      // === a(href="#")
+      .mm-listitem__text {
+        justify-content: flex-start;
+
+        padding-left: 24px;
+        padding-right: 24px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+
+        color: --mm-color-text;
+        font-weight: 500;
+
+        transition: all 0.3s ease 0s;
+      }
+
+      &.marker {
+        .marker__item {
+          display: flex;
+          font-size: 14px;
+          align-items: center;
+        }
+      }
+    }
+  }
+
+  .separator.mm-listitem {
+    height: 30px;
+    border: none;
+
+
+    &::after {
+      border: none;
+    }
+  }
+}
+
+
+// === mmenu plugin + reset custom
+.w-main-menu.mm-menu {
+  .main-menu-item {
+    margin: 0;
+
+    .main-menu-item__link {
+      border: none;
+      background: none;
+
+      &::before {
+        display: none;
+      }
+    }
+  }
+}

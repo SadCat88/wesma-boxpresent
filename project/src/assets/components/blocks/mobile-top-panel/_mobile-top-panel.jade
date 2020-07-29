@@ -1,0 +1,34 @@
+//- to include
+//- include ./assets/components/blocks/mobile-top-panel/_mobile-top-panel.jade
+
+.component-mobile-top-panel.js-component-mobile-top-panel
+  .l-container.w-mobile-top-panel
+    //- кнопка
+    a(href="#mmenu").mobile-top-panel-btn.btn-mobile.--main-menu
+      span.visually-hidden menu
+
+    //- выбор города
+    nav.component-city-choice-menu.js-component-city-choice-menu
+      span.menu-heading.js-component-city-choice-menu-heading
+        span.menu-heading__title Ваш город:
+        span.menu-heading__selected.js-city-selected Москва
+
+    //- навигация
+    nav.mobile-panel-navigation
+      ul.mobile-panel-list
+        li.mobile-panel-item.mobile-panel-item__cart
+          button(type="button").btn-as-wrapper.mobile-panel-item__action
+            span.cart-qty 12
+            span.cart-total.one-line #[span.value 35 350] руб.
+
+        li.mobile-panel-item.mobile-panel-item__favorites
+          a(href="#").mobile-panel-item__action
+            span.visually-hidden Избранное
+
+        li.mobile-panel-item.mobile-panel-item__search
+          button(type="button").btn-as-wrapper.mobile-panel-item__action
+            span.visually-hidden Поиск
+
+        li.mobile-panel-item.mobile-panel-item__account
+          button(type="button").btn-as-wrapper.mobile-panel-item__action
+            span.visually-hidden Личный кабинет

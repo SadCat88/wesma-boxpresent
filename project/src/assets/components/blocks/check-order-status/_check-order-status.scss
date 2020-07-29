@@ -1,0 +1,103 @@
+// === variables
+// =============================================================================
+$check-order-status-link-color: $color-content-text-1;
+$check-order-status-link-color--hover: $color-content-text-1--hover;
+$check-order-status-link-bg-color: $color-green-2;
+$check-order-status-link-bg-color--hover: $color-green-2--hover;
+
+// === style
+// =============================================================================
+.check-order-status {
+  display: flex;
+  align-items: center;
+
+  height: 100%;
+
+  .check-order-status__link {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 100%;
+    width: 100%;
+    padding-right: 5%;
+    padding-left: 22%;
+
+    font-size: 13px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    text-decoration: none;
+    color: $check-order-status-link-color;
+
+    background-color: $check-order-status-link-bg-color;
+
+    // === циферблат
+    &::before {
+      content: "";
+      position: absolute;
+
+      left: 8%;
+      top: 50%;
+      transform: translate(0, -50%);
+
+      width: 29px;
+      height: 29px;
+      min-width: 29px;
+      min-width: 29px;
+      margin-right: 9%;
+      background: URL('../img/icons/wall-clock-dial.svg') center center no-repeat;
+    }
+
+    // === стрелка
+    &::after {
+      content: "";
+
+      position: absolute;
+
+      left: 8%;
+      top: 50%;
+      transform: translate(0, -50%);
+
+      width: 29px;
+      height: 29px;
+      min-width: 29px;
+      min-width: 29px;
+      margin-right: 9%;
+      background: URL('../img/icons/wall-clock-arrow.svg') center center no-repeat;
+    }
+  }
+}
+
+// === animations and actions
+// =============================================================================
+.check-order-status {
+  .check-order-status__link {
+    transition: all 0.3s ease 0s;
+
+    &::after {
+      transition: all 0.5s ease 0s;
+    }
+
+    &:hover {
+      background: radial-gradient(circle, #ffffff 0%, $check-order-status-link-bg-color 100%);
+
+      &::after {
+        animation-name: rotateOrder360;
+        animation-duration: 0.3s;
+        animation-fill-mode: forwards;
+      }
+    }
+  }
+
+  @keyframes rotateOrder360 {
+    0% {
+      transform: translate(0, -50%);
+    }
+
+    100% {
+      transform: translate(0, -50%) rotate(360deg);
+    }
+  }
+}

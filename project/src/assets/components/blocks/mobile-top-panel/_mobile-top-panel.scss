@@ -1,0 +1,203 @@
+// === variables
+// =============================================================================
+
+%mobile-top-panel-gradient {
+  @extend %mobile-panel-gradient;
+}
+
+// === style
+// =============================================================================
+.component-mobile-top-panel {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 200;
+
+  height: 44px;
+  width: 100%;
+
+  @extend %mobile-top-panel-gradient;
+
+  .w-mobile-top-panel {
+    display: flex;
+  }
+
+  // === кнопка меню
+  // ===========================================================================
+  .mobile-top-panel-btn {
+    margin-right: 12px;
+    flex-shrink: 0;
+  }
+
+  // === выбор города
+  // ===========================================================================
+  .component-city-choice-menu {
+    height: 100%;
+    display: none;
+    align-items: center;
+
+
+    .menu-heading {
+      height: 90%;
+      line-height: 1;
+    }
+
+    .menu-heading__title {
+      color: $color-white-1;
+    }
+
+    .menu-heading__selected {
+      color: $color-black-1;
+    }
+  }
+
+  // === навигационные иконки
+  // ===========================================================================
+  .mobile-panel-navigation {
+    height: 100%;
+    margin-left: auto;
+  }
+
+  .mobile-panel-list {
+    height: 100%;
+    display: flex;
+  }
+
+  .mobile-panel-item {
+    height: 100%;
+  }
+
+  .mobile-panel-item {
+    margin: 0 2px;
+  }
+
+  .mobile-panel-item__action {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 8px;
+    height: 100%;
+
+    &::before {
+      content: '';
+      flex-shrink: 0;
+      display: block;
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  // === корзина
+  .mobile-panel-item__cart {
+    .mobile-panel-item__action {
+      position: relative;
+
+      padding: 0 8px;
+
+      &::before {
+        background: URL('../img/icons/m-cart.svg') center center no-repeat;
+        background-size: 32px 32px;
+      }
+
+      .cart-qty {
+        position: absolute;
+        top: 2px;
+        left: 32px;
+
+        flex-shrink: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        border-radius: 10px;
+        min-width: 16px;
+        padding-left: 3px;
+        padding-right: 3px;
+        height: 20px;
+
+        color: $color-white-1;
+        background-color: $color-black-1;
+      }
+
+      .cart-total {
+        max-width: 100px;
+        margin-left: 8px;
+        margin-top: 14px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: $color-white-1;
+      }
+    }
+  }
+
+  // === избранное
+  .mobile-panel-item__favorites {
+    .mobile-panel-item__action {
+      &::before {
+        background: URL('../img/icons/m-favorites.svg') center center no-repeat;
+        background-size: 32px 32px;
+      }
+    }
+  }
+
+  // === поиск
+  .mobile-panel-item__search {
+    .mobile-panel-item__action {
+      &::before {
+        background: URL('../img/icons/m-search.svg') center center no-repeat;
+        background-size: 32px 32px;
+      }
+    }
+  }
+
+  // === логин
+  .mobile-panel-item__account {
+    .mobile-panel-item__action {
+      &::before {
+        background: URL('../img/icons/m-account.svg') center center no-repeat;
+        background-size: 32px 32px;
+      }
+    }
+  }
+}
+
+// === animations and actions
+// =============================================================================
+.component-mobile-top-panel {
+  &.--js-show {
+    display: block;
+  }
+
+  // === выбор города
+  .component-city-choice-menu {
+    .menu-heading {
+      &:hover {
+        .menu-heading__selected {
+          color: $color-black-1;
+
+          &::after {
+            transform: scale(1);
+            background-color: $color-black-1;
+          }
+        }
+      }
+    }
+  }
+
+  // === навигационные иконки
+  .mobile-panel-item__action {
+    &::before {
+      transition: all 0.3s ease 0s;
+    }
+
+    &:hover {
+      &::before {
+        opacity: 0.7;
+      }
+    }
+  }
+}

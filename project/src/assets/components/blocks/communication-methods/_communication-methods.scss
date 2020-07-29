@@ -1,0 +1,109 @@
+// === style
+// =============================================================================
+.communication-methods-list {
+  display: flex;
+
+  .communication-methods-item {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 4px;
+    padding-left: 70px;
+    height: 55px;
+
+    .communication-methods-item__title {
+      white-space: nowrap;
+    }
+
+    .communication-methods-item__action {
+      white-space: nowrap;
+    }
+
+    // === иконка с окружностью
+    &::before {
+      content: "";
+      position: absolute;
+      width: 53px;
+      height: 53px;
+      left: 0;
+      top: 50%;
+      transform: translate(0, -50%);
+
+      border: 1px solid $color-content-text-decoration;
+      border-radius: 50%;
+    }
+
+    // === обрезка окружности
+    &::after {
+      content: "";
+      position: absolute;
+      left: 30px;
+      top: 30px;
+      background: $color-section-bg-1;
+      width: 25px;
+      height: 25px;
+      border-radius: 100% 0 100% 0;
+    }
+
+
+    &.--phone {
+
+      &::before {
+        background: URL('../img/icons/phone.svg') center center/contain no-repeat;
+        background-size: 17px 17px;
+      }
+
+      .communication-methods-item__title {
+        font-size: 18px;
+      }
+
+      .communication-methods-item__action {
+        font-size: 13px;
+        font-weight: bold;
+        text-decoration-line: underline;
+        color: $color-content-text-decoration;
+        background: none;
+        border: none;
+        text-align: left;
+      }
+    }
+
+    &.--email {
+      &::before {
+        background: URL('../img/icons/mail.svg') center center/contain no-repeat;
+        background-size: 17px 17px;
+      }
+
+      .communication-methods-item__title {
+        font-size: 13px;
+        color: $color-content-text-gray-1;
+      }
+
+      .communication-methods-item__action {
+        font-size: 13px;
+        font-weight: bold;
+        text-decoration-line: underline;
+      }
+    }
+  }
+
+  .communication-methods-item__action {
+    .btn-text {
+      cursor: pointer;
+    }
+  }
+}
+
+// === animations and actions
+// =============================================================================
+.communication-methods-list {
+  .communication-methods-item__action {
+    transition: all 0.3s ease 0s;
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+}
