@@ -6,24 +6,82 @@ jQuery(document).ready(function ($) {
     $(this).parent('.component.spoiler').toggleClass('--js-show');
   });
 
+  //
+  //
+  //
+  // ===========================================================================
+  // === component - show-modal
+  // ===========================================================================
+  //
+  // кнопка для запуска модалки
+  // button.js-show-modal(data-target-modal="modal_01") Личный кабинет
+
+  // ===  отслеживание клика по кнопке/ссылке запускающей модалку =>
+  // добавить класс оверлею --js-show
+  // убрать основной скролл страницы
+  $('.js-show-modal').on('click', function (event) {
+    event.preventDefault();
+
+    // === считать целевое модальное окно
+    let nameModal = $(this).data('target-modal');
+
+    // === закрыть все модалки
+    $('.modal-overlay').removeClass('--js-show');
+    // === показать нужную модалку
+    $(nameModal).addClass('--js-show');
+
+    // === ширина скролла
+    let scrollWidth = getScrollWidth();
+
+    $('body')
+      // === убрать основной скролл страницы
+      .addClass('--js-scroll-hidden')
+      // === добавить для body padding-right равный ширине убираемого скролла
+      .css('padding-right', scrollWidth + 'px');
+
+    // === начать отслеживание клика по оверлею любой модалки =>
+    // удалить класс --js-show у оверлея
+    // убить отслеживание
+    // вернуть основной скролл страницы
+    $('.modal-overlay').on('mousedown', function (event) {
+
+      // === если клик именно по оверлею, то закрыть его
+      if ($(event.target).hasClass('modal-overlay')) {
+        $(this).removeClass('--js-show').off();
+        // ==== вернуть основной скролл страницы
+        $('body').removeClass('--js-scroll-hidden').css('padding-right', '0');
+      }
+    });
+
+    // === начать отслеживание клика по кнопке закрытия модалки =>
+    // удалить класс --js-show у оверлея
+    // убить отслеживание
+    // вернуть основной скролл страницы
+    $('.modal-close').on('mousedown', function (event) {
+      event.preventDefault();
+      $('.modal-overlay').removeClass('--js-show');
+      $(this).off();
+      // === вернуть основной скролл страницы
+      $('body').removeClass('--js-scroll-hidden').css('padding-right', '0');
+    });
+  });
+
+  //
+  //
+  //
+  // ===========================================================================
   // === component - city-menu
   // ===========================================================================
-  // ===========================================================================
+  //
 
   // === клик на шапке => показать dropdown панель
   $('.js-component-city-choice-menu-heading').on('click', function (event) {
-    // === показать dropdown панель
-    $('.js-component-city-choice-menu-dropdown').addClass('--js-show');
-
-    // === === === начать отслеживать событие клика внутри dropdown панели
-    // =========================================================================
-
     // === === === клик на название города в dropdown панели =>
     // сменить город в шапке
     // пометить выбранный город в dropdown панели классом .--js-selected
 
+    // === название города
     let selectedCityName;
-    // название города
 
     // === === отслеживание клика внутри dropdown панели
     $('.js-component-city-choice-menu-dropdown').on('click', function (event) {
@@ -48,67 +106,33 @@ jQuery(document).ready(function ($) {
           .find('.js-city-selected')
           .text(selectedCityName);
 
+        // ==== вернуть основной скролл страницы
+        $('body').removeClass('--js-scroll-hidden').css('padding-right', '0');
+
         // === закрыть dropdown панель
-        $(event.target)
-          .parents('.js-component-city-choice-menu-dropdown')
-          .removeClass('--js-show');
+        $(event.target).parents('.modal-overlay').removeClass('--js-show');
       }
     });
   });
 
-  // === component - show-modal
+  //
+  //
+  //
   // ===========================================================================
+  // === component-input-text dynamic placeholder
   // ===========================================================================
-  // кнопка для запуска модалки
-  // button.js-show-modal(data-target-modal="modal_1") Личный кабинет
+  //
 
-  // === === отслеживание клика по кнопке/ссылке запускающей модалку =>
-  // добавить класс оверлею --js-show
-  // убрать основной скролл страницы
-  $('.js-show-modal').on('click', function (event) {
-    event.preventDefault();
-
-    // === считать целевое модальное окно
-    let nameModal = $(this).data('target-modal');
-    // === закрыть все модалки
-    $('.modal-overlay').removeClass('--js-show');
-    // === показать нужную модалку
-    $(nameModal).addClass('--js-show');
-
-    let scrollWidth = getScrollWidth();
-
-    $('body')
-      // === убрать основной скролл страницы
-      .addClass('--js-scroll-hidden')
-      // === добавить для body padding-right равный ширине убираемого скролла
-      .css('padding-right', scrollWidth + 'px');
-
-    // === начать отслеживание клика по оверлею любой модалки =>
-    // удалить класс --js-show у оверлея
-    // убить отслеживание
-    // вернуть основной скролл страницы
-    $('.modal-overlay').on('click', function (event) {
-      event.preventDefault();
-
-      // === если клик именно по оверлею, то закрыть его
-      if ($(event.target).hasClass('modal-overlay')) {
-        $(this).removeClass('--js-show').off();
-      }
-      // ==== вернуть основной скролл страницы
-      $('body').removeClass('--js-scroll-hidden').css('padding-right', '0');
-    });
-
-    // === начать отслеживание клика по кнопке закрытия модалки =>
-    // удалить класс --js-show у оверлея
-    // убить отслеживание
-    // вернуть основной скролл страницы
-    $('.modal-close').on('click', function (event) {
-      event.preventDefault();
-      $('.modal-overlay').removeClass('--js-show');
-      $(this).off();
-      // === вернуть основной скролл страницы
-      $('body').removeClass('--js-scroll-hidden').css('padding-right', '0');
-    });
+  // === отслеживание потери фокуса текстовым вводом =>
+  // проверить value у input
+  // добавить инпуту класс --js-val-not-empty если value заполнено
+  // иначе убрать класс --js-val-not-empty
+  $('.js-component-input-text .js-input').on('blur', function (event) {
+    if ($(this).val() != '') {
+      $(this).addClass('--js-val-not-empty');
+    } else {
+      $(this).removeClass('--js-val-not-empty');
+    }
   });
 });
 

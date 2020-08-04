@@ -54,8 +54,20 @@ html(lang="ru")
         footer.s-footer
           h3 I'm footer h3
 
+      block modal-window
+        //- a.js-show-modal(href="#modal_1 data-target-modal="#modal_1") Заказать звонок
+        //- button.js-show-modal(data-target-modal="#modal_02") Личный кабинет
+
+        .modal-overlay#modal_01
+          .modal-body
+            a(href="#").modal-close x
+            p some text
+
+
+
       block lower-script
         script(src="./assets/vendors/jquery/jquery-3.5.1.min.js")
+        script(src="./assets/vendors/slick/js/slick.min.js")
         script(src="./assets/vendors/liba-biba-pupa-lupa/js/liba-biba-pupa-lupa.js")
         script(src="./assets/vendors/mmenu/js/mmenu.js")
         script(src="./assets/js/index.js")

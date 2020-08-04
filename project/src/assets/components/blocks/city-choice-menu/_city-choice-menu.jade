@@ -2,27 +2,536 @@
 //- include ./assets/components/blocks/city-choice-menu/_city-choice-menu.jade
 
 nav.component-city-choice-menu.js-component-city-choice-menu
-  span.menu-heading.js-component-city-choice-menu-heading
+  span.menu-heading.js-component-city-choice-menu-heading.js-show-modal(data-target-modal="#modalCityChoice")
     span.menu-heading__title Ваш город:
     span.menu-heading__selected.js-city-selected Москва
 
-  //- .--js-show
-  .menu-dropdown.js-component-city-choice-menu-dropdown
-    .city-menu-list__title Выберите ваш регион
 
-    ul.big-city-list
-      li.big-city-item 
-        a(href="#").big-city-item__link.js-city-name Москва
-      li.big-city-item 
-        a(href="#").big-city-item__link.js-city-name Санкт-Петербург
 
-    ul.small-city-list
-      li.small-city-item-letter Н
-      li.small-city-item-name
-        a(href="#").small-city-list__item-link.js-city-name Новые петушки
 
-      li.small-city-item-letter Б
-      li.small-city-item-name
-        a(href="#").small-city-list__item-link.js-city-name Брянск
-      li.small-city-item-name
-        a(href="#").small-city-list__item-link.js-city-name Бобруйск
+  .modal-overlay.js-modal-overlay#modalCityChoice
+    .modal-body.js-component-city-choice-menu-dropdown
+      a(href="#").modal-close x
+
+      .modal-body-heading 
+        span.modal-body-heading__title Выберите ваш город
+
+      .modal-body-content
+        ul.big-city-list
+          li.big-city-item 
+            a(href="#").big-city-item__link.js-city-name Москва
+          li.big-city-item 
+            a(href="#").big-city-item__link.js-city-name Санкт-Петербург
+
+        ul.small-city-list
+
+          li.small-city-letter(tabindex="0") #[span.letter А]
+            ul.small-city-letter-list
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Абакан
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Альметьевск
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Анадырь
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Анапа
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Ангарск
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Апатиты
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Апшеронск
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Армавир
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Архангельск
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Астрахань
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Ачинск
+
+
+          li.small-city-letter(tabindex="0") #[span.letter Б]
+            ul.small-city-letter-list
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Балаково
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Балашиха
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Барнаул
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Белгород
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Березники
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Бийск
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Биробиджан
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Благовещенск
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Боровичи
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Братск
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Брянск
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Бугульма
+
+
+          li.small-city-letter(tabindex="0") #[span.letter В]
+            ul.small-city-letter-list
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Великие Луки
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Великий Новгород
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Вичуга
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Владивосток
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Владикавказ
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Владимир
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Волгоград
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Волгодонск
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Волжский
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Вологда
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Волхов
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Воркута
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Воронеж
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Воскресенск
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Всеволожск
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Выборг
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Выкса
+
+
+          li.small-city-letter(tabindex="0") #[span.letter Г]
+            ul.small-city-letter-list
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Гатчина
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Глазов
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Горно-Алтайск
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Грозный
+
+
+          li.small-city-letter(tabindex="0") #[span.letter Д]
+            ul.small-city-letter-list
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Дзержинск
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Дмитров
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Дмитровград
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Долгопрудный
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Дубна
+
+
+          li.small-city-letter(tabindex="0") #[span.letter Е]
+            ul.small-city-letter-list
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Ейск
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Екатеринбург
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Ессентуки
+
+
+          li.small-city-letter(tabindex="0") #[span.letter Ж]
+            ul.small-city-letter-list
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Железногорск
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Железнодорожный
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Жигулевск
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Жуковский
+
+
+          li.small-city-letter(tabindex="0") #[span.letter И]
+            ul.small-city-letter-list
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Иваново
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Ивантеевка
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Ижевск
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Иркутск
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Ишим
+
+
+          li.small-city-letter(tabindex="0") #[span.letter Й]
+            ul.small-city-letter-list
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Йошкар-Ола
+
+
+          li.small-city-letter(tabindex="0") #[span.letter К]
+            ul.small-city-letter-list
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Казань
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Калиниград
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Калуга
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Каменск-Уральский
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Каменск-Шахтинский
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Камышин
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Кемерово
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Кингисепп
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Кириши
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Киров
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Кисловодск
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Ковров
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Коломна
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Колпино
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Комсомольск-на-Амуре
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Кондопога
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Королев
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Кострома
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Котлас
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Красногорск
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Краснодар
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Красноярск
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Крым
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Кстово
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Курган
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Курск
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Кызыл
+
+
+          li.small-city-letter(tabindex="0") #[span.letter Л]
+            ul.small-city-letter-list
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Липецк
+
+
+          li.small-city-letter(tabindex="0") #[span.letter М]
+            ul.small-city-letter-list
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Магадан
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Магнитогорск
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Майкоп
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Махачкала
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Междуреченск
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Миасс
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Минеральные Воды
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Минусинск
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Могилев
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Можайск
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Мурманск
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Муром
+
+
+          li.small-city-letter(tabindex="0") #[span.letter Н]
+            ul.small-city-letter-list
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Набережные Челны
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Назрань
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Нальчик
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Находка
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Невинномысск
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Нефтекамск
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Нефтеюганск
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Нижневартовск
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Нижнекамск
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Нижний Новгород
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Нижний Тагил
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Новокузнецк
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Новомосковск
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Новороссийск
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Новосибирск
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Новочебоксарск
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Новый Уренгой
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Норильск
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Ноябрьск
+
+
+          li.small-city-letter(tabindex="0") #[span.letter О]
+            ul.small-city-letter-list
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Обнинск
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Озерск
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Октябрьский
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Омск
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Орёл
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Оренбург
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Орехово-Зуево
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Орск
+
+
+          li.small-city-letter(tabindex="0") #[span.letter П]
+            ul.small-city-letter-list
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Пенза
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Пермь
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Петрозаводск
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Петропавловск-Камчатский
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Подольск
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Псков
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Пущино
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Пятигорск
+
+
+          li.small-city-letter(tabindex="0") #[span.letter Р]
+            ul.small-city-letter-list
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Раменское
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Ростов-на-Дону
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Рыбинск
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Рязань
+
+
+          li.small-city-letter(tabindex="0") #[span.letter С]
+            ul.small-city-letter-list
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Салават
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Салехард
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Самара
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Саранск
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Сарапул
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Саратов
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Саров
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Сатка
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Севастополь
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Северодвинск
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Северск
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Сергиев Посад
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Серпухов
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Ростов-на-Дону
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Славянск-на-Кубани
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Смоленск
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Сортавала
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Сосновый Бор
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Сочи
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Ставрополь
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Старый Оскол
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Стерлитамак
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Сургут
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Сызрань
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Сыктывкар
+
+
+          li.small-city-letter(tabindex="0") #[span.letter Т]
+            ul.small-city-letter-list
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Таганрог
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Тамбов
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Тверь
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Тихвин
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Тобольск
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Тольятти
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Томск
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Туапсе
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Тула
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Тутаев
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Тында
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Тюмень
+
+
+          li.small-city-letter(tabindex="0") #[span.letter У]
+            ul.small-city-letter-list
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Улан-Удэ
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Ульяновск
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Урай
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Усинск
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Уссурийск
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Усть-Илимск
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Уфа
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Ухта
+
+
+          li.small-city-letter(tabindex="0") #[span.letter Ф]
+            ul.small-city-letter-list
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Фрязино
+
+
+          li.small-city-letter(tabindex="0") #[span.letter Х]
+            ul.small-city-letter-list
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Хабаровск
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Ханты-Мансийск
+
+
+          li.small-city-letter(tabindex="0") #[span.letter Ч]
+            ul.small-city-letter-list
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Чебоксары
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Челябинск
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Череповец
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Черкесск
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Черноголовка
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Чита
+
+
+          li.small-city-letter(tabindex="0") #[span.letter Ш]
+            ul.small-city-letter-list
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Шахты
+
+
+          li.small-city-letter(tabindex="0") #[span.letter Ш]
+            ul.small-city-letter-list
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Щелково
+
+
+          li.small-city-letter(tabindex="0") #[span.letter Э]
+            ul.small-city-letter-list
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Элиста
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Энгельс
+
+
+          li.small-city-letter(tabindex="0") #[span.letter Ю]
+            ul.small-city-letter-list
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Южно-Сахалинск
+
+
+          li.small-city-letter(tabindex="0") #[span.letter Я]
+            ul.small-city-letter-list
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Якутск
+              li.small-city-letter-list-item
+                a(href="#").small-city-list__item-link.js-city-name Ярославль

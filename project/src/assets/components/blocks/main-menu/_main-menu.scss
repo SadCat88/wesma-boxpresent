@@ -87,32 +87,33 @@ $main-menu-item-color-bg: $color-white-1;
 .w-main-menu {
   .main-menu-item__link {
     transform: translateZ(0);
-    // transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
 
     // === псевдо бэкграунд для ховер эффекта
-    &::before {
-      content: "";
+    // &::before {
+    //   content: "";
 
-      position: absolute;
-      z-index: -1;
-      bottom: 0;
-      top: 0;
-      left: 0;
-      right: 0;
+    //   position: absolute;
+    //   z-index: -1;
+    //   bottom: 0;
+    //   top: 0;
+    //   left: 0;
+    //   right: 0;
 
-      background: $main-menu-item-color-bg;
-      transition: left 0.3s ease 0s, right 0.3s ease 0s, box-shadow 0.3s ease 0s;
-    }
+    //   background: $main-menu-item-color-bg;
+    //   transition: left 0.3s ease 0s, right 0.3s ease 0s, box-shadow 0.3s ease 0s;
+    // }
 
-    &::after {
-      transition: all 0.3s ease 0s;
-      opacity: 0;
-    }
+    // &::after {
+    //   transition: all 0.3s ease 0s;
+    //   opacity: 0;
+    // }
 
     &:hover {
       z-index: 2;
       //   color: $main-menu-item-color-text--hover;
       padding-top: 3px;
+      background-color: $color-gray-3;
 
       // === точка снизу
       // &::after {
@@ -120,18 +121,18 @@ $main-menu-item-color-bg: $color-white-1;
       // }
 
       // === псевдо бэкграунд во время ховера
-      &::before {
-        left: -5px;
-        right: -5px;
-        bottom: -3px;
+      // &::before {
+      //   left: -5px;
+      //   right: -5px;
+      //   bottom: -3px;
 
-        background: radial-gradient(circle, $main-menu-item-color-bg 20%, lighten($main-menu-item-color-bg--hover, 5%) 100%);
-        border-left: $main-menu-item-border-size solid $color-border-1;
-        border-right: $main-menu-item-border-size solid $color-border-1;
-        border-bottom: $main-menu-item-border-size solid $color-border-1;
+      //   background: radial-gradient(circle, $main-menu-item-color-bg 20%, lighten($main-menu-item-color-bg--hover, 5%) 100%);
+      //   border-left: $main-menu-item-border-size solid $color-border-1;
+      //   border-right: $main-menu-item-border-size solid $color-border-1;
+      //   border-bottom: $main-menu-item-border-size solid $color-border-1;
 
-        @extend %shadow-2;
-      }
+      //   @extend %shadow-2;
+      // }
     }
   }
 }
@@ -175,7 +176,8 @@ $main-menu-item-color-bg: $color-white-1;
     display: flex;
   }
 
-
+  // === мобильное меню
+  // ===========================================================================
   // === верхняя панель
   .mm-navbar {
     user-select: none;

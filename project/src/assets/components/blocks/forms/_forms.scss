@@ -1,0 +1,82 @@
+// === input text
+// =============================================================================
+
+// === style
+.component-input-text {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+
+  height: 50px;
+  width: 100%;
+
+  font-size: 14px;
+
+  .input-text-label {
+    position: absolute;
+    z-index: -1;
+    left: 7.5%;
+
+    display: inline-flex;
+    align-items: center;
+
+    cursor: text;
+    user-select: none;
+  }
+
+  .input-text-form {
+    width: 100%;
+    height: 100%;
+    padding-left: 7%;
+    padding-right: 7%;
+
+    font-size: 14px;
+
+    border: 2px solid $color-gray-6;
+    border-radius: 100px;
+    background: none;
+  }
+}
+
+
+// === animations and actions
+.component-input-text {
+  .input-text-label {
+    transition: all 0.1s ease 0s;
+  }
+
+  .input-text-form {
+    &:focus {
+      border: 2px solid $color-green-1;
+
+      &~.input-text-label {
+        z-index: 1;
+        top: 10px;
+        left: 3.5%;
+        transform: translate(0, -100%);
+
+        padding: 2px 4px;
+
+        font-size: 12px;
+
+        background-color: $color-white-1;
+      }
+    }
+
+    &.--js-val-not-empty {
+      &~.input-text-label {
+        z-index: 1;
+        top: 10px;
+        left: 3.5%;
+        transform: translate(0, -100%);
+
+        padding: 2px 4px;
+
+        font-size: 12px;
+
+        background-color: $color-white-1;
+      }
+    }
+  }
+}

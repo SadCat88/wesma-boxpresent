@@ -1,0 +1,280 @@
+// === style
+// =============================================================================
+.user-navigation-list {
+  display: flex;
+  min-width: 410px;
+}
+
+.user-navigation-item {
+  // flex-shrink: 0;
+  width: 93px;
+  min-width: 70px;
+  border: 1px solid $color-border-1;
+
+  &:not(:first-child) {
+    margin-left: -1px;
+  }
+}
+
+.user-navigation-item-action {
+  text-align: left;
+}
+
+// === корзина
+.user-navigation-item__cart {
+  height: 105px;
+  flex-grow: 1;
+  min-width: 197px;
+
+  .user-navigation-item-action {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+  }
+
+  // === картинка здесь
+  .w-cart-qty {
+    position: relative;
+    width: 100px;
+    height: 100%;
+
+
+    // === иконка с окружностью
+    &::before {
+      content: "";
+      position: absolute;
+      width: 53px;
+      height: 53px;
+      left: 48%;
+      top: 49%;
+      transform: translate(-50%, -50%);
+
+      border: 1px solid $color-content-text-decoration;
+      border-radius: 50%;
+
+      background: URL('../img/icons/cart.svg') center center/contain no-repeat;
+      background-size: 20px 20px;
+    }
+
+    // === обрезка окружности
+    &::after {
+      content: "";
+      position: absolute;
+      left: 72%;
+      top: 60%;
+      transform: translate(-50%, -50%) rotate(-15deg);
+
+      width: 32px;
+      height: 32px;
+      border-radius: 100% 50% 100% 50%;
+
+      background: $color-section-bg-1;
+    }
+
+  }
+
+  .cart-qty {
+    position: absolute;
+    z-index: 2;
+    top: 60%;
+    left: 72%;
+    transform: translate(-50%, -50%);
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 28px;
+    height: 28px;
+
+    font-size: 12px;
+    color: #FFFFFF;
+    background-color: #282828;
+    border-radius: 50%;
+  }
+
+  .w-cart-description {
+    flex-grow: 1;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .cart-title {
+    font-size: 13px;
+    margin-bottom: 0.4em;
+  }
+
+  .cart-total {
+    font-size: 13px;
+  }
+}
+
+// === избранное
+.user-navigation-item__favorites {
+  .user-navigation-item-action {
+    position: relative;
+
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background: URL('../img/icons/heart.svg') center center/contain no-repeat;
+    background-size: 33px 33px;
+  }
+}
+
+// === поиск
+.user-navigation-item.user-navigation-item__search {
+  .user-navigation-item-action {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+    background: URL('../img/icons/search.svg') center center/contain no-repeat;
+    background-size: 33px 33px;
+  }
+}
+
+// === личный кабинет
+.user-navigation-item.user-navigation-item__account {
+  .user-navigation-item-action {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+    background: URL('../img/icons/account.svg') center center/contain no-repeat;
+    background-size: 20px 20px;
+    background-position: 50% 46%;
+
+    // === круг
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      transform: translate(-50%, -50%);
+      top: 48%;
+      left: 50%;
+
+      width: 52px;
+      height: 52px;
+      background-color: $color-green-1;
+      border-radius: 50%;
+    }
+  }
+}
+
+// === animations and actions
+// =============================================================================
+
+// === анимация корзины
+.user-navigation-item__cart {
+
+  .w-cart-description {
+    transition: all 0.3s ease 0s;
+  }
+
+  &:hover {
+    position: relative;
+    z-index: 2;
+    border: 1px solid $color-green-1;
+
+    .w-cart-description {
+      color: $color-content-text-1--hover;
+    }
+
+    .w-cart-qty {
+      &::before {
+        animation-name: itemCartLeaf;
+        animation-duration: 0.3s;
+        animation-fill-mode: forwards;
+
+      }
+    }
+  }
+
+  @keyframes itemCartLeaf {
+    0% {
+      transform: translate(-50%, -50%);
+    }
+
+    50% {
+      transform: translate(-50%, -50%) scaleX(0.0001);
+    }
+
+    10% {
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
+// === анимация избранного
+.user-navigation-item__favorites {
+
+  .user-navigation-item-action {
+    translate: transitionZ(0);
+  }
+
+  &:hover {
+    position: relative;
+    z-index: 2;
+    border: 1px solid $color-green-1;
+
+    .user-navigation-item-action {
+      animation-name: pulse;
+      animation-duration: 0.8s;
+      animation-fill-mode: forwards;
+      animation-iteration-count: infinite;
+    }
+  }
+}
+
+// === анимация поиска
+.user-navigation-item__search {
+
+  .user-navigation-item-action {
+    translate: transitionZ(0);
+    transition: all 0.4s ease 0s;
+  }
+
+  &:hover {
+    position: relative;
+    z-index: 2;
+    border: 1px solid $color-green-1;
+
+    .user-navigation-item-action {
+      // background-size: 37px 37px;
+    }
+  }
+}
+
+// === анимация личного кабинета
+.user-navigation-item__account {
+  transition: all 0.4s ease 0s;
+
+  .user-navigation-item-action {
+    translate: transitionZ(0);
+
+    border: 1px solid transparent;
+    transition: background 0.4s ease 0s;
+
+    &::before {
+      transition: all 0.4s ease 0s;
+    }
+  }
+
+  &:hover {
+    position: relative;
+    z-index: 2;
+
+    .user-navigation-item-action {
+      border: 1px solid $color-green-1;
+      // background-size: 24px 24px;
+
+      &::before {
+        // opacity: 0.7;
+      }
+    }
+  }
+}

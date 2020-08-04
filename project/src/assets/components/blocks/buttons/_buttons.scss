@@ -24,3 +24,48 @@
   background: none;
   cursor: pointer;
 }
+
+.btn-main-empty {}
+
+.btn-main {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 100px;
+  height: 55px;
+  padding: 5%;
+
+  cursor: pointer;
+}
+
+.btn--filled-green {
+  background-color: $color-green-1;
+  color: $color-white-1;
+  border: 1px solid $color-green-1;
+
+  transition: border-color 0.3s ease 0s, background-image 0.8s ease 0s;
+
+  &:hover {
+    border-color: transparentize($color-gray-2, 0.3);
+
+    animation-name: btnWhiteGradientToRight;
+    animation-duration: 0.1s;
+    animation-fill-mode: forwards;
+  }
+}
+
+.btn--filled-transparent {
+  background: none;
+  color: $color-black-2;
+  border: 1px solid $color-green-1;
+
+  &:hover {
+    border-color: transparentize($color-gray-2, 0.3);
+
+    background-color: $color-green-1;
+    animation-name: btnWhiteGradientToRight;
+    animation-duration: 0.1s;
+    animation-fill-mode: forwards;
+  }
+}

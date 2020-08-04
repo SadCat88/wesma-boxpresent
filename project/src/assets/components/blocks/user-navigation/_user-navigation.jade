@@ -1,0 +1,24 @@
+//- to include
+//- include ./assets/components/blocks/user-navigation/_user-navigation.jade
+
+
+ul.user-navigation-list
+  li.user-navigation-item.user-navigation-item__cart
+    button(type="button").user-navigation-item-action.btn-as-wrapper
+      span.w-cart-qty
+        span.cart-qty 12
+      span.w-cart-description
+        span.cart-title.one-line Корзина
+        span.cart-total.one-line #[span.value 35 350] руб.
+
+  li.user-navigation-item.user-navigation-item__favorites
+    a(href="#").user-navigation-item-action
+      span.visually-hidden Избранное
+
+  li.user-navigation-item.user-navigation-item__search
+    button(type="button").user-navigation-item-action.btn-as-wrapper
+      span.visually-hidden Поиск
+
+  li.user-navigation-item.user-navigation-item__account
+    button(type="button").user-navigation-item-action.btn-as-wrapper
+      span.visually-hidden Личный кабинет
