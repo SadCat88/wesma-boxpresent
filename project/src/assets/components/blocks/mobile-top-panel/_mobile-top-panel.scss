@@ -16,7 +16,7 @@
 
   height: 44px;
   width: 100%;
-
+  background-color: $color-green-1;
   @extend %mobile-top-panel-gradient;
 
   .w-mobile-top-panel {

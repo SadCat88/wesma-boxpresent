@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <link rel="shortcut icon" href="./assets/img/favicon.ico"/>
-    <link rel="stylesheet" href="./assets/vendors/liba-biba-pupa-lupa/css/liba-biba-pupa-lupa.css"/>
+    <link rel="stylesheet" href="./assets/simple-grid-layout/css/simple-grid-layout.css"/>
     <link rel="stylesheet" href="./assets/vendors/mmenu/css/mmenu.css"/>
     <link rel="stylesheet" href="./assets/css/style.css"/>
     <title>Boxpresent.ru - index page</title>
@@ -23,21 +23,38 @@
                 </li>
                 <li class="mobile-panel-item mobile-panel-item__favorites"><a class="mobile-panel-item__action" href="#"><span class="visually-hidden">Избранное</span></a></li>
                 <li class="mobile-panel-item mobile-panel-item__search">
-                  <button class="btn-as-wrapper mobile-panel-item__action" type="button"><span class="visually-hidden">Поиск</span></button>
+                  <button class="btn-as-wrapper mobile-panel-item__action --js-btn-search" type="button"><span class="visually-hidden">Поиск</span></button>
                 </li>
                 <li class="mobile-panel-item mobile-panel-item__account">
-                  <button class="btn-as-wrapper mobile-panel-item__action" type="button"><span class="visually-hidden">Личный кабинет</span></button>
+                  <button class="btn-as-wrapper mobile-panel-item__action js-show-modal" type="button" data-target-modal="#modal_03"><span class="visually-hidden">Личный кабинет</span></button>
                 </li>
               </ul>
             </nav>
+          </div>
+        </div>
+        <div class="w-search-panel --js-close" id="searchPanel">
+          <div class="l-container">
+            <form class="search-form" method="post" action="https://echo.htmlacademy.ru">
+              <input class="search-form__input-text js-input-text" type="text" name="search" placeholder="Поиск" autofocus="autofocus"/>
+              <button class="btn-as-wrapper btn-main btn--filled-green search-form__btn-submit" type="submit">Найти</button>
+              <button class="btn-as-wrapper btn-close search-form__btn-close js-close" type="button"><span class="visually-hidden">Закрыть</span></button>
+            </form>
           </div>
         </div>
         <div class="l-container">
           <div class="w-top-menu">
             <nav class="component-city-choice-menu js-component-city-choice-menu"><span class="menu-heading js-component-city-choice-menu-heading js-show-modal" data-target-modal="#modalCityChoice"><span class="menu-heading__title">Ваш город:</span><span class="menu-heading__selected js-city-selected">Москва</span></span>
               <div class="modal-overlay js-modal-overlay" id="modalCityChoice">
-                <div class="modal-body js-component-city-choice-menu-dropdown"><a class="modal-close" href="#">x</a>
-                  <div class="modal-body-heading"> <span class="modal-body-heading__title">Выберите ваш город</span></div>
+                <div class="modal-body js-component-city-choice-menu-dropdown">
+                  <button class="btn-as-wrapper modal-close" type="button"></button>
+                  <div class="modal-body-heading"> <span class="modal-body-heading__title">Выберите ваш город</span>
+                    <form class="form-city-choice-search" method="post" action="https://echo.htmlacademy.ru">
+                      <label class="component-input-text js-component-input-text --style-02 --local-style">
+                        <input class="input-text-form js-input" type="text" name="username"/><span class="input-text-label">Поиск города:</span>
+                      </label>
+                      <button class="btn-as-wrapper btn-search" type="submit"><span class="visually-hidden">Поиск</span></button>
+                    </form>
+                  </div>
                   <div class="modal-body-content">
                     <ul class="big-city-list">
                       <li class="big-city-item"> <a class="big-city-item__link js-city-name" href="#">Москва</a></li>
@@ -361,7 +378,16 @@
             </nav>
             <nav class="w-main-menu" id="mmenu">
               <ul class="main-menu-list">
-                <li class="main-menu-item"><a class="main-menu-item__link" href="#">О компании</a></li>
+                <li class="main-menu-item"><a class="main-menu-item__link" href="#">О компании</a>
+                  <ul class="main-menu-sublevel">
+                    <li class="main-menu-sublevel-item"><a class="main-menu-sublevel-item__link" href="#">Lorem ipsum</a></li>
+                    <li class="main-menu-sublevel-item"><a class="main-menu-sublevel-item__link" href="#">Lorem ipsum</a></li>
+                    <li class="main-menu-sublevel-item"><a class="main-menu-sublevel-item__link" href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></li>
+                    <li class="main-menu-sublevel-item"><a class="main-menu-sublevel-item__link" href="#">
+                        Lorem ipsum
+                        </a></li>
+                  </ul>
+                </li>
                 <li class="main-menu-item"><a class="main-menu-item__link kek" href="#">Услуги</a></li>
                 <li class="main-menu-item"><a class="main-menu-item__link" href="#">Нанесение логотипа</a></li>
                 <li class="main-menu-item"><a class="main-menu-item__link" href="#">Наши работы</a></li>
@@ -373,7 +399,7 @@
             <nav class="check-order-status"><a class="check-order-status__link" href="#"> <span class="inner-content">Проверить статус заказа</span></a></nav>
           </div>
         </div>
-        <div class="l-container">
+        <div class="l-container container-middle-menu">
           <div class="w-middle-menu"><a class="logo" href="./index.html"><img class="logo__img" src="./assets/img/logo.png" alt="Logotype"/><span class="logo__title">Сувениры и подарки с логотипом</span></a>
             <nav class="w-communication-methods">
               <ul class="communication-methods-list">
@@ -390,17 +416,17 @@
                 </li>
                 <li class="user-navigation-item user-navigation-item__favorites"><a class="user-navigation-item-action" href="#"><span class="visually-hidden">Избранное</span></a></li>
                 <li class="user-navigation-item user-navigation-item__search">
-                  <button class="user-navigation-item-action btn-as-wrapper" type="button"><span class="visually-hidden">Поиск</span></button>
+                  <button class="user-navigation-item-action btn-as-wrapper --js-btn-search" type="button"><span class="visually-hidden">Поиск</span></button>
                 </li>
                 <li class="user-navigation-item user-navigation-item__account">
-                  <button class="user-navigation-item-action btn-as-wrapper" type="button"><span class="visually-hidden">Личный кабинет</span></button>
+                  <button class="user-navigation-item-action btn-as-wrapper js-show-modal" type="button" data-target-modal="#modal_03"><span class="visually-hidden">Личный кабинет</span></button>
                 </li>
               </ul>
             </nav>
           </div>
         </div>
       </header>
-      <section class="fast-category">
+      <section class="s-fast-category">
         <div class="l-container container-fast-category js-component-fast-category">
           <button class="btn-as-wrapper fast-category-btn-view-all js-component-fast-category-btn" title="Показать еще"><span class="inner-content"></span></button>
           <nav class="l-row fast-category-list js-component-fast-category-list">
@@ -457,7 +483,7 @@
           </nav>
         </div>
       </section>
-      <section class="header-slider">
+      <section class="s-header-slider">
         <div class="l-container">
           <div class="l-row">
             <div class="l-col-12 --col-1680-16 col-header-slider">
@@ -516,17 +542,17 @@
           </div>
         </div>
       </section>
-      <section class="product-slider-group">
-        <div class="l-container">
+      <section class="s-product-slider-group">
+        <div class="l-container slider-group-container">
           <nav class="slider-group-navigation">
             <ul class="slider-group-tab-list">
-              <li class="slider-group-tab-item"><a class="btn-as-wrapper slider-group-tab-item__btn" href="#">Новинки</a></li>
-              <li class="slider-group-tab-item --js-active"><a class="btn-as-wrapper slider-group-tab-item__btn" href="#">Хиты сезона</a></li>
-              <li class="slider-group-tab-item"><a class="btn-as-wrapper slider-group-tab-item__btn" href="#">Распродажа</a></li>
+              <li class="slider-group-tab-item"><a class="slider-group-tab-item__btn" href="#">Новинки</a></li>
+              <li class="slider-group-tab-item --js-active"><a class="slider-group-tab-item__btn" href="#">Хиты сезона</a></li>
+              <li class="slider-group-tab-item"><a class="slider-group-tab-item__btn" href="#">Распродажа</a></li>
             </ul>
             <div class="w-slider-group-buttons">
-              <button class="btn-as-wrapper slider-group__btn" type="button"><span class="visually-hidden">Предыдущий</span></button>
-              <button class="btn-as-wrapper slider-group__btn" type="button"><span class="visually-hidden">Следующий</span></button>
+              <button class="btn-as-wrapper slider-group__btn btn-round--slider --left" type="button" id="slider-group-prev"><span class="visually-hidden">Предыдущий</span></button>
+              <button class="btn-as-wrapper slider-group__btn btn-round--slider --right" type="button" id="slider-group-next"><span class="visually-hidden">Следующий</span></button>
             </div>
           </nav>
           <ul class="slider-group" id="slider-group">
@@ -551,7 +577,7 @@
                 </ul>
                 <div class="w-icon-buttons">
                   <button class="btn-as-wrapper product-card-icon-btn --add-to-favorites" type="button"><span class="inner-content"> <span class="visually-hidden">Добавить в избранное</span></span></button>
-                  <button class="btn-as-wrapper product-card-icon-btn --order-sample" type="button"><span class="inner-content"> <span class="visually-hidden">Заказать образец</span></span></button>
+                  <button class="btn-as-wrapper product-card-icon-btn --order-sample js-show-modal" type="button" data-target-modal="#modal_02"><span class="inner-content"> <span class="visually-hidden">Заказать образец</span></span></button>
                 </div><a class="product-card__image" href="#"><img class="product-card__image-img product-card__image-img" src="./assets/img/products/product-card/product_01.jpg" alt="product image"/></a><span class="product-card-title">
                   Футболка детская "Kids Original T", желтый, 12-13 лет, 100% х/б, 145 г/м2
                   </span><span class="product-card-availability --in-stock"><span class="product-card-availability__indicator"></span><span class="product-card-availability__description">В наличии</span></span>
@@ -581,11 +607,11 @@
                 </ul>
                 <div class="w-icon-buttons">
                   <button class="btn-as-wrapper product-card-icon-btn --add-to-favorites" type="button"><span class="inner-content"> <span class="visually-hidden">Добавить в избранное</span></span></button>
-                  <button class="btn-as-wrapper product-card-icon-btn --order-sample" type="button"><span class="inner-content"> <span class="visually-hidden">Заказать образец</span></span></button>
+                  <button class="btn-as-wrapper product-card-icon-btn --order-sample js-show-modal" type="button" data-target-modal="#modal_02"><span class="inner-content"> <span class="visually-hidden">Заказать образец</span></span></button>
                 </div><a class="product-card__image" href="#"><img class="product-card__image-img product-card__image-img" src="./assets/img/products/product-card/product_02.jpg" alt="product image"/></a><span class="product-card-title">
                   Ежедневник недатированный Ellie, А5, бордовый, кремовый блок, без обреза
                   </span><span class="product-card-availability --in-stock"><span class="product-card-availability__indicator"></span><span class="product-card-availability__description">В наличии</span></span>
-                <div class="w-price-and-btn"><span class="product-card-price"><span class="product-card-price__old-price"><span class="value">2 500</span></span><span class="product-card-price__new-price"><span class="value">999 999</span>₽</span></span>
+                <div class="w-price-and-btn"><span class="product-card-price"><span class="product-card-price__old-price"><span class="value">2 500</span></span><span class="product-card-price__new-price"><span class="value">1 768</span>₽</span></span>
                   <button class="btn-main btn--filled-transparent product-card-price__btn" type="button"> <span class="inner-content">В корзину</span></button>
                 </div>
               </div>
@@ -605,7 +631,7 @@
                 </ul>
                 <div class="w-icon-buttons">
                   <button class="btn-as-wrapper product-card-icon-btn --add-to-favorites" type="button"><span class="inner-content"> <span class="visually-hidden">Добавить в избранное</span></span></button>
-                  <button class="btn-as-wrapper product-card-icon-btn --order-sample" type="button"><span class="inner-content"> <span class="visually-hidden">Заказать образец</span></span></button>
+                  <button class="btn-as-wrapper product-card-icon-btn --order-sample js-show-modal" type="button" data-target-modal="#modal_02"><span class="inner-content"> <span class="visually-hidden">Заказать образец</span></span></button>
                 </div><a class="product-card__image" href="#"><img class="product-card__image-img product-card__image-img" src="./assets/img/products/product-card/product_03.jpg" alt="product image"/></a><span class="product-card-title">
                   N6, ручка шариковая, белый, пластик
                   </span><span class="product-card-availability --in-stock"><span class="product-card-availability__indicator"></span><span class="product-card-availability__description">В наличии</span></span>
@@ -635,7 +661,7 @@
                 </ul>
                 <div class="w-icon-buttons">
                   <button class="btn-as-wrapper product-card-icon-btn --add-to-favorites" type="button"><span class="inner-content"> <span class="visually-hidden">Добавить в избранное</span></span></button>
-                  <button class="btn-as-wrapper product-card-icon-btn --order-sample" type="button"><span class="inner-content"> <span class="visually-hidden">Заказать образец</span></span></button>
+                  <button class="btn-as-wrapper product-card-icon-btn --order-sample js-show-modal" type="button" data-target-modal="#modal_02"><span class="inner-content"> <span class="visually-hidden">Заказать образец</span></span></button>
                 </div><a class="product-card__image" href="#"><img class="product-card__image-img product-card__image-img" src="./assets/img/products/product-card/product_04.jpg" alt="product image"/></a><span class="product-card-title">
                   Набор "Грильяж - глинвейн",мягкий кедровый грильяж и чайный напиток 21,5*21,5*6 см
                   </span><span class="product-card-availability --in-stock"><span class="product-card-availability__indicator"></span><span class="product-card-availability__description">В наличии</span></span>
@@ -665,7 +691,7 @@
                 </ul>
                 <div class="w-icon-buttons">
                   <button class="btn-as-wrapper product-card-icon-btn --add-to-favorites" type="button"><span class="inner-content"> <span class="visually-hidden">Добавить в избранное</span></span></button>
-                  <button class="btn-as-wrapper product-card-icon-btn --order-sample" type="button"><span class="inner-content"> <span class="visually-hidden">Заказать образец</span></span></button>
+                  <button class="btn-as-wrapper product-card-icon-btn --order-sample js-show-modal" type="button" data-target-modal="#modal_02"><span class="inner-content"> <span class="visually-hidden">Заказать образец</span></span></button>
                 </div><a class="product-card__image" href="#"><img class="product-card__image-img product-card__image-img" src="./assets/img/test/210x210-01.png" alt="product image"/></a><span class="product-card-title">
                   Тест
                   </span><span class="product-card-availability --in-stock"><span class="product-card-availability__indicator"></span><span class="product-card-availability__description">В наличии</span></span>
@@ -695,7 +721,7 @@
                 </ul>
                 <div class="w-icon-buttons">
                   <button class="btn-as-wrapper product-card-icon-btn --add-to-favorites" type="button"><span class="inner-content"> <span class="visually-hidden">Добавить в избранное</span></span></button>
-                  <button class="btn-as-wrapper product-card-icon-btn --order-sample" type="button"><span class="inner-content"> <span class="visually-hidden">Заказать образец</span></span></button>
+                  <button class="btn-as-wrapper product-card-icon-btn --order-sample js-show-modal" type="button" data-target-modal="#modal_02"><span class="inner-content"> <span class="visually-hidden">Заказать образец</span></span></button>
                 </div><a class="product-card__image" href="#"><img class="product-card__image-img product-card__image-img" src="./assets/img/test/210x210-02.png" alt="product image"/></a><span class="product-card-title">
                   Тест <br>
                   тест
@@ -726,7 +752,7 @@
                 </ul>
                 <div class="w-icon-buttons">
                   <button class="btn-as-wrapper product-card-icon-btn --add-to-favorites" type="button"><span class="inner-content"> <span class="visually-hidden">Добавить в избранное</span></span></button>
-                  <button class="btn-as-wrapper product-card-icon-btn --order-sample" type="button"><span class="inner-content"> <span class="visually-hidden">Заказать образец</span></span></button>
+                  <button class="btn-as-wrapper product-card-icon-btn --order-sample js-show-modal" type="button" data-target-modal="#modal_02"><span class="inner-content"> <span class="visually-hidden">Заказать образец</span></span></button>
                 </div><a class="product-card__image" href="#"><img class="product-card__image-img product-card__image-img" src="./assets/img/test/210x210-03.png" alt="product image"/></a><span class="product-card-title">
                   Тест <br>
                   тест <br>
@@ -758,7 +784,7 @@
                 </ul>
                 <div class="w-icon-buttons">
                   <button class="btn-as-wrapper product-card-icon-btn --add-to-favorites" type="button"><span class="inner-content"> <span class="visually-hidden">Добавить в избранное</span></span></button>
-                  <button class="btn-as-wrapper product-card-icon-btn --order-sample" type="button"><span class="inner-content"> <span class="visually-hidden">Заказать образец</span></span></button>
+                  <button class="btn-as-wrapper product-card-icon-btn --order-sample js-show-modal" type="button" data-target-modal="#modal_02"><span class="inner-content"> <span class="visually-hidden">Заказать образец</span></span></button>
                 </div><a class="product-card__image" href="#"><img class="product-card__image-img product-card__image-img" src="./assets/img/test/210x210-04.png" alt="product image"/></a><span class="product-card-title">
                   Тест <br>
                   тест <br>
@@ -772,32 +798,562 @@
             </li>
           </ul>
         </div>
-      </section><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-      <p>test</p>
-      <section class="s-body">
-        <h2>I'm body h2</h2>
-        <p>I'm body paragraph</p>
+      </section>
+      <section class="s-catalog">
+        <div class="l-container">
+          <div class="section-heading"><span class="section-heading__title">Выберите сувенирную продукцию</span><a class="section-heading__link" href="#">Весь каталог</a></div>
+          <div class="w-catalog-cards">
+            <div class="w-group">
+              <div class="w-catalog-card --big">
+                <div class="catalog-card --text-black --underline-gray --bg-gray --bg-pattern">
+                  <div class="catalog-card-image"><img class="catalog-card-image__img" src="./assets/img/catalog-products/catalog-big-01.png" alt="category image"/></div>
+                  <div class="w-catalog-card-content"><span class="catalog-card__title">Ежедневники и блокноты</span>
+                    <div class="component-expand-block js-component-expand-block">
+                      <ul class="catalog-card-list js-component-expand-block__list">
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">Happy gifts</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">Планинги</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">Ежедневники недатированные</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">Ежедневники датированные</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">thINKme - деловые блокноты</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">test</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">test</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">test</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">test</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">test</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">test</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">test</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">test</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">test</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">test</a></li>
+                      </ul>
+                      <div class="w-btn-view-all">
+                        <button class="btn-as-wrapper catalog-card__view-all js-component-expand-block__btn" type="button"><span class="thirst-state">Все подкатегории</span><span class="second-state">Свернуть</span></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="w-catalog-card --small">
+                <div class="catalog-card --text-white --underline-white --bg-blue">
+                  <div class="catalog-card-image"><img class="catalog-card-image__img" src="./assets/img/catalog-products/catalog-small-03.png" alt="category image"/></div>
+                  <div class="w-catalog-card-content"><span class="catalog-card__title">Календари</span>
+                    <div class="component-expand-block js-component-expand-block">
+                      <ul class="catalog-card-list js-component-expand-block__list">
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">Бейсболки</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">Поло</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">Толстовки</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">Ветровки</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">Шапки</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">test</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">test</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">test</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">test</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">test</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">test</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">test</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">test</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">test</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">test</a></li>
+                      </ul>
+                      <div class="w-btn-view-all">
+                        <button class="btn-as-wrapper catalog-card__view-all js-component-expand-block__btn" type="button"><span class="thirst-state">Все подкатегории</span><span class="second-state">Свернуть</span></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="w-catalog-card --small">
+                <div class="catalog-card --text-black --underline-white --bg-dark-gray">
+                  <div class="catalog-card-image"><img class="catalog-card-image__img" src="./assets/img/catalog-products/catalog-small-04.png" alt="category image"/></div>
+                  <div class="w-catalog-card-content"><span class="catalog-card__title">Корпоративные подарки</span>
+                    <div class="component-expand-block js-component-expand-block">
+                      <ul class="catalog-card-list js-component-expand-block__list">
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">Для документов</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">Для ноутбука</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">Дорожные сумки</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">Для шопинга</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">На пояс</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">test</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">test</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">test</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">test</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">test</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">test</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">test</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">test</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">test</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">test</a></li>
+                      </ul>
+                      <div class="w-btn-view-all">
+                        <button class="btn-as-wrapper catalog-card__view-all js-component-expand-block__btn" type="button"><span class="thirst-state">Все подкатегории</span><span class="second-state">Свернуть</span></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="w-group">
+              <div class="w-catalog-card --small">
+                <div class="catalog-card --text-white --underline-white --bg-blue">
+                  <div class="catalog-card-image"><img class="catalog-card-image__img" src="./assets/img/catalog-products/catalog-small-01.png" alt="category image"/></div>
+                  <div class="w-catalog-card-content"><span class="catalog-card__title">Промо-одежда</span>
+                    <div class="component-expand-block js-component-expand-block">
+                      <ul class="catalog-card-list js-component-expand-block__list">
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">Бейсболки</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">Поло</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">Толстовки</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">Ветровки</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">Шапки</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">test</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">test</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">test</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">test</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">test</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">test</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">test</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">test</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">test</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">test</a></li>
+                      </ul>
+                      <div class="w-btn-view-all">
+                        <button class="btn-as-wrapper catalog-card__view-all js-component-expand-block__btn" type="button"><span class="thirst-state">Все подкатегории</span><span class="second-state">Свернуть</span></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="w-catalog-card --small">
+                <div class="catalog-card --text-black --underline-white --bg-dark-gray">
+                  <div class="catalog-card-image"><img class="catalog-card-image__img" src="./assets/img/catalog-products/catalog-small-02.png" alt="category image"/></div>
+                  <div class="w-catalog-card-content"><span class="catalog-card__title">Сумки</span>
+                    <div class="component-expand-block js-component-expand-block">
+                      <ul class="catalog-card-list js-component-expand-block__list">
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">Для документов</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">Для ноутбука</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">Дорожные сумки</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">Для шопинга</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">На пояс</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">test</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">test</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">test</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">test</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">test</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">test</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">test</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">test</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">test</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">test</a></li>
+                      </ul>
+                      <div class="w-btn-view-all">
+                        <button class="btn-as-wrapper catalog-card__view-all js-component-expand-block__btn" type="button"><span class="thirst-state">Все подкатегории</span><span class="second-state">Свернуть</span></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="w-catalog-card --big">
+                <div class="catalog-card --text-black --underline-gray --bg-gray --bg-pattern">
+                  <div class="catalog-card-image"><img class="catalog-card-image__img" src="./assets/img/catalog-products/catalog-big-02.png" alt="category image"/></div>
+                  <div class="w-catalog-card-content"><span class="catalog-card__title">Путешествие и отдых</span>
+                    <div class="component-expand-block js-component-expand-block">
+                      <ul class="catalog-card-list js-component-expand-block__list">
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">CD-холдеры</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">Бутылки для воды</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">Фонари</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">Фляжки</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">Термосы</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">test</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">test</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">test</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">test</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">test</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">test</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">test</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">test</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">test</a></li>
+                        <li class="catalog-card-item"><a class="catalog-card-link" href="#">test</a></li>
+                      </ul>
+                      <div class="w-btn-view-all">
+                        <button class="btn-as-wrapper catalog-card__view-all js-component-expand-block__btn" type="button"><span class="thirst-state">Все подкатегории</span><span class="second-state">Свернуть</span></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="s-features">
+        <div class="w-features">
+          <div class="w-features-card --left --bg-color-yellow">
+            <div class="features-card features-card--type-text --text-black"><span class="features-card__heading">Индивидуальные решения для каждого клиента от</span><span class="features-card__sub-heading company-name">BO<span class="color--green">X</span>PRESE<span class="color--black">N</span>T</span><span class="features-card__description">В нашем интернет-магазине рекламной сувенирной продукции Вы можете заказать VIP-подарки, товары для проведения промо акций, футболки с фирменным принтом, ручки с корпоративной символикой, кружки с логотипом компании, брендированные ежедневники, часы, флешки и многое другое.</span></div>
+          </div>
+          <div class="w-features-card --right --bg-color-blue">
+            <div class="features-card features-card--type-icons --text-white"><span class="features-card__heading">Почему уже более <span class="one-line">20 000 человек выбрали нас?</span></span>
+              <ul class="features-card-features-list">
+                <li class="features-card-features-list-item">
+                  <div class="list-item__icon"><img class="list-item__icon-img" src="./assets/img/icons/features/clock.svg" alt="feature icon"/></div><span class="list-item__description">Короткие сроки изготовления продукции</span>
+                </li>
+                <li class="features-card-features-list-item">
+                  <div class="list-item__icon"><img class="list-item__icon-img" src="./assets/img/icons/features/printer.svg" alt="feature icon"/></div><span class="list-item__description">Качественное нанесение</span>
+                </li>
+                <li class="features-card-features-list-item">
+                  <div class="list-item__icon"><img class="list-item__icon-img" src="./assets/img/icons/features/color-swatches.svg" alt="feature icon"/></div><span class="list-item__description">Дизайн -сопровождение заказов</span>
+                </li>
+                <li class="features-card-features-list-item">
+                  <div class="list-item__icon"><img class="list-item__icon-img" src="./assets/img/icons/features/flag.svg" alt="feature icon"/></div><span class="list-item__description">Отправка заказов в любой регион России</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="s-types-of-application">
+        <div class="l-container"><span class="section-heading --just-title-center">Используем различные виды нанесения</span>
+          <div class="l-row w-types-of-application">
+            <div class="l-col-02 --col-1080-04 --col-568-08"><a class="types-of-application-card" href="#">
+                <div class="types-of-application-card__image"><img class="types-of-application-card__image-img" src="./assets/img/types-of-application/type_01.png" alt="image"/></div>
+                <div class="types-of-application-card__title"> <span class="content">Вышивка</span></div></a></div>
+            <div class="l-col-02 --col-1080-04 --col-568-08"><a class="types-of-application-card" href="#">
+                <div class="types-of-application-card__image"><img class="types-of-application-card__image-img" src="./assets/img/types-of-application/type_02.png" alt="image"/></div>
+                <div class="types-of-application-card__title"><span class="content">Деколь</span></div></a></div>
+            <div class="l-col-02 --col-1080-04 --col-568-08"><a class="types-of-application-card" href="#">
+                <div class="types-of-application-card__image"><img class="types-of-application-card__image-img" src="./assets/img/types-of-application/type_03.png" alt="image"/></div>
+                <div class="types-of-application-card__title"><span class="content">Лазерная гравиров<wbr>ка</span></div></a></div>
+            <div class="l-col-02 --col-1080-04 --col-568-08"><a class="types-of-application-card" href="#">
+                <div class="types-of-application-card__image"><img class="types-of-application-card__image-img" src="./assets/img/types-of-application/type_04.png" alt="image"/></div>
+                <div class="types-of-application-card__title"><span class="content">Тампо<wbr>печать</span></div></a></div>
+            <div class="l-col-02 --col-1080-04 --col-568-08"><a class="types-of-application-card" href="#">
+                <div class="types-of-application-card__image"><img class="types-of-application-card__image-img" src="./assets/img/types-of-application/type_05.png" alt="image"/></div>
+                <div class="types-of-application-card__title"><span class="content">Термо<wbr>трансфер</span></div></a></div>
+            <div class="l-col-02 --col-1080-04 --col-568-08"><a class="types-of-application-card" href="#">
+                <div class="types-of-application-card__image"><img class="types-of-application-card__image-img" src="./assets/img/types-of-application/type_06.png" alt="image"/></div>
+                <div class="types-of-application-card__title"><span class="content">Тиснение</span></div></a></div>
+            <div class="l-col-02 --col-1080-04 --col-568-08"><a class="types-of-application-card" href="#">
+                <div class="types-of-application-card__image"><img class="types-of-application-card__image-img" src="./assets/img/types-of-application/type_07.png" alt="image"/></div>
+                <div class="types-of-application-card__title"><span class="content">Ультра<wbr>фиолето<wbr>вая печать</span></div></a></div>
+            <div class="l-col-02 --col-1080-04 --col-568-08"><a class="types-of-application-card" href="#">
+                <div class="types-of-application-card__image"><img class="types-of-application-card__image-img" src="./assets/img/types-of-application/type_08.png" alt="image"/></div>
+                <div class="types-of-application-card__title"><span class="content">Шелко<wbr>графия</span></div></a></div>
+          </div>
+        </div>
+      </section>
+      <section class="s-our-services">
+        <div class="l-container">
+          <div class="section-heading our-services-heading"><span class="section-heading__title">Наши услуги</span>
+            <div class="section-heading-buttons">
+              <button class="btn-as-wrapper btn-slider btn-round--slider --left" type="button" id="our-services-cards-prev"><span class="visually-hidden">Предыдущий</span></button>
+              <button class="btn-as-wrapper btn-slider btn-round--slider --right" type="button" id="our-services-cards-next"><span class="visually-hidden">Следующий</span></button>
+            </div>
+          </div>
+          <div class="w-our-services-cards" id="our-services-cards">
+            <div class="w-slide --one-cards-inside"><a class="our-services-card --big --bg-gray-1 --text-black" href="#"><img class="our-services-card__img" src="./assets/img/sliders/our-services/slide-big-01.png" alt="image services"/>
+                <div class="w-content-outer">
+                  <div class="w-content"><span class="our-services-card__subheading">Качественно, красочно, на любой поверхности</span><span class="our-services-card__heading">Нанесение логотипа</span><span class="our-services-card__description">19 видов брендирования!</span></div>
+                </div></a></div>
+            <div class="w-slide --two-cards-inside"> <a class="our-services-card --small --bg-blue --text-white" href="#"><img class="our-services-card__img" src="./assets/img/sliders/our-services/slide-small-02.png" alt="image services"/>
+                <div class="w-content-outer">
+                  <div class="w-content"><span class="our-services-card__heading">Индивидуальная упаковка</span></div>
+                </div></a><a class="our-services-card --small --small-heading-bottom --bg-gray-2 --text-black" href="#"><img class="our-services-card__img" src="./assets/img/sliders/our-services/slide-small-03.png" alt="image services"/>
+                <div class="w-content-outer">
+                  <div class="w-content"><span class="our-services-card__heading">Доставка</span></div>
+                </div></a></div>
+            <div class="w-slide --one-cards-inside"><a class="our-services-card --big --bg-gray-1 --text-black" href="#"><img class="our-services-card__img" src="./assets/img/sliders/our-services/slide-big-01.png" alt="image services"/>
+                <div class="w-content-outer">
+                  <div class="w-content"><span class="our-services-card__subheading">Test</span><span class="our-services-card__heading">Test</span><span class="our-services-card__description">Test</span></div>
+                </div></a></div>
+          </div>
+        </div>
+      </section>
+      <section class="s-catalog-brands"> 
+        <div class="l-container">
+          <div class="brands-heading"><span class="section-heading --just-title-center">Каталог по брендам</span></div>
+          <ul class="brands-list" id="brands-list">
+            <li class="brand-list-card"><a class="brand-list-card-link" href="#"><img class="brand-list-card-img" src="./assets/img/sliders/catalog-brands/brand_01.png" alt="brand logotype"/></a></li>
+            <li class="brand-list-card"><a class="brand-list-card-link" href="#"><img class="brand-list-card-img" src="./assets/img/sliders/catalog-brands/brand_02.png" alt="brand logotype"/></a></li>
+            <li class="brand-list-card"><a class="brand-list-card-link" href="#"><img class="brand-list-card-img" src="./assets/img/sliders/catalog-brands/brand_03.png" alt="brand logotype"/></a></li>
+            <li class="brand-list-card"><a class="brand-list-card-link" href="#"><img class="brand-list-card-img" src="./assets/img/sliders/catalog-brands/brand_04.png" alt="brand logotype"/></a></li>
+            <li class="brand-list-card"><a class="brand-list-card-link" href="#"><img class="brand-list-card-img" src="./assets/img/sliders/catalog-brands/brand_05.png" alt="brand logotype"/></a></li>
+            <li class="brand-list-card"><a class="brand-list-card-link" href="#"><img class="brand-list-card-img" src="./assets/img/sliders/catalog-brands/brand_06.png" alt="brand logotype"/></a></li>
+          </ul>
+        </div>
+      </section>
+      <section class="s-promotions">
+        <div class="l-container">
+          <div class="section-heading our-services-heading"><span class="section-heading__title">Акции и скидки</span>
+            <div class="section-heading-buttons">
+              <button class="btn-as-wrapper btn-slider btn-round--slider --left" type="button" id="promotions-list-slider-prev"><span class="visually-hidden">Предыдущий</span></button>
+              <button class="btn-as-wrapper btn-slider btn-round--slider --right" type="button" id="promotions-list-slider-next"><span class="visually-hidden">Следующий</span></button>
+            </div>
+          </div>
+          <div class="w-promotions-list" id="promotions-list-slider">
+            <div class="promotions-list-frame --one-card-inside">
+              <div class="w-card-frame-inner"><a class="promotions-list-card --big" href="#">
+                  <div class="promotions-list-card-heading">
+                    <div class="promotions-list-car-heading__title">Температура растёт — цены снижаются до -25 %</div>
+                  </div><span class="promotions-list-card__time-left">До 30.07.20</span><img class="promotions-list__img" src="./assets/img/sliders/promotions/card-big_01.png" alt="promotion image"/></a></div>
+            </div>
+            <div class="promotions-list-frame --four-card-inside">
+              <div class="w-card-frame-inner"><a class="promotions-list-card --small" href="#">
+                  <div class="promotions-list-card-heading"><span class="promotions-list-car-heading__title">Бесплатное нанесение логотипа на одежду</span></div><span class="promotions-list-card__time-left">До 30.07.20</span><img class="promotions-list__img" src="./assets/img/sliders/promotions/card-small_01.png" alt="promotion image"/></a><a class="promotions-list-card --small" href="#">
+                  <div class="promotions-list-card-heading"><span class="promotions-list-car-heading__title">Специальные цены на самые полюбившиеся подарки!</span></div><span class="promotions-list-card__time-left">До 30.07.20</span><img class="promotions-list__img" src="./assets/img/sliders/promotions/card-small_02.png" alt="promotion image"/></a><a class="promotions-list-card --small" href="#">
+                  <div class="promotions-list-card-heading"><span class="promotions-list-car-heading__title">Полиграфическая продукция по низким ценам!</span></div><span class="promotions-list-card__time-left">До 30.07.20</span><img class="promotions-list__img" src="./assets/img/sliders/promotions/card-small_03.png" alt="promotion image"/></a><a class="promotions-list-card --small" href="#">
+                  <div class="promotions-list-card-heading"><span class="promotions-list-car-heading__title">Горячая акция: нанесение на футболки B&C бесплатно!</span></div><span class="promotions-list-card__time-left">До 30.07.20</span><img class="promotions-list__img" src="./assets/img/sliders/promotions/card-small_04.png" alt="promotion image"/></a></div>
+            </div>
+            <div class="promotions-list-frame --one-card-inside">
+              <div class="w-card-frame-inner"><a class="promotions-list-card --big" href="#">
+                  <div class="promotions-list-card-heading"><span class="promotions-list-car-heading__title">Test</span></div><span class="promotions-list-card__time-left">До 30.07.20</span><img class="promotions-list__img" src="./assets/img/sliders/promotions/card-big_01.png" alt="promotion image"/></a></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="s-our-work">
+        <div class="l-container">
+          <div class="section-heading"><span class="section-heading__title">Наши работы</span><a class="btn-main btn--filled-green" href="#"> Перейти в портфолио</a></div>
+          <div class="our-work-list" id="masonryOurWork">
+            <div class="our-work-card"><img class="our-work-card__img" src="./assets/img/our-work/card_01.jpg" alt="our work image"/>
+              <div class="w-content"><span class="our-work-card__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus, aliquam.</span></div>
+            </div>
+            <div class="our-work-card"><img class="our-work-card__img" src="./assets/img/our-work/card_02.jpg" alt="our work image"/>
+              <div class="w-content"><span class="our-work-card__description">Сувенирная продукция для «Arla Natura»</span></div>
+            </div>
+            <div class="our-work-card"><img class="our-work-card__img" src="./assets/img/our-work/card_03.jpg" alt="our work image"/>
+              <div class="w-content"><span class="our-work-card__description">Lorem ipsum dolor sit amet consectetur, adipisicing elit.</span></div>
+            </div>
+            <div class="our-work-card"><img class="our-work-card__img" src="./assets/img/our-work/card_04.jpg" alt="our work image"/>
+              <div class="w-content"><span class="our-work-card__description">Lorem ipsum dolor, sit amet consectetur adipisicing.</span></div>
+            </div>
+            <div class="our-work-card"><img class="our-work-card__img" src="./assets/img/our-work/card_05.jpg" alt="our work image"/>
+              <div class="w-content"><span class="our-work-card__description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae veniam fugiat vel illo eius!</span></div>
+            </div>
+            <div class="our-work-card"><img class="our-work-card__img" src="./assets/img/our-work/card_06.jpg" alt="our work image"/>
+              <div class="w-content"><span class="our-work-card__description">Lorem ipsum dolor sit.</span></div>
+            </div>
+            <div class="our-work-card"><img class="our-work-card__img" src="./assets/img/our-work/card_07.jpg" alt="our work image"/>
+              <div class="w-content"><span class="our-work-card__description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore consequatur maxime quia!</span></div>
+            </div>
+            <div class="our-work-card"><img class="our-work-card__img" src="./assets/img/our-work/card_08.jpg" alt="our work image"/>
+              <div class="w-content"><span class="our-work-card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis saepe cumque delectus quas at.</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="s-feedback">
+        <div class="l-container">
+          <div class="w-feedback">
+            <div class="col-form">
+              <div class="feedback-heading"><span class="feedback-heading__title">Подберем подарочный набор</span><span class="feedback-heading__sub-title">и сделаем макеты <span class="green-text">бесплатно!</span></span></div>
+              <form class="feedback-form" method="post" action="https://echo.htmlacademy.ru">
+                <div class="w-inputs_01">
+                  <div class="col-left">
+                    <label class="component-input-text --text-white js-component-input-text">
+                      <input class="input-text-form js-input" type="text" name="username"/><span class="input-text-label --bg-black">Ваше имя</span>
+                    </label>
+                    <label class="component-input-text --text-white js-component-input-text">
+                      <input class="input-text-form js-input" type="text" name="phone"/><span class="input-text-label --bg-black">Ваш телефон <span class="star">*</span></span>
+                    </label>
+                  </div>
+                  <div class="col-right">
+                    <label class="component-input-text input-textarea --text-white js-component-input-text">
+                      <textarea class="input-text-form js-input" name="comment"></textarea><span class="input-text-label --bg-black">Ваш комментарий</span>
+                    </label>
+                  </div>
+                </div>
+                <div class="w-inputs_02">
+                  <label class="component-input-check permission-PPD">
+                    <input class="input-check-form" type="checkbox" name="permission-PPD" checked="checked"/><span class="input-check-label"><span class="inner-content">Согласен с условиями <wbr><a class="link --text-green --underline" href="#">обработки персональных данных</a></span></span>
+                  </label>
+                  <button class="btn-main btn--filled-green feedback__btn-send" type="submit">Отправить</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="s-blog-preview">
+        <div class="w-blog-preview">
+          <div class="blog-preview-heading">
+            <div class="w-inner"><span class="blog-preview-heading__title">Блог</span><span class="blog-preview-heading__description">Читайте все последние новости и полезные статьи в нашем блоге</span><a class="btn-main btn--filled-transparent blog-preview-heading__btn-view-all" href="#">Читать весь блог</a>
+              <div class="w-slider-buttons">
+                <button class="btn-as-wrapper btn-slider btn-round--slider --left" type="button" id="blog-preview-slider-prev"><span class="visually-hidden">Предыдущий</span></button>
+                <button class="btn-as-wrapper btn-slider btn-round--slider --right" type="button" id="blog-preview-slider-next"><span class="visually-hidden">Следующий</span></button>
+              </div>
+            </div>
+          </div>
+          <div class="w-blog-preview-slider" id="blog-preview-slider"><a class="blog-preview-card --text-black" href="#"><img class="blog-preview-card__img" src="./assets/img/blog/blog-card-1.png" alt="article image"/>
+              <div class="w-content"><span class="blog-preview-card__date">29/06/2020</span><span class="blog-preview-card__title">Элементы и носители фирменного стиля организации</span><span class="blog-preview-card__text">Элементы фирменного стиля организации — это главные составляющие в политике фирмы. Так как они помогают бороться за потенциальных покупателей...</span></div></a><a class="blog-preview-card --text-white" href="#"><img class="blog-preview-card__img" src="./assets/img/blog/blog-card-1.png" alt="article image"/>
+              <div class="w-content"><span class="blog-preview-card__date">29/06/2020</span><span class="blog-preview-card__title">Элементы и носители фирменного стиля организации</span><span class="blog-preview-card__text">Элементы фирменного стиля организации — это главные составляющие в политике фирмы. Так как они помогают бороться за потенциальных покупателей...</span></div></a><a class="blog-preview-card --text-black" href="#"><img class="blog-preview-card__img" src="./assets/img/blog/blog-card-1.png" alt="article image"/>
+              <div class="w-content"><span class="blog-preview-card__date">29/06/2020</span><span class="blog-preview-card__title">Элементы и носители фирменного стиля организации</span><span class="blog-preview-card__text">Элементы фирменного стиля организации — это главные составляющие в политике фирмы. Так как они помогают бороться за потенциальных покупателей...</span></div></a><a class="blog-preview-card --text-white" href="#"><img class="blog-preview-card__img" src="./assets/img/blog/blog-card-1.png" alt="article image"/>
+              <div class="w-content"><span class="blog-preview-card__date">29/06/2020</span><span class="blog-preview-card__title">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet nisi alias aperiam dolor, rem odit molestias vero velit labore veniam inventore ipsam voluptates! Autem, consequuntur!</span><span class="blog-preview-card__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae earum cupiditate illum saepe delectus. Minima, temporibus, quidem quam iure laboriosam optio eveniet harum neque veniam consequuntur in autem totam tenetur sapiente ipsam? Cum magnam ullam exercitationem soluta nulla quaerat laudantium atque itaque? Provident, ratione perferendis quo dolorum omnis ut recusandae.</span></div></a></div>
+        </div>
+      </section>
+      <section class="s-some-text">
+        <div class="l-container">
+          <p class="w-text-block"><span class="text-block__title">Сувенирная продукция и подарки с логотипом</span><span class="paragraph">Как поступить лучше всего, чтобы в наше время, при минимуме вложенных средств, получить больше выгоды? Бренд вашей компании станет узнаваем для многочисленной аудитории. Вы не только сохраните постоянных клиентов, но также приобретёте много новых. Вам нужно обратиться к профессионалам "БоксПрезент"</span><span class="paragraph">Наша сплочённая команда изготавливает на заказ любую рекламную или продукцию с нанесением логотипа вашей фирмы. Где можно использовать товары, представленные "БоксПрезент"? Вариантов много: различные презентации, выставки, семинары. Также - в качестве подарков для постоянных клиентов компании.</span><span class="paragraph">Бренд начнут узнавать многие люди, а прибыль и известность фирмы увеличатся во много раз. Гарантия эффективной работы нашего агентства - тысячи благодарных и постоянных клиентов. Мы работаем для вас по всей России, быстро доставляя готовый товар в любой регион.</span></p>
+        </div>
+      </section>
+      <section class="s-subscribe">
+        <div class="l-container">
+          <div class="w-subscribe"><span class="subscribe-company-name">BOXPRESENT</span>
+            <div class="w-subscribe-heading"><span class="subscribe-heading__title">Будьте всегда в курсе!</span><span class="subscribe-heading__description">Не пропускайте новости о наших акциях, скидках и событиях, подпишитесь и узнавайте о них первым.</span></div>
+            <div class="w-subscribe-form">
+              <form class="subscribe-form-inputs" method="post" action="https://echo.htmlacademy.ru">
+                <label class="component-input-text js-component-input-text subscribe-form-email --style-01">
+                  <input class="input-text-form js-input" type="text" name="subscribe-email"/><span class="input-text-label --bg-white">Ваш e-mail</span>
+                </label>
+                <button class="btn-main btn--filled-green subscribe-form-btn-submit" type="submit">Подписаться</button>
+              </form><span class="subscribe-form__description">Отправляя данные, вы соглашаетесь с <a class="link" href="#">политикой конфиденциальности</a></span>
+            </div>
+          </div>
+        </div>
       </section>
       <footer class="s-footer">
-        <h3>I'm footer h3</h3>
+        <div class="l-container footer-container-01">
+          <div class="w-footer-logotype"><a class="logo" href="./index.html"><img class="logo__img" src="./assets/img/logo.png" alt="Logotype"/><span class="logo__title">Сувениры и подарки с логотипом</span></a><span class="footer-copyright">© 2020 «Бокс Презент». Все права защищены.</span><a class="footer-privacy-policy link --text-green" href="#">Политика конфиденциальности</a></div>
+          <nav class="footer-navigation">
+            <div class="w-footer-navigation-group"><span class="footer-title">Каталог продукции</span>
+              <ul class="footer-navigation-list js-component-expand-block__list">
+                <li class="footer-navigation-list-item"><a class="footer-navigation-list-item__link" href="#">Подарочные наборы</a></li>
+                <li class="footer-navigation-list-item"><a class="footer-navigation-list-item__link" href="#">Путешествие и отдых</a></li>
+                <li class="footer-navigation-list-item"><a class="footer-navigation-list-item__link" href="#">Ежедневники и блокноты</a></li>
+                <li class="footer-navigation-list-item"><a class="footer-navigation-list-item__link" href="#">Ручки</a></li>
+                <li class="footer-navigation-list-item"><a class="footer-navigation-list-item__link" href="#">Промо-сувениры</a></li>
+                <li class="footer-navigation-list-item"><a class="footer-navigation-list-item__link" href="#">Часы</a></li>
+                <li class="footer-navigation-list-item"><a class="footer-navigation-list-item__link" href="#">Уютный дом</a></li>
+                <li class="footer-navigation-list-item"><a class="footer-navigation-list-item__link" href="#">Упаковка подарочная</a></li>
+              </ul>
+            </div>
+            <div class="w-footer-navigation-group"><span class="footer-title">О компании</span>
+              <ul class="footer-navigation-list js-component-expand-block__list">
+                <li class="footer-navigation-list-item"><a class="footer-navigation-list-item__link" href="#">Кто мы</a></li>
+                <li class="footer-navigation-list-item"><a class="footer-navigation-list-item__link" href="#">Отзывы</a></li>
+                <li class="footer-navigation-list-item"><a class="footer-navigation-list-item__link" href="#">Портфолио</a></li>
+                <li class="footer-navigation-list-item"><a class="footer-navigation-list-item__link" href="#">Услуги</a></li>
+                <li class="footer-navigation-list-item"><a class="footer-navigation-list-item__link" href="#">Контакты</a></li>
+                <li class="footer-navigation-list-item"><a class="footer-navigation-list-item__link" href="#">Для поставщиков</a></li>
+                <li class="footer-navigation-list-item"><a class="footer-navigation-list-item__link" href="#">Условия работы</a></li>
+                <li class="footer-navigation-list-item"><a class="footer-navigation-list-item__link" href="#">Блог</a></li>
+              </ul>
+            </div>
+            <div class="w-footer-navigation-group"><span class="footer-title">Для клиентов </span>
+              <ul class="footer-navigation-list js-component-expand-block__list">
+                <li class="footer-navigation-list-item"><a class="footer-navigation-list-item__link" href="#">Оплата</a></li>
+                <li class="footer-navigation-list-item"><a class="footer-navigation-list-item__link" href="#">Вопрос-ответ</a></li>
+                <li class="footer-navigation-list-item"><a class="footer-navigation-list-item__link" href="#">Доставка</a></li>
+                <li class="footer-navigation-list-item"><a class="footer-navigation-list-item__link" href="#">Бонусная программа</a></li>
+                <li class="footer-navigation-list-item"><a class="footer-navigation-list-item__link" href="#">Как сделать заказ</a></li>
+                <li class="footer-navigation-list-item"><a class="footer-navigation-list-item__link" href="#">Как стать поставщиком</a></li>
+                <li class="footer-navigation-list-item"><a class="footer-navigation-list-item__link" href="#">Документы</a></li>
+                <li class="footer-navigation-list-item"><a class="footer-navigation-list-item__link" href="#">Возврат товара</a></li>
+              </ul>
+            </div>
+          </nav>
+          <div class="w-contact-info-group"><span class="footer-title">Контакты</span>
+            <div class="w-contact-info-list">
+              <address class="contact-info-item --phone"><a class="contact-info-item__text" href="tel:+74956004177">+7 (495) 600-41-77</a></address>
+              <address class="contact-info-item --mail"><a class="contact-info-item__text" href="mailto:info@boxpresent.ru">info@boxpresent.ru</a></address>
+              <address class="contact-info-item --location"><span class="contact-info-item__text">Москва, пл. Тверская застава д.3</span></address>
+            </div>
+          </div>
+        </div>
+        <div class="w-line-02">
+          <div class="l-container footer-container-02">
+            <ul class="footer-soc-icons">
+              <li class="footer-soc-icons-item"><a class="footer-soc-icons-item__link --fcbk" href="#"><span class="visually-hidden">Facebook</span></a></li>
+              <li class="footer-soc-icons-item"><a class="footer-soc-icons-item__link --instgr" href="#"><span class="visually-hidden">Instagram</span></a></li>
+              <li class="footer-soc-icons-item"><a class="footer-soc-icons-item__link --ytb" href="#"><span class="visually-hidden">Youtube</span></a></li>
+              <li class="footer-soc-icons-item"><a class="footer-soc-icons-item__link --whtsp" href="#"><span class="visually-hidden">WhatsApp</span></a></li>
+              <li class="footer-soc-icons-item"><a class="footer-soc-icons-item__link --tlgr" href="#"><span class="visually-hidden">Telegram</span></a></li>
+            </ul>
+            <div class="w-yandex-cashbox"><a class="yandex-cashbox__link" href="#"><img src="./assets/img/footer/yandex-cashbox.svg" alt="yandex cashbox logotype"/><span class="visually-hidden">Яндекс Касса</span></a></div>
+            <div class="w-banner"><a class="banner-link" href="#"><img src="./assets/img/footer/supplier-portal.png" alt="image banner"/><span class="visually-hidden">Портал поставщиков</span></a></div>
+          </div>
+        </div>
       </footer>
       <div class="modal-overlay js-modal-overlay" id="modal_01">
-        <form class="modal-body" method="post" action="https://echo.htmlacademy.ru"><a class="modal-close" href="#">x</a>
+        <form class="modal-body" method="post" action="https://echo.htmlacademy.ru">
+          <button class="btn-as-wrapper modal-close" type="button"> <span class="visually-hidden">Закрыть</span></button>
           <div class="modal-body-heading"> <span class="modal-body-heading__title">Обратный звонок</span></div>
           <div class="modal-body-content">
-            <label class="component-input-text js-component-input-text js-component-input-text">
-              <input class="input-text-form js-input" type="text" name="username"/><span class="input-text-label">Ваше имя:</span>
+            <label class="component-input-text js-component-input-text">
+              <input class="input-text-form js-input" type="text" name="username"/><span class="input-text-label --bg-white">Ваше имя<span class="star">*</span></span>
             </label>
             <label class="component-input-text js-component-input-text">
-              <input class="input-text-form js-input" type="text" name="phone"/><span class="input-text-label">Телефон:</span>
+              <input class="input-text-form js-input" type="text" name="phone"/><span class="input-text-label --bg-white">Ваш телефон<span class="star">*</span></span>
             </label>
-            <button class="btn-main btn--filled-green modal-body__btn-send" type="submit">Отправить</button>
+            <button class="btn-main btn--filled-green modal-body__btn-send" type="submit">Отправить</button><span class="modal-description --callback">Отправляя данные, вы соглашаетесь на <a class="link --underline" href="#">обработку персональных данных</a>
+              </span>
+          </div>
+        </form>
+      </div>
+      <div class="modal-overlay js-modal-overlay" id="modal_02">
+        <form class="modal-body component-tabs-panel" method="post" action="https://echo.htmlacademy.ru">
+          <button class="btn-as-wrapper modal-close" type="button"> <span class="visually-hidden">Закрыть</span></button>
+          <div class="modal-body-heading"> <span class="modal-body-heading__title">Заказать образец</span></div>
+          <div class="modal-body-content">
+            <label class="component-input-text js-component-input-text">
+              <input class="input-text-form js-input" type="text" name="username"/><span class="input-text-label --bg-white">Ваше имя</span>
+            </label>
+            <label class="component-input-text js-component-input-text">
+              <input class="input-text-form js-input" type="text" name="phone"/><span class="input-text-label --bg-white">Ваш телефон<span class="star">*</span></span>
+            </label>
+            <label class="component-input-text js-component-input-text">
+              <input class="input-text-form js-input" type="text" name="login"/><span class="input-text-label --bg-white">Ваш E-mail<span class="star">*</span></span>
+            </label>
+            <label class="component-input-text input-textarea --text-black js-component-input-text">
+              <textarea class="input-text-form js-input" name="comment"></textarea><span class="input-text-label --bg-white">Ваш комментарий</span>
+            </label>
+            <button class="btn-main btn--filled-green modal-body__btn-send" type="submit">Отправить</button><span class="modal-description --callback">Отправляя данные, вы соглашаетесь на <a class="link --underline" href="#">обработку персональных данных</a>
+              </span>
+          </div>
+        </form>
+      </div>
+      <div class="modal-overlay js-modal-overlay" id="modal_03">
+        <form class="modal-body component-tabs-panel" method="post" action="https://echo.htmlacademy.ru">
+          <button class="btn-as-wrapper modal-close" type="button"> <span class="visually-hidden">Закрыть</span></button>
+          <div class="modal-body-heading"> 
+            <ul class="modal-body-heading-tab-list component-tabs-panel-list">
+              <li class="modal-body-heading-tab-item component-tabs-panel-item"><a class="btn-as-wrapper modal-body-heading-tab-item__btn component-tabs-panel-item__btn --js-active" href="#" data-num-btn="1">Вход</a></li>
+              <li class="modal-body-heading-tab-item component-tabs-panel-item"><a class="btn-as-wrapper modal-body-heading-tab-item__btn component-tabs-panel-item__btn" href="#" data-num-btn="2">Регистрация</a></li>
+            </ul>
+          </div>
+          <div class="modal-body-content w-component-tabs-panel-body">
+            <div class="component-tabs-panel-body --js-show" data-num-tab="1">
+              <label class="component-input-text js-component-input-text">
+                <input class="input-text-form js-input" type="text" name="login"/><span class="input-text-label --bg-white">Ваш E-mail<span class="star">*</span></span>
+              </label>
+              <label class="component-input-text js-component-input-text">
+                <input class="input-text-form js-input" type="password" name="password"/><span class="input-text-label --bg-white">Пароль<span class="star">*</span></span>
+              </label>
+              <div class="w-line --login"><a class="link forgot-password-link" href="#">Забыли пароль?</a>
+                <button class="btn-main btn--filled-green modal-body__btn-send" type="submit">Войти</button>
+              </div>
+            </div>
+            <div class="component-tabs-panel-body" data-num-tab="2">
+              <label class="component-input-text js-component-input-text">
+                <input class="input-text-form js-input" type="text" name="full-name"/><span class="input-text-label --bg-white">ФИО</span>
+              </label>
+              <label class="component-input-text js-component-input-text">
+                <input class="input-text-form js-input" type="text" name="email"/><span class="input-text-label --bg-white">Ваш E-mail<span class="star">*</span></span>
+              </label>
+              <label class="component-input-text js-component-input-text">
+                <input class="input-text-form js-input" type="password" name="password_01"/><span class="input-text-label --bg-white">Пароль<span class="star">*</span></span>
+              </label>
+              <label class="component-input-text js-component-input-text">
+                <input class="input-text-form js-input" type="password" name="password_02"/><span class="input-text-label --bg-white">Повторите пароль<span class="star">*</span></span>
+              </label>
+              <div class="w-line --reg">
+                <button class="btn-main btn--filled-green modal-body__btn-send" type="submit">Зарегистрироваться</button><span class="modal-description">Отправляя данные, вы соглашаетесь на <a class="link --underline" href="#">обработку персональных данных</a></span>
+              </div>
+            </div>
           </div>
         </form>
       </div>
       <script src="./assets/vendors/jquery/jquery-3.5.1.min.js"></script>
       <script src="./assets/vendors/slick/js/slick.min.js"></script>
-      <script src="./assets/vendors/liba-biba-pupa-lupa/js/liba-biba-pupa-lupa.js"></script>
+      <script src="./assets/vendors/masonry/js/masonry.pkgd.min.js"></script>
+      <script src="./assets/simple-grid-layout/js/simple-grid-layout.js"></script>
       <script src="./assets/vendors/mmenu/js/mmenu.js"></script>
       <script src="./assets/js/index.js"></script>
     </div>

@@ -25,8 +25,6 @@
   cursor: pointer;
 }
 
-.btn-main-empty {}
-
 .btn-main {
   display: inline-flex;
   justify-content: center;
@@ -36,6 +34,7 @@
   height: 55px;
   padding: 5%;
 
+  white-space: nowrap;
   cursor: pointer;
 }
 
@@ -47,7 +46,7 @@
   transition: border-color 0.3s ease 0s, background-image 0.8s ease 0s;
 
   &:hover {
-    border-color: transparentize($color-gray-2, 0.3);
+    // border-color: transparentize($color-gray-2, 0.3);
 
     animation-name: btnWhiteGradientToRight;
     animation-duration: 0.1s;
@@ -68,4 +67,54 @@
     animation-duration: 0.1s;
     animation-fill-mode: forwards;
   }
+}
+
+.btn-round--slider {
+  position: relative;
+  width: 47px;
+  height: 47px;
+
+  background-color: $color-blue-1;
+  border-radius: 50%;
+
+  &.--left {
+    &::after {
+      content: "";
+      position: absolute;
+      left: 48%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 18px;
+      height: 18px;
+      background: URL('../img/icons/arrow-left.svg') center center/contain no-repeat;
+    }
+  }
+
+  &.--right {
+    &::after {
+      content: "";
+      position: absolute;
+      right: 48%;
+      top: 50%;
+      transform: translate(50%, -50%);
+      width: 18px;
+      height: 18px;
+      background: URL('../img/icons/arrow-right.svg') center center/contain no-repeat;
+    }
+  }
+
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
+.btn-close {
+  width: 24px;
+  height: 24px;
+
+  line-height: 0;
+  text-decoration: none;
+
+  background: URL('../img/icons/clouse.svg') center center/ no-repeat;
+  background-size: 12px 12px;
 }

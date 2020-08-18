@@ -1,0 +1,122 @@
+// === style
+// =============================================================================
+
+.section-heading {
+  user-select: none;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3.5%;
+
+  &.--just-title-center {
+    display: inline-block;
+    width: 100%;
+
+    padding-bottom: 1.4em;
+
+    text-align: center;
+    font-weight: 500;
+    font-size: 36px;
+  }
+
+  .section-heading__title {
+    position: relative;
+
+    font-weight: 500;
+    font-size: 36px;
+
+    line-height: 1.2em;
+
+    // === подчеркивание
+    &::after {
+      content: "";
+      position: absolute;
+
+      left: 0;
+      bottom: -3px;
+      width: 165px;
+      height: 3px;
+
+      background-color: $color-green-1;
+    }
+  }
+
+  .section-heading__link {
+    position: relative;
+
+    display: inline-flex;
+    padding-left: 18px;
+    padding-top: 10px;
+    padding-bottom: 4px;
+
+
+    font-size: 16px;
+    text-transform: uppercase;
+
+    white-space: nowrap;
+
+    // === точка
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: $color-green-1;
+    }
+  }
+
+  .section-heading-buttons {
+    padding-top: 6px;
+
+    .btn-slider:not(:last-child) {
+      margin-right: 8px;
+    }
+  }
+
+  .btn-main {
+    height: 55px;
+    max-width: 243px;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
+// === adaptive
+// =============================================================================
+
+.section-heading {
+  @media (max-width: 992px) {
+    .section-heading__title {
+      font-size: 30px;
+    }
+
+    &.--just-title-center {
+      font-size: 30px;
+      padding-bottom: 2%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .section-heading__title {
+      font-size: 24px;
+    }
+
+    &.--just-title-center {
+      font-size: 24px;
+    }
+  }
+
+  @media (max-width: 374px) {
+    .section-heading__title {
+      font-size: 20px;
+    }
+
+    &.--just-title-center {
+      font-size: 20px;
+    }
+  }
+}

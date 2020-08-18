@@ -1,25 +1,29 @@
 // === input text
 // =============================================================================
 
-// === style
+// === style input text
 .component-input-text {
   position: relative;
+  z-index: 2;
 
   display: inline-flex;
   align-items: center;
 
-  height: 50px;
+  height: 63px;
   width: 100%;
 
+  font-weight: 500;
   font-size: 14px;
+
 
   .input-text-label {
     position: absolute;
     z-index: -1;
-    left: 7.5%;
+    left: 5%;
 
     display: inline-flex;
     align-items: center;
+    line-height: 1;
 
     cursor: text;
     user-select: none;
@@ -28,16 +32,103 @@
   .input-text-form {
     width: 100%;
     height: 100%;
-    padding-left: 7%;
-    padding-right: 7%;
+    padding-left: 5%;
+    padding-right: 5%;
 
+    font-weight: 500;
     font-size: 14px;
 
     border: 2px solid $color-gray-6;
-    border-radius: 100px;
+    border-radius: 5px;
     background: none;
   }
+
+  &.input-textarea {
+    .input-text-form {
+      border-radius: 20px;
+      resize: none;
+    }
+  }
 }
+
+// === project style
+.component-input-text {
+  &.--style-01 {
+    .input-text-form {
+      border-radius: 100px;
+    }
+  }
+
+  &.--style-02 {
+    height: 43px;
+
+    .input-text-label {
+      color: rgba(0, 0, 0, 0.49);
+      font-weight: normal;
+      font-size: 13px;
+      z-index: 2;
+      left: 3%;
+    }
+
+    .input-text-form {
+      color: rgba(0, 0, 0, 0.49);
+      font-weight: normal;
+      font-size: 13px;
+      border: none;
+      background: $color-gray-12;
+      border-radius: 100px;
+      padding-left: 3%;
+      padding-right: 5%;
+
+      &:focus {
+        border: 2px solid $color-green-1;
+
+        &~.input-text-label {
+          top: -2px;
+          left: 22px;
+          transform: translate(0, -100%);
+        }
+      }
+
+      &.--js-val-not-empty {
+        &~.input-text-label {
+
+          top: -2px;
+          left: 22px;
+          transform: translate(0, -100%);
+          font-size: 12px;
+        }
+      }
+    }
+  }
+
+  .input-text-label {
+    .star {
+      color: $color-red-2;
+    }
+  }
+
+  &.--text-white {
+    .input-text-label {
+      color: $color-white-1;
+    }
+
+    .input-text-form {
+      color: $color-white-1;
+    }
+  }
+
+  &.--text-black {
+    .input-text-label {
+      color: $color-black-1;
+    }
+
+    .input-text-form {
+      color: $color-black-1;
+    }
+  }
+}
+
 
 
 // === animations and actions
@@ -47,35 +138,233 @@
   }
 
   .input-text-form {
+
     &:focus {
       border: 2px solid $color-green-1;
 
       &~.input-text-label {
         z-index: 1;
-        top: 10px;
-        left: 3.5%;
+        top: 2px;
+        left: 22px;
         transform: translate(0, -100%);
 
-        padding: 2px 4px;
+        padding: 0 2px;
 
         font-size: 12px;
 
-        background-color: $color-white-1;
+        &.--bg-black {
+          background-color: $color-black-4;
+        }
+
+        &.--bg-white {
+          background-color: $color-white-1;
+        }
       }
     }
 
     &.--js-val-not-empty {
       &~.input-text-label {
         z-index: 1;
-        top: 10px;
-        left: 3.5%;
+        top: 2px;
+        left: 22px;
         transform: translate(0, -100%);
 
-        padding: 2px 4px;
+        padding: 0 2px;
 
         font-size: 12px;
 
-        background-color: $color-white-1;
+        &.--bg-black {
+          background-color: $color-black-4;
+        }
+
+        &.--bg-white {
+          background-color: $color-white-1;
+        }
+      }
+    }
+  }
+}
+
+
+
+// === input check
+// =============================================================================
+.component-input-check {
+  position: relative;
+  user-select: none;
+  cursor: pointer;
+
+  // === span - pseudo label
+  .input-check-label {
+
+    display: flex;
+    align-items: center;
+    padding-left: 60px;
+    min-height: 52px;
+
+
+    // === outline
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      flex-shrink: 0;
+
+      display: inline-block;
+      margin-right: 8px;
+      width: 52px;
+      height: 52px;
+
+      box-shadow: inset 0px 0px 0px 4px $color-black-4,
+        inset 0px 0px 0px 5px transparentize($color-white-1, 0.45);
+
+      border: 1px solid $color-white-1;
+      border-radius: 50%;
+    }
+
+    // === check
+    &::after {
+      content: "";
+      position: absolute;
+
+      flex-shrink: 0;
+
+      left: 0;
+      top: 0;
+
+      display: inline-block;
+      width: 52px;
+      height: 52px;
+
+      border-radius: 50%;
+      background: URL("../img/icons/input-check.svg") center center no-repeat;
+    }
+  }
+
+  // === настоящий инпут
+  .input-check-form {
+    position: absolute;
+    left: -9999px;
+    z-index: -100;
+    opacity: 0;
+  }
+}
+
+// === animations and actions
+.component-input-check {
+  .input-check-label {
+
+    // === outline
+    &::before {}
+
+    // === check
+    &::after {
+      opacity: 0;
+      transition: all 0.3s ease 0s;
+    }
+  }
+
+  .input-check-form {
+    &:checked+.input-check-label::after {
+      opacity: 1;
+    }
+  }
+}
+
+
+
+.permission-PPD {
+  .input-check-label {
+    .inner-content {
+      white-space: nowrap;
+
+      // .link {
+      //   white-space: initial;
+      // }
+    }
+  }
+}
+
+
+
+// === component-input-check
+// =============================================================================
+
+.component-input-check {
+  &.--pseudo-input {
+    position: relative;
+    user-select: none;
+    cursor: pointer;
+
+    &.--style-01 {
+      .input-check__label {
+        // padding-left: 3em;
+        display: inline-flex;
+        align-items: flex-start;
+
+        // === border
+        &::before {
+          content: "";
+          flex-shrink: 0;
+
+          display: inline-block;
+          margin-right: 1.2em;
+          margin-top: -0.3em;
+          width: 30px;
+          height: 30px;
+
+          border: 1px solid $color-gray-11;
+          border-radius: 3px
+        }
+
+        // === check
+        &::after {
+          content: "";
+          position: absolute;
+
+          flex-shrink: 0;
+
+          left: 0;
+          top: -0.3em;
+
+          display: inline-block;
+          width: 30px;
+          height: 30px;
+
+          background: URL("../img/icons/input-check-02.svg") center center no-repeat;
+        }
+      }
+    }
+
+
+
+    // === animations and actions
+
+    // === настоящий инпут
+    .input-check__form {
+      position: absolute;
+      left: -9999px;
+      z-index: -100;
+      opacity: 0;
+    }
+
+    .input-check__label {
+
+      // === border
+      &::before {}
+
+      // === check
+      &::after {
+        opacity: 0;
+        transition: all 0.3s ease 0s;
+      }
+    }
+
+    .input-check__form {
+      &:checked+.input-check__label::after {
+        opacity: 1;
       }
     }
   }

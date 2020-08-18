@@ -1,0 +1,19 @@
+.link {
+  transition: all 0.3s ease 0s;
+
+  &.--text-green {
+    color: $color-green-1
+  }
+
+  &.--text-gray {
+    color: $color-gray-2;
+  }
+
+  &.--underline {
+    text-decoration: underline;
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+}

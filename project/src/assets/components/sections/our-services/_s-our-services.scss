@@ -1,0 +1,338 @@
+// === style
+// =============================================================================
+.s-our-services {
+  user-select: none;
+  padding-top: 2.85%;
+  padding-bottom: 3%;
+}
+
+.our-services-heading {
+  margin-bottom: 3.1%;
+
+  .section-heading__title {
+    &::after {
+      width: 90px;
+    }
+  }
+}
+
+.w-our-services-cards {
+  display: flex;
+  margin-left: -10px;
+  margin-right: -10px;
+  overflow: hidden;
+}
+
+// === сетка
+.w-slide {
+  width: calc(50% - 20px);
+  flex-shrink: 0;
+  margin-left: 10px;
+  margin-right: 10px;
+
+  display: flex;
+
+  &.--one-cards-inside {
+    width: calc(50% -20px);
+
+    .our-services-card {
+      width: 100%;
+    }
+  }
+
+  &.--two-cards-inside {
+    width: 50%;
+    margin-left: 0;
+    margin-right: 0;
+
+    .our-services-card {
+      margin-left: 10px;
+      margin-right: 10px;
+      width: calc(100% / 2 - 20px);
+    }
+  }
+}
+
+.our-services-card {
+  position: relative;
+
+  display: inline-flex;
+  justify-content: center;
+
+  padding-top: 6.8%;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  padding-bottom: 7%;
+  overflow: hidden;
+
+  // === полосочка
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: 2;
+
+    bottom: 0;
+    height: 22%;
+    width: 20px;
+    background: $color-green-1;
+  }
+
+  &.--big {
+    background: URL('../img/sliders/our-services/slide-big-bg.png') center center / cover no-repeat;
+
+    .w-content-outer {
+      width: 610px;
+      max-width: 100%;
+    }
+
+    &::before {
+      left: 10%;
+    }
+  }
+
+  &.--small {
+    .w-content-outer {
+      width: 231px;
+      max-width: 100%;
+    }
+
+    &::before {
+      left: 20%;
+    }
+  }
+
+  &.--bg-gray-1 {
+    background-color: $color-gray-7;
+  }
+
+  &.--bg-gray-2 {
+    background-color: $color-gray-8;
+  }
+
+  &.--bg-blue {
+    background-color: $color-blue-1;
+  }
+
+  &.--text-black {
+    .our-services-card__heading {
+      width: 100%;
+      max-width: 100%;
+      color: $color-black-2;
+    }
+
+    .our-services-card__subheading {
+      color: $color-gray-2;
+    }
+
+    .our-services-card__description {
+      color: $color-black-2;
+    }
+  }
+
+  &.--text-white {
+    color: $color-white-1;
+  }
+
+  &.--small-heading-bottom {
+    padding-top: 27%;
+  }
+
+  .our-services-card__img {
+    position: absolute;
+
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .w-content {
+    position: relative;
+    z-index: 2;
+    max-width: 300px;
+  }
+
+  .our-services-card__subheading {
+    display: inline-block;
+    width: 100%;
+    font-size: 16px;
+    line-height: 1.3em;
+    margin-bottom: 39%;
+    word-wrap: break-word;
+  }
+
+  .our-services-card__heading {
+    display: inline-block;
+    width: 100%;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 1.2em;
+    margin-bottom: 2%;
+    text-transform: uppercase;
+    word-wrap: break-word;
+  }
+
+  .our-services-card__description {
+    display: inline-block;
+    width: 100%;
+    font-size: 16px;
+    line-height: 1.2em;
+    padding-left: 42%;
+    word-wrap: break-word;
+  }
+}
+
+
+// === slider
+// =============================================================================
+.w-our-services-cards.slick-slider {
+  min-width: 0;
+
+  .slick-list {
+    overflow: hidden;
+    max-width: 100%;
+    min-width: 100%;
+  }
+
+  .slick-track {
+    display: flex;
+    max-width: 100%;
+    max-width: 100%;
+  }
+
+  .slick-slide {
+    flex-shrink: 0;
+    transition: all 0.3s ease 0s;
+  }
+}
+
+
+// === animations and actions
+// =============================================================================
+.our-services-card {
+  .our-services-card__heading {
+    transform: translateZ(0);
+    transition: all 0.3s ease 0s;
+  }
+
+  .our-services-card__description {
+    transform: translateZ(0);
+    transition: all 0.3s ease 0s;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+    outline: 1px solid $color-green-1;
+    outline-offset: -1px;
+
+    opacity: 0;
+    transition: all 0.3s ease 0s;
+  }
+
+  &:hover {
+    .our-services-card__heading {
+      transform: scale(1.05);
+    }
+
+    .our-services-card__description {
+      transform: translateX(1%);
+    }
+
+    &::after {
+      opacity: 1;
+    }
+  }
+}
+
+// === adaptive
+// =============================================================================
+
+@media(max-width: 1380px) {
+  .w-our-services-cards {
+    .our-services-card {
+      .our-services-card__subheading {
+        margin-bottom: 18%;
+      }
+
+      &.--small {
+        .our-services-card__heading {
+          font-size: 17px;
+        }
+      }
+    }
+  }
+}
+
+@media(max-width: 992px) {
+  .w-our-services-cards {
+    .w-slide {
+      &.--one-cards-inside {
+        width: 66.6666%;
+      }
+
+      &.--two-cards-inside {
+        width: calc(66.6666% - 20px);
+      }
+
+      .our-services-card {
+        .our-services-card__subheading {
+          margin-bottom: 18%;
+        }
+      }
+    }
+  }
+}
+
+@media(max-width: 768px) {
+  .w-our-services-cards {
+    .w-slide {
+      &.--one-cards-inside {
+        width: 100%;
+      }
+
+      &.--two-cards-inside {
+        width: 100%;
+      }
+    }
+  }
+}
+
+
+@media(max-width: 768px) {
+  .w-our-services-cards {
+    .w-slide {
+      .our-services-card {
+        .our-services-card__subheading {
+          margin-bottom: 10%;
+        }
+
+        &.--bg-gray-1 {
+
+          .our-services-card__heading,
+          .our-services-card__subheading,
+          .our-services-card__description {
+
+            text-shadow: 1px 1px 4px $color-gray-7;
+          }
+        }
+
+        &.--bg-gray-2 {
+          text-shadow: 1px 1px 4px $color-gray-8;
+        }
+
+        &.--bg-blue {
+          text-shadow: 1px 1px 4px $color-blue-1;
+        }
+
+      }
+    }
+  }
+}

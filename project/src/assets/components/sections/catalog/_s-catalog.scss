@@ -1,0 +1,493 @@
+// === style
+// =============================================================================
+.s-catalog {
+  padding-top: 3%;
+}
+
+
+.w-catalog-cards {
+  user-select: none;
+}
+
+$-catalog-cards-gutter: 20px;
+
+.w-catalog-cards {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.w-group {
+  display: flex;
+  flex-wrap: wrap;
+  width: 50%;
+}
+
+.w-catalog-cards {
+  margin-left: -$-catalog-cards-gutter / 2;
+  margin-right: -$-catalog-cards-gutter / 2;
+}
+
+.w-catalog-card {
+  padding-left: $-catalog-cards-gutter / 2;
+  padding-right: $-catalog-cards-gutter / 2;
+  margin-bottom: $-catalog-cards-gutter;
+
+  &.--big {
+    width: 100%;
+
+    .w-catalog-card-content {
+      max-width: 550px;
+    }
+
+    .component-expand-block {
+      max-width: 54%;
+    }
+
+    .catalog-card {
+      padding-top: 2%;
+      padding-bottom: 0;
+      padding-left: 7%;
+      padding-right: 2%;
+
+      .w-btn-view-all {
+        padding-bottom: 15%;
+      }
+    }
+  }
+
+  &.--small {
+    width: 50%;
+
+    .w-catalog-card-content {
+      max-width: 250px;
+    }
+
+    .component-expand-block {
+      max-width: 70%;
+    }
+
+    .catalog-card {
+      padding-top: 4%;
+      padding-bottom: 0;
+      padding-left: 11%;
+      padding-right: 2%;
+
+      .w-btn-view-all {
+        padding-bottom: 25%;
+      }
+    }
+  }
+}
+
+.catalog-card {
+  position: relative;
+
+  overflow: hidden;
+
+  &.--text-black {
+    color: $color-black-2;
+
+    a {
+      color: $color-black-2;
+    }
+  }
+
+  &.--text-white {
+    color: $color-white-1;
+
+    a {
+      color: $color-white-1;
+    }
+  }
+
+  &.--underline-gray {
+    .catalog-card-item {
+      &::after {
+        background-image: url('../img/icons/line-dashed-gray.svg');
+      }
+    }
+  }
+
+  &.--underline-white {
+    .catalog-card-item {
+      &::after {
+        background-image: url('../img/icons/line-dashed-white.svg');
+      }
+    }
+  }
+
+  &.--bg-gray {
+    background-color: $color-gray-1;
+
+    text-shadow: 0px 0px 3px $color-gray-1;
+
+
+    .w-btn-view-all {
+      &::before {
+        background: radial-gradient(ellipse 70% 100% at 0% 100%, $color-gray-1 70%, rgba(255, 255, 255, 0) 99%);
+      }
+    }
+  }
+
+  &.--bg-dark-gray {
+    background-color: $color-gray-4;
+
+    text-shadow: 0px 0px 3px $color-gray-4;
+
+    .w-btn-view-all {
+      &::before {
+        background: radial-gradient(ellipse 70% 100% at 0% 100%, $color-gray-4 70%, rgba(255, 255, 255, 0) 99%);
+      }
+    }
+  }
+
+  &.--bg-blue {
+    background-color: $color-blue-1;
+
+    text-shadow: 0px 0px 3px $color-blue-1;
+
+    .w-btn-view-all {
+      &::before {
+        background: radial-gradient(ellipse 70% 100% at 0% 100%, $color-blue-1 70%, rgba(255, 255, 255, 0) 99%);
+      }
+    }
+
+    .catalog-card__view-all {
+      color: $color-white-1;
+
+      &::after {
+        background-color: $color-white-1;
+      }
+    }
+  }
+
+  &.--bg-pattern {
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: 0;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+
+      background-image: URL('../img/catalog-products/catalog-card-bg-pattern.png');
+      background-repeat: no-repeat;
+      background-position: top left;
+    }
+  }
+
+  .catalog-card-image {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+    .catalog-card-image__img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .w-catalog-card-content {
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .catalog-card__title {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 1em;
+    position: relative;
+    z-index: 2;
+
+    overflow-wrap: break-word;
+
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 1.2;
+    height: 2.4em;
+    overflow: hidden;
+  }
+
+  .catalog-card-list {
+    position: relative;
+
+    width: 100%;
+    height: 13em;
+
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 1.2em;
+
+    overflow: hidden;
+  }
+
+  .catalog-card-item {
+    position: relative;
+    margin-bottom: 0.4em;
+
+    // === точка
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0.5em;
+      left: 0;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background-color: $color-green-1;
+    }
+
+    // === линия снизу
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -0.3em;
+      height: 1px;
+
+      background-repeat: repeat-x;
+      background-position: -4px bottom;
+      background-size: contain;
+    }
+  }
+
+  .catalog-card-link {
+    display: inline-block;
+    padding-left: 20px;
+    width: 100%;
+
+    padding-top: 0.3em;
+    padding-bottom: 0.3em;
+    overflow-wrap: break-word;
+  }
+
+  .w-btn-view-all {
+    white-space: nowrap;
+
+    min-height: 2em;
+
+    // === оверлей овальный
+    &::before {
+      content: "";
+
+      position: absolute;
+      left: 0;
+      bottom: 0;
+
+      width: 100%;
+      height: 6.5em;
+    }
+  }
+
+  .catalog-card__view-all {
+    align-self: flex-start;
+
+    position: relative;
+    font-size: 16px;
+    color: $color-blue-2;
+
+
+
+    .thirst-state {
+      position: static;
+    }
+
+    .second-state {
+      position: absolute;
+      z-index: -2000;
+      visibility: hidden;
+      opacity: 0;
+    }
+
+    // === подчеркивание
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 1px;
+
+      height: 1px;
+      background-color: $color-blue-2;
+    }
+  }
+}
+
+
+// === animations and actions
+// =============================================================================
+
+.catalog-card-list {
+  transition: all 0.3s ease 0s;
+
+  .catalog-card-link {
+    transition: all 0.3s ease 0s;
+
+    &:hover {
+      opacity: 0.4;
+    }
+  }
+}
+
+.section-heading {
+  .section-heading__link {
+    transition: all 0.3s ease 0s;
+
+    &:hover {
+      color: $color-content-text-1--hover;
+    }
+  }
+}
+
+.w-btn-view-all {
+
+  .catalog-card__view-all {
+    transition: all 0.3s ease 0s;
+
+    &::after {
+      transition: all 0.3s ease 0s;
+    }
+
+    .thirst-state {
+      transition: opacity 0.3s ease 0s;
+    }
+
+    .second-state {
+      transition: opacity 0.3s ease 0s;
+    }
+
+    &:hover {
+      &::after {
+        transform: scale(0);
+      }
+    }
+  }
+
+  &.--js-show {
+
+    // === менять надпись на кнопке
+    .catalog-card__view-all {
+      .thirst-state {
+        position: absolute;
+        z-index: -2000;
+        visibility: hidden;
+        opacity: 0;
+      }
+
+      .second-state {
+        position: static;
+        visibility: initial;
+        opacity: 1;
+      }
+    }
+
+    // === прятать оверлей
+    &::before {
+      display: none;
+    }
+  }
+}
+
+// === adaptive
+// =============================================================================
+
+@media(max-width: 1440px) {
+  .w-catalog-card {
+    min-width: 100%;
+
+    &.--big {
+      .catalog-card {
+        padding-top: 3%;
+        padding-bottom: 0;
+        padding-left: 4%;
+        padding-right: 4%;
+
+        .w-btn-view-all {
+          padding-bottom: 25px;
+        }
+
+        .w-catalog-card-content {
+          max-width: 70%;
+        }
+
+        .component-expand-block {
+          max-width: 100%;
+        }
+      }
+
+      .catalog-card-image {
+        padding-top: 25%;
+      }
+    }
+
+    &.--small {
+      .catalog-card {
+        padding-top: 3%;
+        padding-bottom: 0;
+        padding-left: 4%;
+        padding-right: 4%;
+
+        .w-btn-view-all {
+          padding-bottom: 25px;
+        }
+
+        .w-catalog-card-content {
+          max-width: 70%;
+        }
+
+        .component-expand-block {
+          max-width: 100%;
+        }
+      }
+    }
+  }
+}
+
+
+@media (max-width: 800px) {
+  .s-catalog {
+    .section-heading {
+
+      flex-direction: column;
+      align-items: flex-start;
+
+      .section-heading__title {
+        margin-bottom: 0.5em;
+      }
+
+      .section-heading__link {
+        align-self: flex-end;
+      }
+
+      .section-heading-buttons {
+        align-self: flex-end;
+      }
+    }
+  }
+}
+
+@media(max-width: 640px) {
+  .w-group {
+    width: 100%;
+
+  }
+
+  .w-catalog-card {
+    .catalog-card {
+
+      .catalog-card-image {
+        opacity: 0.6;
+      }
+    }
+  }
+}

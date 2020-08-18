@@ -1,0 +1,37 @@
+//- to include
+//- include ./assets/components/sections/feedback/_s-feedback.jade
+
+
+.l-container
+  .w-feedback
+    .col-form
+      .feedback-heading
+        span.feedback-heading__title Подберем подарочный набор
+        span.feedback-heading__sub-title и сделаем макеты 
+          span.green-text бесплатно!
+
+      form(method="post" action="https://echo.htmlacademy.ru").feedback-form
+        .w-inputs_01
+          .col-left
+            label.component-input-text.--text-white.js-component-input-text
+              input.input-text-form(type="text" name="username").js-input
+              span.input-text-label.--bg-black Ваше имя
+
+            label.component-input-text.--text-white.js-component-input-text
+              input.input-text-form(type="text" name="phone").js-input
+              span.input-text-label.--bg-black Ваш телефон #[span.star *]
+
+          .col-right
+            label.component-input-text.input-textarea.--text-white.js-component-input-text
+              textarea.input-text-form(name="comment").js-input
+              span.input-text-label.--bg-black Ваш комментарий
+
+        .w-inputs_02
+          label.component-input-check.permission-PPD
+            input(type="checkbox" name="permission-PPD" checked).input-check-form
+            span.input-check-label
+              span.inner-content Согласен с условиями <wbr>
+                a(href="#").link.--text-green.--underline обработки персональных данных
+
+          button.btn-main.btn--filled-green.feedback__btn-send(type="submit") Отправить
+

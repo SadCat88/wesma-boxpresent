@@ -1,0 +1,357 @@
+// === style
+// =============================================================================
+
+.s-feedback {
+  position: relative;
+  z-index: 2;
+
+  background: URL('../img/patterns/feedback-bg-pattern-1.png') 110px 0 repeat;
+  background-color: $color-black-4;
+  padding-top: 4.5%;
+  padding-bottom: 4.5%;
+
+  // === bg present
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 57vw;
+    top: 0;
+    height: 100%;
+    width: 42vw;
+    background: URL('../img/feedback/bg-image-present.png') right 25% / contain no-repeat;
+  }
+
+  // === зеленая рамка
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 3.5%;
+    right: 3.5%;
+    top: 8%;
+    bottom: 9%;
+
+    border: 4px solid $color-green-1;
+  }
+
+  .w-feedback {
+    position: relative;
+    z-index: 2;
+
+    .col-form {
+      width: 51.5vw;
+      max-width: 870px;
+      padding-top: 4.8%;
+      padding-bottom: 4.2%;
+    }
+  }
+
+  .component-input-text {
+    font-size: 16px;
+
+    .input-text-form {
+      font-size: 16px;
+    }
+  }
+}
+
+.feedback-heading {
+  user-select: none;
+  position: relative;
+
+  padding-left: 5%;
+  margin-bottom: 7%;
+
+  // === полоски
+  &::after {
+    content: "";
+
+    position: absolute;
+    left: 6px;
+    top: 6px;
+    bottom: 6px;
+    width: 8px;
+
+    background: URL('../img/feedback/heading-left-line.svg') center center / cover no-repeat;
+  }
+
+  .feedback-heading__title {
+    display: inline-flex;
+    width: 100%;
+
+    font-weight: bold;
+    font-size: 24px;
+    white-space: nowrap;
+    line-height: 1;
+    text-transform: uppercase;
+    color: $color-white-1;
+  }
+
+  .feedback-heading__sub-title {
+    display: inline-block;
+    width: 100%;
+
+    font-weight: bold;
+    font-size: 45px;
+    line-height: 1.09;
+    text-transform: uppercase;
+    color: $color-white-1;
+
+    .green-text {
+      display: inline-block;
+      width: 100%;
+      color: $color-green-1;
+    }
+  }
+}
+
+.feedback-form {
+  .component-input-check {
+    font-weight: normal;
+    font-size: 14px;
+    color: $color-white-1;
+
+    .input-check-label {
+      padding-left: 75px;
+    }
+  }
+
+  .feedback__btn-send {
+    height: 55px;
+    width: 100%;
+    max-width: 206px;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+
+  .w-inputs_01 {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 4.5%;
+
+    .col-left {
+      flex-grow: 1;
+      width: 100%;
+      margin-right: 20px;
+      margin-left: 5px;
+    }
+
+    .col-right {
+      flex-grow: 1;
+      width: 100%;
+    }
+
+    .component-input-text {
+      height: 74px;
+
+      .input-text-label {
+        left: 14%;
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 36px;
+      }
+
+      &.input-textarea {
+        height: 100%;
+
+        .input-text-label {
+          top: 25%;
+        }
+
+        .input-text-form {
+          padding-top: 1em;
+          padding-bottom: 1em;
+          line-height: 1.3em;
+        }
+      }
+    }
+  }
+
+  .w-inputs_02 {
+    display: flex;
+    justify-content: space-between;
+
+    .component-input-check {
+      margin-right: 20px;
+    }
+  }
+}
+
+
+// === animations and actions
+// =============================================================================
+.s-feedback {
+  .component-input-text {
+    .input-text-label {
+      transition: all 0.1s ease 0s;
+    }
+
+    .input-text-form {
+
+
+      &:focus {
+        border: 2px solid $color-green-1;
+
+        &~.input-text-label {
+          z-index: 1;
+          top: 2px;
+          left: 32px;
+          transform: translate(0, -100%);
+
+          padding: 0 2px;
+
+          font-size: 12px;
+
+          &.--bg-black {
+            background-color: $color-black-4;
+          }
+
+          &.--bg-white {
+            background-color: $color-white-1;
+          }
+        }
+      }
+
+      &.--js-val-not-empty {
+        &~.input-text-label {
+          z-index: 1;
+          top: 2px;
+          left: 22px;
+          transform: translate(0, -100%);
+
+          padding: 0 2px;
+
+          font-size: 12px;
+
+          &.--bg-black {
+            background-color: $color-black-4;
+          }
+
+          &.--bg-white {
+            background-color: $color-white-1;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+// === adaptive
+// =============================================================================
+.s-feedback {
+  @media(max-width: 1280px) {
+    &::after {
+      height: 25.5vw;
+    }
+
+    .w-feedback {
+      .col-form {
+        width: 100%;
+      }
+    }
+  }
+
+  @media(max-width: 992px) {
+    &::after {
+      display: none;
+    }
+  }
+
+  @media(max-width: 768px) {
+    &::before {
+      top: 4%;
+      bottom: 4%;
+      left: 2%;
+      right: 2%;
+    }
+
+    .feedback-form {
+
+      .w-inputs_01 {
+        flex-direction: column;
+        padding-bottom: 0;
+
+        .col-left {
+          margin: 0;
+        }
+
+
+        .component-input-text {
+          margin-bottom: 3vw;
+
+          &:not(:last-child) {
+            margin-bottom: 3vw;
+          }
+
+          &.input-textarea {
+            height: 120px;
+          }
+        }
+      }
+    }
+  }
+
+  @media(max-width: 568px) {
+    .feedback-heading {
+      .feedback-heading__title {
+        font-size: 18px;
+      }
+
+      .feedback-heading__sub-title {
+        font-size: 32px;
+      }
+    }
+
+    .feedback-form {
+      .w-inputs_02 {
+        flex-direction: column;
+
+        .component-input-check {
+          margin-bottom: 3vw;
+        }
+
+        .feedback__btn-send {
+          margin-left: auto;
+          margin-bottom: 3vw;
+        }
+      }
+    }
+  }
+
+  @media(max-width: 400px) {
+    .feedback-heading {
+      &::after {
+        left: 0;
+      }
+    }
+  }
+
+  @media(max-width: 374px) {
+    .feedback-heading {
+      .feedback-heading__title {
+        font-size: 16px;
+      }
+
+      .feedback-heading__sub-title {
+        font-size: 28px;
+      }
+    }
+
+    .feedback-form {
+      .w-inputs_02 {
+
+        .permission-PPD .input-check-label .inner-content .link {
+          white-space: normal;
+        }
+
+        .feedback__btn-send {
+          margin-bottom: 5vw;
+        }
+      }
+    }
+  }
+}

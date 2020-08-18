@@ -1,0 +1,36 @@
+// === style
+// =============================================================================
+
+.s-some-text {
+  padding-top: 3%;
+  padding-bottom: 3.2%;
+
+  background-color: $color-gray-10;
+
+  .w-text-block {
+    padding-top: 3.5%;
+    padding-bottom: 3%;
+    padding-left: 6%;
+    padding-right: 6%;
+    font-size: 16px;
+    line-height: 25px;
+
+    border-radius: 10px;
+    background-color: $color-white-1;
+  }
+
+  .text-block__title {
+    display: inline-block;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 1.2em;
+    max-width: 592px;
+    margin-bottom: 1em;
+  }
+
+  .paragraph {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 0.8em;
+  }
+}

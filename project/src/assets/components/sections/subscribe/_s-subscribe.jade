@@ -1,0 +1,19 @@
+//- to include
+//- include ./assets/components/sections/subscribe/_s-subscribe.jade
+
+
+.l-container
+  .w-subscribe
+    span.subscribe-company-name BOXPRESENT
+
+    .w-subscribe-heading
+      span.subscribe-heading__title Будьте всегда в курсе!
+      span.subscribe-heading__description Не пропускайте новости о наших акциях, скидках и событиях, подпишитесь и узнавайте о них первым.
+
+    .w-subscribe-form
+      form(method="post" action="https://echo.htmlacademy.ru").subscribe-form-inputs
+        label.component-input-text.js-component-input-text.subscribe-form-email.--style-01
+          input.input-text-form(type="text" name="subscribe-email").js-input
+          span.input-text-label.--bg-white Ваш e-mail
+        button(type="submit").btn-main.btn--filled-green.subscribe-form-btn-submit Подписаться
+      span.subscribe-form__description Отправляя данные, вы соглашаетесь с #[a(href="#").link политикой конфиденциальности]

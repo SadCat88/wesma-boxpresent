@@ -1,0 +1,52 @@
+//- to include
+//- include ./assets/components/sections/promotions/_promotions.jade
+
+
+
+.l-container
+  .section-heading.our-services-heading
+    span.section-heading__title Акции и скидки
+    .section-heading-buttons
+      button(type="button")#promotions-list-slider-prev.btn-as-wrapper.btn-slider.btn-round--slider.--left #[span.visually-hidden Предыдущий]
+      button(type="button")#promotions-list-slider-next.btn-as-wrapper.btn-slider.btn-round--slider.--right #[span.visually-hidden Следующий]
+
+  .w-promotions-list#promotions-list-slider
+    .promotions-list-frame.--one-card-inside
+      .w-card-frame-inner
+        a(href="#").promotions-list-card.--big
+          .promotions-list-card-heading
+            .promotions-list-car-heading__title Температура растёт — цены снижаются до -25 %
+          span.promotions-list-card__time-left До 30.07.20
+          img(src="./assets/img/sliders/promotions/card-big_01.png" alt="promotion image").promotions-list__img
+
+
+    .promotions-list-frame.--four-card-inside
+      .w-card-frame-inner
+        a(href="#").promotions-list-card.--small
+          .promotions-list-card-heading
+            span.promotions-list-car-heading__title Бесплатное нанесение логотипа на одежду
+          span.promotions-list-card__time-left До 30.07.20
+          img(src="./assets/img/sliders/promotions/card-small_01.png" alt="promotion image").promotions-list__img
+        a(href="#").promotions-list-card.--small
+          .promotions-list-card-heading
+            span.promotions-list-car-heading__title Специальные цены на самые полюбившиеся подарки!
+          span.promotions-list-card__time-left До 30.07.20
+          img(src="./assets/img/sliders/promotions/card-small_02.png" alt="promotion image").promotions-list__img
+        a(href="#").promotions-list-card.--small
+          .promotions-list-card-heading
+            span.promotions-list-car-heading__title Полиграфическая продукция по низким ценам!
+          span.promotions-list-card__time-left До 30.07.20
+          img(src="./assets/img/sliders/promotions/card-small_03.png" alt="promotion image").promotions-list__img
+        a(href="#").promotions-list-card.--small
+          .promotions-list-card-heading
+            span.promotions-list-car-heading__title Горячая акция: нанесение на футболки B&C бесплатно!
+          span.promotions-list-card__time-left До 30.07.20
+          img(src="./assets/img/sliders/promotions/card-small_04.png" alt="promotion image").promotions-list__img
+
+    .promotions-list-frame.--one-card-inside
+      .w-card-frame-inner
+        a(href="#").promotions-list-card.--big
+          .promotions-list-card-heading
+            span.promotions-list-car-heading__title Test
+          span.promotions-list-card__time-left До 30.07.20
+          img(src="./assets/img/sliders/promotions/card-big_01.png" alt="promotion image").promotions-list__img

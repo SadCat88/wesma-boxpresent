@@ -235,17 +235,17 @@ gulp.task('dev-scss-compile', function () {
   );
 });
 
-// === компиляция SCSS для Liba Biba Pupa Lupa [dev]
+// === компиляция SCSS для simple-grid-layout [dev]
 // и создание sourcemaps к ним
-gulp.task('dev-liba-biba-scss-compile', function () {
+gulp.task('dev-simple-grid-layout-compile', function () {
   return (
     gulp
       .src(
         [
-          `./${path.root}/${path.src}/assets/vendors/source/liba-biba-pupa-lupa/**/*.scss`,
+          `./${path.root}/${path.src}/assets/simple-grid-layout/source/**/*.scss`,
         ],
         {
-          since: gulp.lastRun('dev-liba-biba-scss-compile'),
+          since: gulp.lastRun('dev-simple-grid-layout-compile'),
         }
       )
       .pipe(
@@ -259,38 +259,36 @@ gulp.task('dev-liba-biba-scss-compile', function () {
           }),
         })
       )
-      .pipe(debug({ title: '+ liba-biba compile:' }))
-      .pipe(remember('remember-dev-liba-biba-scss'))
+      .pipe(debug({ title: '+ simple-grid-layout compile:' }))
+      .pipe(remember('remember-simple-grid-layout'))
       .pipe(sourcemaps.init())
       // отсюда следим за изменениями для создания sourcemaps
       .pipe(sassGlob())
       .pipe(sass())
       .pipe(sourcemaps.write('./'))
       .pipe(
-        gulp.dest(
-          `./${path.root}/${path.src}/assets/vendors/liba-biba-pupa-lupa/css`
-        )
+        gulp.dest(`./${path.root}/${path.src}/assets/simple-grid-layout/css`)
       )
   );
 });
 
-// === копирование JS для Liba Biba Pupa Lupa [dev]
-gulp.task('dev-liba-biba-copy-files', function () {
+// === копирование JS для simple-grid-layout [dev]
+gulp.task('dev-simple-grid-layout-copy-files', function () {
   return (
     gulp
       .src([
-        `./${path.root}/${path.src}/assets/vendors/source/liba-biba-pupa-lupa/**/*.js`,
+        `./${path.root}/${path.src}/assets/simple-grid-layout/source/**/*.js`,
       ])
       .pipe(
         newer(
-          `./${path.root}/${path.src}/assets/vendors/liba-biba-pupa-lupa/js`
+          `./${path.root}/${path.src}/assets/simple-grid-layout/js`
         )
       )
       // только те, которые уже не лежат в приемнике
       .pipe(debug({ title: '= copy:' }))
       .pipe(
         gulp.dest(
-          `./${path.root}/${path.src}/assets/vendors/liba-biba-pupa-lupa/js`
+          `./${path.root}/${path.src}/assets/simple-grid-layout/js`
         )
       )
       .pipe(browserSync.stream())
@@ -327,22 +325,22 @@ gulp.task('dev-watch', function () {
     gulp.parallel(['dev-scss-compile'])
   );
 
-  // === при изменении исходников SCSS для Liba Biba Pupa Lupa
+  // === при изменении исходников SCSS для simple-grid-layout
   // компиляция
   gulp.watch(
     [
-      `./${path.root}/${path.src}/assets/vendors/source/liba-biba-pupa-lupa/**/*.scss`,
+      `./${path.root}/${path.src}/assets/simple-grid-layout/source/**/*.scss`,
     ],
-    gulp.parallel(['dev-liba-biba-scss-compile'])
+    gulp.parallel(['dev-simple-grid-layout-compile'])
   );
 
-  // === при изменении исходников JS для Liba Biba Pupa Lupa
+  // === при изменении исходников JS для  simple-grid-layout
   // копирование
   gulp.watch(
     [
-      `./${path.root}/${path.src}/assets/vendors/source/liba-biba-pupa-lupa/**/*.js`,
+      `./${path.root}/${path.src}/assets/simple-grid-layout/source/**/*.js`,
     ],
-    gulp.parallel(['dev-liba-biba-copy-files'])
+    gulp.parallel(['dev-simple-grid-layout-copy-files'])
   );
 
   // === при изменении файлов не требующих компиляции

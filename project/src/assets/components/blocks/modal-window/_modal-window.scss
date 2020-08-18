@@ -47,15 +47,22 @@ body.--js-scroll-hidden {
 
   transition: all 0.3s ease 0s;
   opacity: 0;
-  transform: perspective(200px) translate(0px, -100%) rotateX(45deg);
+  transform: perspective(200px) translate(0px, -100%) rotateX(45deg)
 }
 
 .modal-close {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  z-index: 2;
+  top: 5%;
+  right: 3%;
+
+  width: 24px;
+  height: 24px;
+
   line-height: 0;
   text-decoration: none;
+
+  background: URL('../img/icons/clouse.svg') center center/ 19px 19px no-repeat;
 }
 
 
@@ -68,27 +75,45 @@ body.--js-scroll-hidden {
 // =============================================================================
 .modal-body {
   padding: 0;
-  width: 100%;
-  max-width: 455px;
+  width: 90%;
+  max-width: 770px;
+  padding-left: 24px;
+  padding-right: 24px;
 
   background-color: $color-modal-window-bg-1;
+  border-radius: 5px;
 
   .modal-body-heading {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 80px;
-    padding: 12px 24px;
+    padding-top: 6%;
+    padding-bottom: 3%;
+    max-width: 612px;
+    margin: 0 auto;
 
     user-select: none;
 
-    background-color: $color-modal-window-bg-2;
+    // background-color: $color-modal-window-bg-2;
+
+    // === подчеркивание
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 1px;
+      background-color: $color-gray-11;
+    }
 
     .modal-body-heading__title {
       display: inline-flex;
       justify-content: center;
       align-items: center;
 
+      font-weight: 500;
       font-size: 24px;
       line-height: 1.1;
 
@@ -98,30 +123,259 @@ body.--js-scroll-hidden {
       text-align: center;
       overflow-wrap: break-word;
     }
+
+    .modal-body-heading-tab-list {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      margin-top: 1%;
+      margin-bottom: 1.5%;
+
+      width: 100%;
+      max-width: 612px;
+
+      .component-tabs-panel-item__btn {
+        padding: 0 0.5em;
+        margin-left: -0.5em;
+      }
+
+      .modal-body-heading-tab-item:not(:last-child) {
+        margin-right: 4.5vw;
+      }
+    }
   }
 
   .modal-body-content {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 0 auto;
+    padding-top: 7.7%;
+    padding-bottom: 6%;
 
-    padding-top: 24px;
-    padding-left: 24px;
-    padding-right: 24px;
-    padding-bottom: 24px;
+    max-width: 612px;
   }
 
   .component-input-text {
-    margin-bottom: 4%;
-    max-width: 380px;
+    margin-bottom: 5.2%;
+  }
+
+  .component-input-text.input-textarea {
+    height: 128px;
+
+    .input-text-form {
+      border-radius: 5px;
+      padding-top: 0.5em;
+      padding-bottom: 0.5em;
+    }
+
+    .input-text-label {
+      top: 1.8em;
+    }
+  }
+
+  .w-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    &.--reg {
+      .modal-body__btn-send {
+        margin-right: 2em;
+        margin-bottom: 3em;
+        max-width: 296px;
+      }
+
+      .modal-description {
+        max-width: 250px;
+        margin-top: -2em;
+      }
+    }
+
+    &.--login {
+      align-items: baseline;
+
+      .modal-body__btn-send {
+        max-width: 174px;
+        margin-bottom: 0;
+      }
+
+      .forgot-password-link {
+        font-weight: 500;
+        font-size: 16px;
+        margin-right: 1.5em;
+        margin-bottom: 0.7em;
+      }
+    }
+  }
+
+  .component-tabs-panel-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
   }
 
   .modal-body__btn-send {
-    margin-top: 2%;
+    margin-top: 0;
     margin-bottom: 4%;
-    width: 136px;
-    height: 44px;
+    width: 100%;
+    max-width: 218px;
+    height: 68px;
+    font-weight: bold;
+    font-size: 15px;
 
-    color: $color-black-2;
+    color: $color-white-1;
+    text-transform: uppercase;
+  }
+
+  .modal-description {
+    font-size: 13px;
+    color: $color-gray-2;
+    max-width: 231px;
+    line-height: 1.3em;
+
+    .link {
+      white-space: nowrap;
+    }
+  }
+}
+
+
+// === animation and action
+// =============================================================================
+
+.modal-close {
+  transition: all 0.3s ease 0s;
+
+  &:hover {
+    transform: scale(1.4);
+  }
+}
+
+.modal-body {
+  .modal-body-heading {
+    .modal-body-heading-tab-list {
+      position: relative;
+      display: flex;
+      // justify-content: flex-start;
+
+      .modal-body-heading-tab-item__btn {
+        position: relative;
+
+        font-weight: 500;
+        font-size: 18px;
+        color: $color-gray-2;
+
+        // === подчеркивание
+        &::after {
+          content: "";
+          position: absolute;
+          left: 0.5em;
+          right: 0.5em;
+          bottom: -2px;
+          height: 2px;
+          background-color: $color-green-1--hover;
+          transform: scale(0);
+          transition: all 0.4s ease 0s;
+          opacity: 0.6;
+        }
+
+        &.--js-active {
+          font-weight: 500;
+          font-size: 24px;
+          color: $color-black-2;
+          margin-bottom: 0.2em;
+        }
+
+        &:hover {
+          &::after {
+            transform: scale(1);
+          }
+        }
+      }
+    }
+  }
+}
+
+.component-input-text.input-textarea {
+  .input-text-form {
+    &:focus {
+      border: 2px solid $color-green-1;
+
+      &~.input-text-label {
+        top: 2px;
+      }
+    }
+
+    &.--js-val-not-empty {
+      &~.input-text-label {
+        top: 2px;
+      }
+    }
+  }
+}
+
+// === adaptive
+// =============================================================================
+@media(max-width: 630px) {
+  .modal-body {
+    .modal-close {
+      top: 12px;
+      right: 12px;
+    }
+
+    .w-line {
+      &.--reg {
+        flex-direction: column;
+
+        .modal-body__btn-send {
+          margin-right: 0;
+        }
+
+        .modal-description {
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+@media(max-width: 440px) {
+  .modal-body {
+
+    .w-line {
+      &.--login {
+        flex-direction: column;
+        align-items: center;
+
+        .forgot-password-link {
+          margin-right: 0;
+        }
+      }
+    }
+
+    .modal-body-heading {
+      .modal-body-heading__title {
+        font-size: 18px;
+      }
+    }
+
+    .component-input-text {
+      margin-bottom: 1.2em;
+    }
+
+    .component-input-text {
+      height: 48px;
+    }
+
+    .modal-body__btn-send {
+      height: 48px;
+    }
+
+    .modal-description.--callback {
+      text-align: center;
+    }
   }
 }

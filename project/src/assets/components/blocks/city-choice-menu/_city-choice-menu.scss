@@ -34,22 +34,63 @@ $city-menu-color-font-2--hover: $color-green-1--hover;
 
   .modal-body {
     width: auto;
-    max-width: 90vw;
+    width: 90vw;
+    max-width: 1165px;
+
+    .modal-close {
+      top: 12px;
+      right: 12px;
+    }
 
     .modal-body-heading {
-      padding: 8px 4% 8px 6%;
+      padding: 2.5% 5%;
       height: auto;
       min-height: auto;
-      justify-content: flex-start;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 100%;
 
       .modal-body-heading__title {
         justify-content: flex-start;
+        flex-shrink: 0;
+        font-weight: 500;
+        font-size: 18px;
+        margin-right: 2em;
+        white-space: nowrap;
+      }
+
+      .form-city-choice-search {
+        position: relative;
+        width: 100%;
+        max-width: 711px;
+
+        .btn-search {
+          position: absolute;
+          z-index: 2;
+          right: 2.2%;
+          top: 50%;
+          transform: translate(0, -50%);
+          width: 44px;
+          height: 44px;
+
+          background: URL('../img/icons/search-02.svg') center center / 21px no-repeat;
+        }
+      }
+
+      .component-input-text.--local-style {
+        width: 100%;
+        margin-bottom: 0;
+
+        .input-text-form {
+          padding-right: 60px;
+        }
       }
     }
 
     .modal-body-content {
       padding: 2% 4% 2% 6%;
-      align-items: flex-start
+      align-items: flex-start;
+      max-width: 100%;
     }
   }
 
@@ -197,6 +238,16 @@ $city-menu-color-font-2--hover: $color-green-1--hover;
 // =============================================================================
 @media(max-width: 768px) {
   .component-city-choice-menu {
+    .modal-body {
+      .modal-body-heading {
+        padding: 24px;
+        flex-wrap: wrap;
+      }
+
+      .modal-body-heading__title { 
+        margin-bottom: 0.5em;
+      }
+    }
 
     .small-city-list {
       columns: initial;

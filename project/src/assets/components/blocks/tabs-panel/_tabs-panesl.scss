@@ -1,0 +1,33 @@
+// === style
+// =============================================================================
+.component-tabs-panel {
+  flex-direction: column;
+
+  .modal-body-heading-tab-list {
+    display: flex;
+  }
+
+  .w-component-tabs-panel-body {}
+
+  .component-tabs-panel-body {
+    display: none;
+    opacity: 0;
+    position: absolute;
+    height: 0;
+  }
+}
+
+// === animation and actions
+// =============================================================================
+.component-tabs-panel-body {
+  opacity: 0;
+  position: absolute;
+  transition: all 0.3s ease 0s;
+
+  &.--js-show {
+    display: flex;
+    opacity: 1;
+    height: auto;
+    position: static;
+  }
+}

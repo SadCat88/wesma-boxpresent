@@ -9,6 +9,16 @@ block top-body
     //- мобильная шапка
     include ./assets/components/blocks/mobile-top-panel/_mobile-top-panel.jade
 
+    .w-search-panel.--js-close#searchPanel
+      .l-container
+        form(method="post" action="https://echo.htmlacademy.ru").search-form
+          input(type="text" name="search" placeholder="Поиск" autofocus).search-form__input-text.js-input-text
+          button(type="submit").btn-as-wrapper.btn-main.btn--filled-green.search-form__btn-submit Найти
+          button(type="button").btn-as-wrapper.btn-close.search-form__btn-close.js-close
+            span.visually-hidden Закрыть
+
+
+
     //- .w-top-menu
     .l-container
       .w-top-menu
@@ -22,7 +32,7 @@ block top-body
         //- проверить статус заказа
         include ./assets/components/blocks/check-order-status/_check-order-status.jade
 
-    .l-container
+    .l-container.container-middle-menu
       .w-middle-menu
         //- логотип
         include ./assets/components/blocks/logotype/_logotype.jade
@@ -35,12 +45,12 @@ block top-body
           //- иконки навигации
           include ./assets/components/blocks/user-navigation/_user-navigation.jade
 
-  section.fast-category
+  section.s-fast-category
     //- быстрые категории
     include ./assets/components/blocks/fast-category/_fast-category.jade
 
 
-  section.header-slider
+  section.s-header-slider
     .l-container
       .l-row
         .l-col-12.--col-1680-16.col-header-slider
@@ -53,564 +63,290 @@ block top-body
 
 
 
-  section.product-slider-group
-    .l-container
-      nav.slider-group-navigation
-        ul.slider-group-tab-list
-          li.slider-group-tab-item
-            a(href="#").btn-as-wrapper.slider-group-tab-item__btn Новинки
-          li.slider-group-tab-item.--js-active
-            a(href="#").btn-as-wrapper.slider-group-tab-item__btn Хиты сезона
-          li.slider-group-tab-item
-            a(href="#").btn-as-wrapper.slider-group-tab-item__btn Распродажа
-
-        .w-slider-group-buttons
-          button(type="button").btn-as-wrapper.slider-group__btn #[span.visually-hidden Предыдущий]
-          button(type="button").btn-as-wrapper.slider-group__btn #[span.visually-hidden Следующий]
-
-      ul.slider-group#slider-group
-
-        li.slider-group-slide
-          .product-card
-
-            ul.product-card-color-list
-              li.product-card-color-item
-                button(type="button").btn-as-wrapper.product-card-color-item__action 
-                  span.inner-content.--color-01(style="background-color: #C4C4C4")
-                    span.visually-hidden Серый
-              li.product-card-color-item
-                button(type="button").btn-as-wrapper.product-card-color-item__action 
-                  span.inner-content.--color-02(style="background-color: #A94525")
-                    span.visually-hidden Красный
-              li.product-card-color-item
-                button(type="button").btn-as-wrapper.product-card-color-item__action 
-                  span.inner-content.--color-03(style="background-color: #B1C918")
-                    span.visually-hidden Зеленый]
-              li.product-card-color-item
-                button(type="button").btn-as-wrapper.product-card-color-item__action 
-                  span.inner-content.--color-04(style="background-color: #FFEB3A")
-                    span.visually-hidden Желтый]
-              li.product-card-color-item
-                button(type="button").btn-as-wrapper.product-card-color-item__action
-                  span.inner-content.--color-05(style="background-color: #83C5E5")
-                    span.visually-hidden Синий
-
-            .w-icon-buttons
-              button(type="button").btn-as-wrapper.product-card-icon-btn.--add-to-favorites
-                span.inner-content 
-                  span.visually-hidden Добавить в избранное
-
-              button(type="button").btn-as-wrapper.product-card-icon-btn.--order-sample
-                span.inner-content 
-                  span.visually-hidden Заказать образец
-
-
-            a(href="#").product-card__image
-              img.product-card__image-img(src="./assets/img/products/product-card/product_01.jpg" alt="product image").product-card__image-img
-
-
-            span.product-card-title.
-              Футболка детская "Kids Original T", желтый, 12-13 лет, 100% х/б, 145 г/м2
-
-            span.product-card-availability.--in-stock
-              span.product-card-availability__indicator
-              span.product-card-availability__description В наличии
-
-            .w-price-and-btn
-              span.product-card-price
-                span.product-card-price__old-price
-                  span.value 2 500
-                span.product-card-price__new-price
-                  span.value 1 768
-                  | ₽
-
-              button(type="button").btn-main.btn--filled-transparent.product-card-price__btn 
-                span.inner-content В корзину
-
-        li.slider-group-slide
-          .product-card
-
-            ul.product-card-color-list
-              li.product-card-color-item
-                button(type="button").btn-as-wrapper.product-card-color-item__action 
-                  span.inner-content.--color-01(style="background-color: #C4C4C4")
-                    span.visually-hidden Серый
-              li.product-card-color-item
-                button(type="button").btn-as-wrapper.product-card-color-item__action 
-                  span.inner-content.--color-02(style="background-color: #A94525")
-                    span.visually-hidden Красный
-              li.product-card-color-item
-                button(type="button").btn-as-wrapper.product-card-color-item__action 
-                  span.inner-content.--color-03(style="background-color: #B1C918")
-                    span.visually-hidden Зеленый]
-              li.product-card-color-item
-                button(type="button").btn-as-wrapper.product-card-color-item__action 
-                  span.inner-content.--color-04(style="background-color: #FFEB3A")
-                    span.visually-hidden Желтый]
-              li.product-card-color-item
-                button(type="button").btn-as-wrapper.product-card-color-item__action
-                  span.inner-content.--color-05(style="background-color: #83C5E5")
-                    span.visually-hidden Синий
-
-            .w-icon-buttons
-              button(type="button").btn-as-wrapper.product-card-icon-btn.--add-to-favorites
-                span.inner-content 
-                  span.visually-hidden Добавить в избранное
-
-              button(type="button").btn-as-wrapper.product-card-icon-btn.--order-sample
-                span.inner-content 
-                  span.visually-hidden Заказать образец
-
-
-            a(href="#").product-card__image
-              img.product-card__image-img(src="./assets/img/products/product-card/product_02.jpg" alt="product image").product-card__image-img
-
-
-            span.product-card-title.
-              Ежедневник недатированный Ellie, А5, бордовый, кремовый блок, без обреза
-
-            span.product-card-availability.--in-stock
-              span.product-card-availability__indicator
-              span.product-card-availability__description В наличии
-
-            .w-price-and-btn
-              span.product-card-price
-                span.product-card-price__old-price
-                  span.value 2 500
-                span.product-card-price__new-price
-                  span.value 999 999
-                  | ₽
-
-              button(type="button").btn-main.btn--filled-transparent.product-card-price__btn 
-                span.inner-content В корзину
-
-        li.slider-group-slide
-          .product-card
-
-            ul.product-card-color-list
-              li.product-card-color-item
-                button(type="button").btn-as-wrapper.product-card-color-item__action 
-                  span.inner-content.--color-01(style="background-color: #C4C4C4")
-                    span.visually-hidden Серый
-              li.product-card-color-item
-                button(type="button").btn-as-wrapper.product-card-color-item__action 
-                  span.inner-content.--color-02(style="background-color: #A94525")
-                    span.visually-hidden Красный
-              li.product-card-color-item
-                button(type="button").btn-as-wrapper.product-card-color-item__action 
-                  span.inner-content.--color-03(style="background-color: #B1C918")
-                    span.visually-hidden Зеленый]
-
-            .w-icon-buttons
-              button(type="button").btn-as-wrapper.product-card-icon-btn.--add-to-favorites
-                span.inner-content 
-                  span.visually-hidden Добавить в избранное
-
-              button(type="button").btn-as-wrapper.product-card-icon-btn.--order-sample
-                span.inner-content 
-                  span.visually-hidden Заказать образец
-
-
-            a(href="#").product-card__image
-              img.product-card__image-img(src="./assets/img/products/product-card/product_03.jpg" alt="product image").product-card__image-img
-
-
-            span.product-card-title.
-              N6, ручка шариковая, белый, пластик
-
-            span.product-card-availability.--in-stock
-              span.product-card-availability__indicator
-              span.product-card-availability__description В наличии
-
-            .w-price-and-btn
-              span.product-card-price
-                span.product-card-price__old-price
-                  span.value 2 500
-                span.product-card-price__new-price
-                  span.value 1 768
-                  | ₽
-
-              button(type="button").btn-main.btn--filled-transparent.product-card-price__btn 
-                span.inner-content В корзину
-
-        li.slider-group-slide
-          .product-card
-
-            ul.product-card-color-list
-              li.product-card-color-item
-                button(type="button").btn-as-wrapper.product-card-color-item__action 
-                  span.inner-content.--color-01(style="background-color: #C4C4C4")
-                    span.visually-hidden Серый
-              li.product-card-color-item
-                button(type="button").btn-as-wrapper.product-card-color-item__action 
-                  span.inner-content.--color-02(style="background-color: #A94525")
-                    span.visually-hidden Красный
-              li.product-card-color-item
-                button(type="button").btn-as-wrapper.product-card-color-item__action 
-                  span.inner-content.--color-03(style="background-color: #B1C918")
-                    span.visually-hidden Зеленый]
-              li.product-card-color-item
-                button(type="button").btn-as-wrapper.product-card-color-item__action 
-                  span.inner-content.--color-04(style="background-color: #FFEB3A")
-                    span.visually-hidden Желтый]
-              li.product-card-color-item
-                button(type="button").btn-as-wrapper.product-card-color-item__action
-                  span.inner-content.--color-05(style="background-color: #83C5E5")
-                    span.visually-hidden Синий
-
-            .w-icon-buttons
-              button(type="button").btn-as-wrapper.product-card-icon-btn.--add-to-favorites
-                span.inner-content 
-                  span.visually-hidden Добавить в избранное
-
-              button(type="button").btn-as-wrapper.product-card-icon-btn.--order-sample
-                span.inner-content 
-                  span.visually-hidden Заказать образец
-
-
-            a(href="#").product-card__image
-              img.product-card__image-img(src="./assets/img/products/product-card/product_04.jpg" alt="product image").product-card__image-img
-
-
-            span.product-card-title.
-              Набор "Грильяж - глинвейн",мягкий кедровый грильяж и чайный напиток 21,5*21,5*6 см
-
-            span.product-card-availability.--in-stock
-              span.product-card-availability__indicator
-              span.product-card-availability__description В наличии
-
-            .w-price-and-btn
-              span.product-card-price
-                span.product-card-price__old-price
-                  span.value 2 500
-                span.product-card-price__new-price
-                  span.value 1 768
-                  | ₽
-
-              button(type="button").btn-main.btn--filled-transparent.product-card-price__btn 
-                span.inner-content В корзину
-
-
-
-        //- test
-        li.slider-group-slide
-          .product-card
-
-            ul.product-card-color-list
-              li.product-card-color-item
-                button(type="button").btn-as-wrapper.product-card-color-item__action 
-                  span.inner-content.--color-01(style="background-color: #C4C4C4")
-                    span.visually-hidden Серый
-              li.product-card-color-item
-                button(type="button").btn-as-wrapper.product-card-color-item__action 
-                  span.inner-content.--color-02(style="background-color: #A94525")
-                    span.visually-hidden Красный
-              li.product-card-color-item
-                button(type="button").btn-as-wrapper.product-card-color-item__action 
-                  span.inner-content.--color-03(style="background-color: #B1C918")
-                    span.visually-hidden Зеленый]
-              li.product-card-color-item
-                button(type="button").btn-as-wrapper.product-card-color-item__action 
-                  span.inner-content.--color-04(style="background-color: #FFEB3A")
-                    span.visually-hidden Желтый]
-              li.product-card-color-item
-                button(type="button").btn-as-wrapper.product-card-color-item__action
-                  span.inner-content.--color-05(style="background-color: #83C5E5")
-                    span.visually-hidden Синий
-
-            .w-icon-buttons
-              button(type="button").btn-as-wrapper.product-card-icon-btn.--add-to-favorites
-                span.inner-content 
-                  span.visually-hidden Добавить в избранное
-
-              button(type="button").btn-as-wrapper.product-card-icon-btn.--order-sample
-                span.inner-content 
-                  span.visually-hidden Заказать образец
-
-
-            a(href="#").product-card__image
-              img.product-card__image-img(src="./assets/img/test/210x210-01.png" alt="product image").product-card__image-img
-
-
-            span.product-card-title.
-              Тест
-
-            span.product-card-availability.--in-stock
-              span.product-card-availability__indicator
-              span.product-card-availability__description В наличии
-
-            .w-price-and-btn
-              span.product-card-price
-                span.product-card-price__old-price
-                  span.value 9 999
-                span.product-card-price__new-price
-                  span.value 8 888
-                  | ₽
-
-              button(type="button").btn-main.btn--filled-transparent.product-card-price__btn 
-                span.inner-content В корзину
-
-        li.slider-group-slide
-          .product-card
-
-            ul.product-card-color-list
-              li.product-card-color-item
-                button(type="button").btn-as-wrapper.product-card-color-item__action 
-                  span.inner-content.--color-01(style="background-color: #C4C4C4")
-                    span.visually-hidden Серый
-              li.product-card-color-item
-                button(type="button").btn-as-wrapper.product-card-color-item__action 
-                  span.inner-content.--color-02(style="background-color: #A94525")
-                    span.visually-hidden Красный
-              li.product-card-color-item
-                button(type="button").btn-as-wrapper.product-card-color-item__action 
-                  span.inner-content.--color-03(style="background-color: #B1C918")
-                    span.visually-hidden Зеленый]
-              li.product-card-color-item
-                button(type="button").btn-as-wrapper.product-card-color-item__action 
-                  span.inner-content.--color-04(style="background-color: #FFEB3A")
-                    span.visually-hidden Желтый]
-              li.product-card-color-item
-                button(type="button").btn-as-wrapper.product-card-color-item__action
-                  span.inner-content.--color-05(style="background-color: #83C5E5")
-                    span.visually-hidden Синий
-
-            .w-icon-buttons
-              button(type="button").btn-as-wrapper.product-card-icon-btn.--add-to-favorites
-                span.inner-content 
-                  span.visually-hidden Добавить в избранное
-
-              button(type="button").btn-as-wrapper.product-card-icon-btn.--order-sample
-                span.inner-content 
-                  span.visually-hidden Заказать образец
-
-
-            a(href="#").product-card__image
-              img.product-card__image-img(src="./assets/img/test/210x210-02.png" alt="product image").product-card__image-img
-
-
-            span.product-card-title.
-              Тест <br>
-              тест
-
-            span.product-card-availability.--in-stock
-              span.product-card-availability__indicator
-              span.product-card-availability__description В наличии
-
-            .w-price-and-btn
-              span.product-card-price
-                span.product-card-price__old-price
-                  span.value 99 999
-                span.product-card-price__new-price
-                  span.value 88 888
-                  | ₽
-
-              button(type="button").btn-main.btn--filled-transparent.product-card-price__btn 
-                span.inner-content В корзину
-
-        li.slider-group-slide
-          .product-card
-
-            ul.product-card-color-list
-              li.product-card-color-item
-                button(type="button").btn-as-wrapper.product-card-color-item__action 
-                  span.inner-content.--color-01(style="background-color: #C4C4C4")
-                    span.visually-hidden Серый
-              li.product-card-color-item
-                button(type="button").btn-as-wrapper.product-card-color-item__action 
-                  span.inner-content.--color-02(style="background-color: #A94525")
-                    span.visually-hidden Красный
-              li.product-card-color-item
-                button(type="button").btn-as-wrapper.product-card-color-item__action 
-                  span.inner-content.--color-03(style="background-color: #B1C918")
-                    span.visually-hidden Зеленый]
-              li.product-card-color-item
-                button(type="button").btn-as-wrapper.product-card-color-item__action 
-                  span.inner-content.--color-04(style="background-color: #FFEB3A")
-                    span.visually-hidden Желтый]
-              li.product-card-color-item
-                button(type="button").btn-as-wrapper.product-card-color-item__action
-                  span.inner-content.--color-05(style="background-color: #83C5E5")
-                    span.visually-hidden Синий
-
-            .w-icon-buttons
-              button(type="button").btn-as-wrapper.product-card-icon-btn.--add-to-favorites
-                span.inner-content 
-                  span.visually-hidden Добавить в избранное
-
-              button(type="button").btn-as-wrapper.product-card-icon-btn.--order-sample
-                span.inner-content 
-                  span.visually-hidden Заказать образец
-
-
-            a(href="#").product-card__image
-              img.product-card__image-img(src="./assets/img/test/210x210-03.png" alt="product image").product-card__image-img
-
-
-            span.product-card-title.
-              Тест <br>
-              тест <br>
-              тест
-
-            span.product-card-availability.--in-stock
-              span.product-card-availability__indicator
-              span.product-card-availability__description В наличии
-
-            .w-price-and-btn
-              span.product-card-price
-                span.product-card-price__old-price
-                  span.value 999 999
-                span.product-card-price__new-price
-                  span.value 888 888
-                  | ₽
-
-              button(type="button").btn-main.btn--filled-transparent.product-card-price__btn 
-                span.inner-content В корзину
-
-        li.slider-group-slide
-          .product-card
-
-            ul.product-card-color-list
-              li.product-card-color-item
-                button(type="button").btn-as-wrapper.product-card-color-item__action 
-                  span.inner-content.--color-01(style="background-color: #C4C4C4")
-                    span.visually-hidden Серый
-              li.product-card-color-item
-                button(type="button").btn-as-wrapper.product-card-color-item__action 
-                  span.inner-content.--color-02(style="background-color: #A94525")
-                    span.visually-hidden Красный
-              li.product-card-color-item
-                button(type="button").btn-as-wrapper.product-card-color-item__action 
-                  span.inner-content.--color-03(style="background-color: #B1C918")
-                    span.visually-hidden Зеленый]
-              li.product-card-color-item
-                button(type="button").btn-as-wrapper.product-card-color-item__action 
-                  span.inner-content.--color-04(style="background-color: #FFEB3A")
-                    span.visually-hidden Желтый]
-              li.product-card-color-item
-                button(type="button").btn-as-wrapper.product-card-color-item__action
-                  span.inner-content.--color-05(style="background-color: #83C5E5")
-                    span.visually-hidden Синий
-
-            .w-icon-buttons
-              button(type="button").btn-as-wrapper.product-card-icon-btn.--add-to-favorites
-                span.inner-content 
-                  span.visually-hidden Добавить в избранное
-
-              button(type="button").btn-as-wrapper.product-card-icon-btn.--order-sample
-                span.inner-content 
-                  span.visually-hidden Заказать образец
-
-
-            a(href="#").product-card__image
-              img.product-card__image-img(src="./assets/img/test/210x210-04.png" alt="product image").product-card__image-img
-
-
-            span.product-card-title.
-              Тест <br>
-              тест <br>
-              тест
-
-
-            span.product-card-availability.--in-stock
-              span.product-card-availability__indicator
-              span.product-card-availability__description В наличии
-
-            .w-price-and-btn
-              span.product-card-price
-                span.product-card-price__old-price
-                  span.value 9 999 999
-                span.product-card-price__new-price
-                  span.value 8 888 888
-                  | ₽
-
-              button(type="button").btn-main.btn--filled-transparent.product-card-price__btn 
-                span.inner-content В корзину
-
-
-
-
-
-
-
-
-
-
-  br
-  br
-  br
-  br
-  br
-  br
-  br
-  br
-  br
-  br
-  br
-  br
-  br
-  br
-  br
-  br
-  br
-  br
-  br
-  br
-  br
-  br
-  br
-  br
-  br
-  br
-  br
-  br
-  br
-  br
-  br
-  br
-  br
-  br
-  br
-  br
-  br
-  br
-  br
-  br
-  br
-  br
-  br
-  br
-  br
-  br
-  br
-  br
-  p test
-
+  section.s-product-slider-group
+    //- слайдер с хитами продаж
+    include ./assets/components/sections/product-slider-group/_s-product-slider-group.jade
+
+  section.s-catalog
+    //- каталог товаров
+    include ./assets/components/sections/catalog/_s-catalog.jade
+
+  section.s-features
+    //- преимущества
+    include ./assets/components/sections/features/_s-features.jade
+
+
+  section.s-types-of-application
+    //- типы нанесения рисунка
+    include ./assets/components/sections/types-of-application/_s-types-of-application.jade
+
+
+  section.s-our-services
+    //- наши услуги
+    include ./assets/components/sections/our-services/_s-our-services.jade
+
+  section.s-catalog-brands  
+    //- каталог брендов
+    include ./assets/components/sections/catalog-brands/_s-catalog-brands.jade
+
+  section.s-promotions
+    //- акции и скидки
+    include ./assets/components/sections/promotions/_s-promotions.jade
+
+  section.s-our-work
+    //- наши работы
+    include ./assets/components/sections/our-work/_s-our-work.jade
+
+  section.s-feedback
+    //- форма обратной связи
+    include ./assets/components/sections/feedback/_s-feedback.jade
+
+  section.s-blog-preview
+    //- блог
+    include ./assets/components/sections/blog-preview/_s-blog-preview.jade
+
+  section.s-some-text
+    //- some text
+    include ./assets/components/sections/some-text/_s-some-text.jade
+
+  section.s-subscribe
+    //- subscribe
+    include ./assets/components/sections/subscribe/_s-subscribe.jade
+
+  footer.s-footer
+    .l-container.footer-container-01
+      //- === левая колонка
+      .w-footer-logotype
+        include ./assets/components/blocks/logotype/_logotype.jade
+
+        span.footer-copyright © 2020 «Бокс Презент». Все права защищены.
+
+        a(href="#").footer-privacy-policy.link.--text-green Политика конфиденциальности
+
+      //- === средняя колонка
+      nav.footer-navigation
+
+        .w-footer-navigation-group
+          span.footer-title Каталог продукции
+
+          ul.footer-navigation-list.js-component-expand-block__list
+            li.footer-navigation-list-item
+              a(href="#").footer-navigation-list-item__link Подарочные наборы
+            li.footer-navigation-list-item
+              a(href="#").footer-navigation-list-item__link Путешествие и отдых
+            li.footer-navigation-list-item
+              a(href="#").footer-navigation-list-item__link Ежедневники и блокноты
+            li.footer-navigation-list-item
+              a(href="#").footer-navigation-list-item__link Ручки
+            li.footer-navigation-list-item
+              a(href="#").footer-navigation-list-item__link Промо-сувениры
+            li.footer-navigation-list-item
+              a(href="#").footer-navigation-list-item__link Часы
+            li.footer-navigation-list-item
+              a(href="#").footer-navigation-list-item__link Уютный дом
+            li.footer-navigation-list-item
+              a(href="#").footer-navigation-list-item__link Упаковка подарочная
+
+        .w-footer-navigation-group
+          span.footer-title О компании
+
+          ul.footer-navigation-list.js-component-expand-block__list
+            li.footer-navigation-list-item
+              a(href="#").footer-navigation-list-item__link Кто мы
+            li.footer-navigation-list-item
+              a(href="#").footer-navigation-list-item__link Отзывы
+            li.footer-navigation-list-item
+              a(href="#").footer-navigation-list-item__link Портфолио
+            li.footer-navigation-list-item
+              a(href="#").footer-navigation-list-item__link Услуги
+            li.footer-navigation-list-item
+              a(href="#").footer-navigation-list-item__link Контакты
+            li.footer-navigation-list-item
+              a(href="#").footer-navigation-list-item__link Для поставщиков
+            li.footer-navigation-list-item
+              a(href="#").footer-navigation-list-item__link Условия работы
+            li.footer-navigation-list-item
+              a(href="#").footer-navigation-list-item__link Блог
+
+        .w-footer-navigation-group
+          span.footer-title Для клиентов 
+
+          ul.footer-navigation-list.js-component-expand-block__list
+            li.footer-navigation-list-item
+              a(href="#").footer-navigation-list-item__link Оплата
+            li.footer-navigation-list-item
+              a(href="#").footer-navigation-list-item__link Вопрос-ответ
+            li.footer-navigation-list-item
+              a(href="#").footer-navigation-list-item__link Доставка
+            li.footer-navigation-list-item
+              a(href="#").footer-navigation-list-item__link Бонусная программа
+            li.footer-navigation-list-item
+              a(href="#").footer-navigation-list-item__link Как сделать заказ
+            li.footer-navigation-list-item
+              a(href="#").footer-navigation-list-item__link Как стать поставщиком
+            li.footer-navigation-list-item
+              a(href="#").footer-navigation-list-item__link Документы
+            li.footer-navigation-list-item
+              a(href="#").footer-navigation-list-item__link Возврат товара
+
+      //- === правая колонка
+      .w-contact-info-group
+        span.footer-title Контакты
+
+        .w-contact-info-list
+          address.contact-info-item.--phone
+            a(href="tel:+74956004177").contact-info-item__text +7 (495) 600-41-77
+          address.contact-info-item.--mail
+            a(href="mailto:info@boxpresent.ru").contact-info-item__text info@boxpresent.ru
+          address.contact-info-item.--location
+            span.contact-info-item__text Москва, пл. Тверская застава д.3
+
+    .w-line-02
+      .l-container.footer-container-02
+        ul.footer-soc-icons
+
+          li.footer-soc-icons-item
+            a(href="#").footer-soc-icons-item__link.--fcbk
+              span.visually-hidden Facebook
+
+          li.footer-soc-icons-item
+            a(href="#").footer-soc-icons-item__link.--instgr
+              span.visually-hidden Instagram
+
+          li.footer-soc-icons-item
+            a(href="#").footer-soc-icons-item__link.--ytb
+              span.visually-hidden Youtube
+
+          li.footer-soc-icons-item
+            a(href="#").footer-soc-icons-item__link.--whtsp
+              span.visually-hidden WhatsApp
+
+          li.footer-soc-icons-item
+            a(href="#").footer-soc-icons-item__link.--tlgr
+              span.visually-hidden Telegram
+
+        .w-yandex-cashbox
+          a(href="#").yandex-cashbox__link
+            img(src="./assets/img/footer/yandex-cashbox.svg" alt="yandex cashbox logotype")
+            span.visually-hidden Яндекс Касса
+
+        .w-banner
+          a(href="#").banner-link
+            img(src="./assets/img/footer/supplier-portal.png" alt="image banner")
+            span.visually-hidden Портал поставщиков
 
 
 
 block modal-window
-  //- a.js-show-modal(href="#modal_1 data-target-modal="#modal_01") Заказать звонок
+  //- a.js-show-modal(href="#modal_01" data-target-modal="#modal_01") Заказать звонок
   //- button.js-show-modal(data-target-modal="#modal_01") Заказать звонок
 
+
+
+  //- === modal_01 - обратный звонок
   .modal-overlay.js-modal-overlay#modal_01
     form.modal-body(method="post" action="https://echo.htmlacademy.ru")
-      a(href="#").modal-close x
+      button(type="button").btn-as-wrapper.modal-close 
+        span.visually-hidden Закрыть
 
       .modal-body-heading 
         span.modal-body-heading__title Обратный звонок
 
       .modal-body-content
-        label.component-input-text.js-component-input-text.js-component-input-text
+        label.component-input-text.js-component-input-text
           input.input-text-form(type="text" name="username").js-input
-          span.input-text-label Ваше имя:
+          span.input-text-label.--bg-white Ваше имя#[span.star *]
 
         label.component-input-text.js-component-input-text
           input.input-text-form(type="text" name="phone").js-input
-          span.input-text-label Телефон:
+          span.input-text-label.--bg-white Ваш телефон#[span.star *]
 
         button.btn-main.btn--filled-green.modal-body__btn-send(type="submit") Отправить
 
+        span.modal-description.--callback.
+          Отправляя данные, вы соглашаетесь на #[a(href="#").link.--underline обработку персональных данных]
+
+  //- === modal_02 - заказать образец
+  .modal-overlay.js-modal-overlay#modal_02
+    form.modal-body.component-tabs-panel(method="post" action="https://echo.htmlacademy.ru")
+      button(type="button").btn-as-wrapper.modal-close 
+        span.visually-hidden Закрыть
+
+      .modal-body-heading 
+        span.modal-body-heading__title Заказать образец
+
+      .modal-body-content
+        label.component-input-text.js-component-input-text
+          input.input-text-form(type="text" name="username").js-input
+          span.input-text-label.--bg-white Ваше имя
+        label.component-input-text.js-component-input-text
+          input.input-text-form(type="text" name="phone").js-input
+          span.input-text-label.--bg-white Ваш телефон#[span.star *]
+        label.component-input-text.js-component-input-text
+          input.input-text-form(type="text" name="login").js-input
+          span.input-text-label.--bg-white Ваш E-mail#[span.star *]
+        label.component-input-text.input-textarea.--text-black.js-component-input-text
+          textarea(name="comment").input-text-form.js-input
+          span.input-text-label.--bg-white Ваш комментарий
+
+        button.btn-main.btn--filled-green.modal-body__btn-send(type="submit") Отправить
+
+        span.modal-description.--callback.
+          Отправляя данные, вы соглашаетесь на #[a(href="#").link.--underline обработку персональных данных]
+
+  //- === modal_03 - вход / регистрация
+  .modal-overlay.js-modal-overlay#modal_03
+    form.modal-body.component-tabs-panel(method="post" action="https://echo.htmlacademy.ru")
+      button(type="button").btn-as-wrapper.modal-close 
+        span.visually-hidden Закрыть
+
+      .modal-body-heading 
+        ul.modal-body-heading-tab-list.component-tabs-panel-list
+          li.modal-body-heading-tab-item.component-tabs-panel-item
+            a(href="#" data-num-btn="1").btn-as-wrapper.modal-body-heading-tab-item__btn.component-tabs-panel-item__btn.--js-active Вход
+          li.modal-body-heading-tab-item.component-tabs-panel-item
+            a(href="#" data-num-btn="2").btn-as-wrapper.modal-body-heading-tab-item__btn.component-tabs-panel-item__btn Регистрация
 
 
 
+      .modal-body-content.w-component-tabs-panel-body
+
+        //- === tab 01
+        .component-tabs-panel-body(data-num-tab="1").--js-show
+          label.component-input-text.js-component-input-text
+            input.input-text-form(type="text" name="login").js-input
+            span.input-text-label.--bg-white Ваш E-mail#[span.star *]
+
+          label.component-input-text.js-component-input-text
+            input.input-text-form(type="password" name="password").js-input
+            span.input-text-label.--bg-white Пароль#[span.star *]
+
+          .w-line.--login
+            a(href="#").link.forgot-password-link Забыли пароль?
+
+            button.btn-main.btn--filled-green.modal-body__btn-send(type="submit") Войти
+
+        //- === tab 02
+        .component-tabs-panel-body(data-num-tab="2")
+          label.component-input-text.js-component-input-text
+            input.input-text-form(type="text" name="full-name").js-input
+            span.input-text-label.--bg-white ФИО
+
+
+          label.component-input-text.js-component-input-text
+            input.input-text-form(type="text" name="email").js-input
+            span.input-text-label.--bg-white Ваш E-mail#[span.star *]
+
+          label.component-input-text.js-component-input-text
+            input.input-text-form(type="password" name="password_01").js-input
+            span.input-text-label.--bg-white Пароль#[span.star *]
+
+          label.component-input-text.js-component-input-text
+            input.input-text-form(type="password" name="password_02").js-input
+            span.input-text-label.--bg-white Повторите пароль#[span.star *]
+
+          .w-line.--reg
+            button.btn-main.btn--filled-green.modal-body__btn-send(type="submit") Зарегистрироваться
+
+            span.modal-description.
+              Отправляя данные, вы соглашаетесь на #[a(href="#").link.--underline обработку персональных данных]

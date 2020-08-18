@@ -1,0 +1,144 @@
+// === style
+// =============================================================================
+
+.s-our-work {
+  position: relative;
+
+  padding-top: 3.5%;
+  padding-bottom: 3%;
+
+  background: URL('../img/patterns/our-work-bg-pattern-1.png') left -170% no-repeat;
+
+  .section-heading {
+    margin-bottom: 4.5%;
+
+    .section-heading__title {
+      &::after {
+        width: 92px;
+      }
+    }
+  }
+}
+
+.our-work-list {
+  display: flex;
+  flex-wrap: wrap;
+
+  margin-left: -10px;
+  margin-right: -10px;
+}
+
+.our-work-card {
+  position: relative;
+
+  width: calc(25% - 20px);
+
+  margin-bottom: 20px;
+  margin-right: 10px;
+  margin-left: 10px;
+
+  .our-work-card__img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .w-content {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    max-height: 100%;
+    padding-top: 7.5%;
+    padding-bottom: 7.5%;
+    padding-left: 4%;
+    padding-right: 4%;
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: $color-blue-1;
+    border-radius: 10px 10px 0px 0px;
+
+    .our-work-card__description {
+      display: inline-block;
+      max-width: 240px;
+
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 1.56;
+      text-align: center;
+      text-transform: uppercase;
+      color: $color-white-1;
+    }
+  }
+}
+
+
+// === animations and actions
+// =============================================================================
+.our-work-card {
+  overflow: hidden;
+  user-select: none;
+
+  .w-content {
+    transform: translateY(100%);
+    opacity: 0;
+    transition: all 0.3s ease 0s;
+
+  }
+
+  &:hover {
+    .w-content {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
+
+// === adaptive
+// =============================================================================
+
+.s-our-work {
+  @media(max-width: 992px) {
+    .our-work-card {
+      width: calc(100% / 2 - 20px);
+
+      .w-content {
+        padding-top: 4%;
+        padding-bottom: 4%;
+        padding-left: 4%;
+        padding-right: 4%;
+        max-height: 100%;
+        align-items: flex-start;
+
+        .our-work-card__description {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+  @media(max-width: 568px) {
+    .section-heading {
+      flex-direction: column;
+
+      .section-heading__title {
+        align-self: flex-start;
+
+        &::after {
+          width: 92px;
+        }
+
+        margin-bottom: 0.5em;
+      }
+
+      .btn-main {
+        align-self: flex-end;
+      }
+    }
+  }
+}

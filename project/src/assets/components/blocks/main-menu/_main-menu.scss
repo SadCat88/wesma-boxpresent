@@ -23,6 +23,8 @@ $main-menu-item-color-bg: $color-white-1;
 }
 
 .main-menu-list {
+  position: relative;
+  z-index: 6;
   display: flex;
   flex-wrap: nowrap;
   flex-direction: row;
@@ -82,6 +84,51 @@ $main-menu-item-color-bg: $color-white-1;
   }
 }
 
+.main-menu-sublevel {
+  background: $color-white-1;
+  position: absolute;
+  left: 4px;
+  z-index: -1;
+  padding-top: 0.5em;
+  padding-bottom: 0.75em;
+  max-width: 320px;
+
+  border-left: 1px solid $color-border-1;
+  border-right: 1px solid $color-border-1;
+  border-bottom: 1px solid $color-border-1;
+
+  box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.15);
+
+  .main-menu-sublevel-item {
+    .main-menu-sublevel-item__link {
+      display: inline-block;
+      width: 100%;
+      padding-top: 0.5em;
+      padding-bottom: 0.5em;
+      padding-left: 1em;
+      padding-right: 1em;
+    }
+  }
+}
+
+.main-menu-list {
+  .main-menu-item {
+
+    .main-menu-sublevel {
+      opacity: 0;
+      transform: translate(0, -100%);
+      transition: all 0.3s ease 0s;
+    }
+
+    &:hover {
+      &>.main-menu-sublevel {
+        opacity: 1;
+        transform: translate(0);
+      }
+    }
+  }
+}
+
 // === animations and actions
 // =============================================================================
 .w-main-menu {
@@ -133,6 +180,34 @@ $main-menu-item-color-bg: $color-white-1;
 
       //   @extend %shadow-2;
       // }
+    }
+  }
+
+  // === подуровень
+  .main-menu-sublevel-item {
+    .main-menu-sublevel-item__link {
+      position: relative;
+
+      // === подчеркивание
+      &::before {
+        content: "";
+        position: absolute;
+        left: 4%;
+        bottom: 0;
+        height: 1px;
+        width: 0;
+        max-width: 92%;
+        background-color: $color-border-1;
+
+        transition: all 0.5s ease 0s;
+      }
+
+      &:hover {
+        &::before {
+          background-color: $color-green-1;
+          width: 100%;
+        }
+      }
     }
   }
 }

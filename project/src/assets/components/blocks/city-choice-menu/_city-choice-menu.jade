@@ -11,10 +11,17 @@ nav.component-city-choice-menu.js-component-city-choice-menu
 
   .modal-overlay.js-modal-overlay#modalCityChoice
     .modal-body.js-component-city-choice-menu-dropdown
-      a(href="#").modal-close x
+      button(type="button").btn-as-wrapper.modal-close
 
       .modal-body-heading 
         span.modal-body-heading__title Выберите ваш город
+
+        form(method="post" action="https://echo.htmlacademy.ru").form-city-choice-search
+          label.component-input-text.js-component-input-text.--style-02.--local-style
+            input.input-text-form(type="text" name="username").js-input
+            span.input-text-label Поиск города:
+
+          button(type="submit").btn-as-wrapper.btn-search #[span.visually-hidden Поиск]
 
       .modal-body-content
         ul.big-city-list

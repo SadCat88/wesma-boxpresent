@@ -1,0 +1,372 @@
+// === style
+// =============================================================================
+
+.s-blog-preview {
+  padding-top: 3%;
+  padding-bottom: 3%;
+  user-select: none;
+  background-color: $color-gray-9;
+  overflow: hidden;
+}
+
+.w-blog-preview {
+  display: flex;
+
+  .blog-preview-heading {
+    flex-shrink: 0;
+    width: 34%;
+    padding-top: 4.5%;
+    padding-bottom: 4.5%;
+    padding-left: 5vw;
+  }
+
+  .w-inner {
+    position: relative;
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 475px;
+    margin-left: auto;
+  }
+
+  .blog-preview-heading__title {
+    position: relative;
+    display: inline-block;
+    font-weight: 500;
+    font-size: 36px;
+    margin-bottom: 7%;
+
+    // === полосочка
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 80px;
+      height: 3px;
+      background-color: $color-green-1;
+    }
+  }
+
+  .blog-preview-heading__description {
+    display: inline-block;
+    width: 100%;
+    max-width: 220px;
+    margin-bottom: 7%;
+    color: $color-black-1;
+  }
+
+  .blog-preview-heading__btn-view-all {
+    padding-top: 0;
+    padding-bottom: 0;
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .w-slider-buttons {
+    position: absolute;
+    top: 0;
+    right: 11%;
+    transform: translate(0, -65%);
+
+    .btn-slider {
+      &:not(:last-child) {
+        margin-right: 8px;
+      }
+    }
+  }
+}
+
+.w-blog-preview-slider {
+  display: flex;
+
+  flex-direction: row;
+  width: 100%;
+
+  .blog-preview-card {
+    position: relative;
+    z-index: 2;
+    flex-shrink: 0;
+    width: 43%;
+
+    padding-left: 4%;
+    padding-right: 4%;
+    padding-top: 6.1%;
+    padding-bottom: 2%;
+
+    display: inline-flex;
+    justify-content: center;
+
+
+
+    &.--text-black {
+
+      background-color: $color-white-1;
+
+      // === белый оверлей
+      &::before {
+        content: "";
+        position: absolute;
+        z-index: 1;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background: rgba(255, 255, 255, 0.7);
+      }
+
+      .blog-preview-card__date {
+        color: $color-gray-2;
+      }
+
+      .blog-preview-card__title {
+        color: $color-black-2;
+      }
+
+      .blog-preview-card__text {
+        color: $color-black-2;
+      }
+    }
+
+    &.--text-white {
+
+      background-color: $color-gray-13;
+
+      // === черный оверлей
+      &::before {
+        content: "";
+        position: absolute;
+        z-index: 1;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background: rgba(40, 40, 40, 0.53);
+      }
+
+      .blog-preview-card__date {
+        color: $color-white-1;
+      }
+
+      .blog-preview-card__title {
+        color: $color-white-1;
+      }
+
+      .blog-preview-card__text {
+        color: $color-white-1;
+      }
+    }
+  }
+
+  .blog-preview-card__img {
+    position: absolute;
+    z-index: -2;
+    left: 0;
+    top: 0;
+    // opacity: 0;
+  }
+
+  .w-content {
+    position: relative;
+    z-index: 2;
+    padding-left: 3%;
+    width: 100%;
+    max-width: 405px;
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  .blog-preview-card__date {
+    position: relative;
+    z-index: 2;
+
+    margin-bottom: 11%;
+    padding-left: 40px;
+
+    font-size: 14px;
+    white-space: nowrap;
+
+    // == символ календарика
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 17px;
+      width: 17px;
+      background: URL('../img/icons/calendar.svg') center center / contain no-repeat;
+    }
+  }
+
+  .blog-preview-card__title {
+    display: inline-block;
+    margin-bottom: 9%;
+    overflow-wrap: break-word;
+
+    width: 100%;
+    max-width: 360px;
+    max-height: 3.1em;
+    min-height: 3.1em;
+    overflow: hidden;
+    font-size: 24px;
+    line-height: 1.05em;
+  }
+
+  .blog-preview-card__text {
+    width: 100%;
+    min-height: 6.2em;
+    max-height: 8.2em;
+
+    overflow: hidden;
+  }
+}
+
+// === slider plugin
+// =============================================================================
+.s-blog-preview {
+  .w-blog-preview-slider.slick-slider {
+    min-width: 0;
+
+
+    .slick-list {
+      overflow: hidden;
+      max-width: 100%;
+      min-width: 100%;
+    }
+
+    .slick-track {
+      display: flex;
+      max-width: 100%;
+      max-width: 100%;
+    }
+
+    .slick-slide {
+      flex-shrink: 0;
+      transition: all 0.3s ease 0s;
+    }
+
+  }
+}
+
+
+// === adaptive
+// =============================================================================
+.s-blog-preview {
+  @media(max-width: 992px) {
+    .w-blog-preview-slider {
+      .blog-preview-card__title {
+        font-size: 18px;
+      }
+    }
+  }
+
+  // === вертикально
+  @media(max-width: 768px) {
+    .w-blog-preview {
+      flex-direction: column;
+
+      .blog-preview-heading {
+        width: 100%;
+        padding-right: 5vw;
+      }
+
+      .w-inner {
+        max-width: 100%;
+      }
+
+      .blog-preview-heading__title {
+        margin-bottom: 0.5em;
+        width: auto;
+      }
+
+      .blog-preview-heading__description {
+        margin-bottom: 2em;
+        max-width: 100%;
+      }
+
+      .blog-preview-heading__btn-view-all {
+        height: 47px;
+        ;
+      }
+
+      .w-slider-buttons {
+        top: 100%;
+        right: 0;
+        transform: translate(0, -88%);
+
+        .btn-slider {
+          &:not(:last-child) {
+            margin-right: 0;
+          }
+        }
+      }
+    }
+
+    .w-blog-preview-slider {
+      .blog-preview-card {
+        padding: 2%;
+      }
+    }
+  }
+
+  @media(max-width: 640px) {
+    .w-blog-preview-slider {
+      .blog-preview-card {
+        width: 50%;
+      }
+    }
+  }
+
+  @media(max-width: 568px) {
+    .w-blog-preview-slider {
+      .blog-preview-card {
+        width: 100%;
+      }
+
+      .blog-preview-card__date {
+        margin-bottom: 2%;
+      }
+
+      .blog-preview-card__title {
+        margin-bottom: 4%;
+      }
+    }
+  }
+
+  @media(max-width: 374px) {
+    .w-blog-preview {
+      .blog-preview-heading__btn-view-all {
+        max-width: 160px;
+      }
+    }
+  }
+}
+
+
+// === animations and actions
+// =============================================================================
+.w-blog-preview-slider {
+  .blog-preview-card {
+    &::before {
+      opacity: 0;
+      transition: all 0.3s ease 0s;
+    }
+
+    .blog-preview-card__img {
+      opacity: 0;
+      transition: all 0.3s ease 0s;
+    }
+
+    &:hover {
+      &::before {
+        opacity: 1;
+      }
+
+      .blog-preview-card__img {
+        opacity: 1;
+      }
+    }
+  }
+}
