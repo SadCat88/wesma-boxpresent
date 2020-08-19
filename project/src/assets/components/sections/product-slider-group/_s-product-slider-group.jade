@@ -44,7 +44,7 @@
                 span.visually-hidden Синий
 
         .w-icon-buttons
-          button(type="button").btn-as-wrapper.product-card-icon-btn.--add-to-favorites
+          button(type="button").btn-as-wrapper.product-card-icon-btn.--add-to-favorites.--active
             span.inner-content 
               span.visually-hidden Добавить в избранное
 
@@ -53,21 +53,19 @@
               span.visually-hidden Заказать образец
 
 
-        a(href="#").product-card__image
+        .product-card__image
           img.product-card__image-img(src="./assets/img/products/product-card/product_01.jpg" alt="product image").product-card__image-img
 
 
-        span.product-card-title.
+        a(href="#").product-card-title.
           Футболка детская "Kids Original T", желтый, 12-13 лет, 100% х/б, 145 г/м2
 
-        span.product-card-availability.--in-stock
-          span.product-card-availability__indicator
-          span.product-card-availability__description В наличии
+        span.product-card-availability.--not-available Нет в наличии
 
         .w-price-and-btn
           span.product-card-price
-            span.product-card-price__old-price
-              span.value 2 500
+            //- span.product-card-price__old-price
+              //- span.value 2 500
             span.product-card-price__new-price
               span.value 1 768
               | ₽
@@ -114,12 +112,10 @@
           img.product-card__image-img(src="./assets/img/products/product-card/product_02.jpg" alt="product image").product-card__image-img
 
 
-        span.product-card-title.
+        a(href="#").product-card-title.
           Ежедневник недатированный Ellie, А5, бордовый, кремовый блок, без обреза
 
-        span.product-card-availability.--in-stock
-          span.product-card-availability__indicator
-          span.product-card-availability__description В наличии
+        span.product-card-availability.--in-stock В наличии
 
         .w-price-and-btn
           span.product-card-price
@@ -163,12 +159,10 @@
           img.product-card__image-img(src="./assets/img/products/product-card/product_03.jpg" alt="product image").product-card__image-img
 
 
-        span.product-card-title.
+        a(href="#").product-card-title.
           N6, ручка шариковая, белый, пластик
 
-        span.product-card-availability.--in-stock
-          span.product-card-availability__indicator
-          span.product-card-availability__description В наличии
+        span.product-card-availability.--in-stock В наличии
 
         .w-price-and-btn
           span.product-card-price
@@ -220,13 +214,11 @@
           img.product-card__image-img(src="./assets/img/products/product-card/product_04.jpg" alt="product image").product-card__image-img
 
 
-        span.product-card-title.
+        a(href="#").product-card-title.
           Набор "Грильяж - глинвейн",мягкий кедровый грильяж и чайный напиток 21,5*21,5*6 см
 
-        span.product-card-availability.--in-stock
-          span.product-card-availability__indicator
-          span.product-card-availability__description В наличии
-
+        span.product-card-availability.--in-stock В наличии
+          
         .w-price-and-btn
           span.product-card-price
             span.product-card-price__old-price
@@ -278,13 +270,11 @@
           img.product-card__image-img(src="./assets/img/test/210x210-01.png" alt="product image").product-card__image-img
 
 
-        span.product-card-title.
+        a(href="#").product-card-title.
           Тест
 
-        span.product-card-availability.--in-stock
-          span.product-card-availability__indicator
-          span.product-card-availability__description В наличии
-
+        span.product-card-availability.--in-stock В наличии
+          
         .w-price-and-btn
           span.product-card-price
             span.product-card-price__old-price
@@ -335,14 +325,12 @@
           img.product-card__image-img(src="./assets/img/test/210x210-02.png" alt="product image").product-card__image-img
 
 
-        span.product-card-title.
+        a(href="#").product-card-title.
           Тест <br>
           тест
 
-        span.product-card-availability.--in-stock
-          span.product-card-availability__indicator
-          span.product-card-availability__description В наличии
-
+        span.product-card-availability.--in-stock В наличии
+          
         .w-price-and-btn
           span.product-card-price
             span.product-card-price__old-price
@@ -393,15 +381,13 @@
           img.product-card__image-img(src="./assets/img/test/210x210-03.png" alt="product image").product-card__image-img
 
 
-        span.product-card-title.
+        a(href="#").product-card-title.
           Тест <br>
           тест <br>
           тест
 
-        span.product-card-availability.--in-stock
-          span.product-card-availability__indicator
-          span.product-card-availability__description В наличии
-
+        span.product-card-availability.--in-stock В наличии
+          
         .w-price-and-btn
           span.product-card-price
             span.product-card-price__old-price
@@ -452,16 +438,14 @@
           img.product-card__image-img(src="./assets/img/test/210x210-04.png" alt="product image").product-card__image-img
 
 
-        span.product-card-title.
+        a(href="#").product-card-title.
           Тест <br>
           тест <br>
           тест
 
 
-        span.product-card-availability.--in-stock
-          span.product-card-availability__indicator
-          span.product-card-availability__description В наличии
-
+        span.product-card-availability.--in-stock В наличии
+          
         .w-price-and-btn
           span.product-card-price
             span.product-card-price__old-price

@@ -65,14 +65,21 @@
 // === animations and actions
 // =============================================================================
 .types-of-application-card {
-
-  transform: translateZ(0);
   transition: all 0.3s ease 0s;
 
+  .types-of-application-card__title {
+    transition: all 0.3s ease 0s;
+  }
+
   &:hover {
-    transform: scale(1.05);
+    bottom: 2px;
+
+    .types-of-application-card__title {
+      color: $color-green-8;
+    }
   }
 }
+
 
 // === adaptive
 // =============================================================================

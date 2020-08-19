@@ -9,15 +9,8 @@ block top-body
     //- мобильная шапка
     include ./assets/components/blocks/mobile-top-panel/_mobile-top-panel.jade
 
-    .w-search-panel.--js-close#searchPanel
-      .l-container
-        form(method="post" action="https://echo.htmlacademy.ru").search-form
-          input(type="text" name="search" placeholder="Поиск" autofocus).search-form__input-text.js-input-text
-          button(type="submit").btn-as-wrapper.btn-main.btn--filled-green.search-form__btn-submit Найти
-          button(type="button").btn-as-wrapper.btn-close.search-form__btn-close.js-close
-            span.visually-hidden Закрыть
-
-
+    //- панель поиска
+    include ./assets/components/blocks/search-panel/_search-panel.jade
 
     //- .w-top-menu
     .l-container
@@ -114,128 +107,7 @@ block top-body
     include ./assets/components/sections/subscribe/_s-subscribe.jade
 
   footer.s-footer
-    .l-container.footer-container-01
-      //- === левая колонка
-      .w-footer-logotype
-        include ./assets/components/blocks/logotype/_logotype.jade
-
-        span.footer-copyright © 2020 «Бокс Презент». Все права защищены.
-
-        a(href="#").footer-privacy-policy.link.--text-green Политика конфиденциальности
-
-      //- === средняя колонка
-      nav.footer-navigation
-
-        .w-footer-navigation-group
-          span.footer-title Каталог продукции
-
-          ul.footer-navigation-list.js-component-expand-block__list
-            li.footer-navigation-list-item
-              a(href="#").footer-navigation-list-item__link Подарочные наборы
-            li.footer-navigation-list-item
-              a(href="#").footer-navigation-list-item__link Путешествие и отдых
-            li.footer-navigation-list-item
-              a(href="#").footer-navigation-list-item__link Ежедневники и блокноты
-            li.footer-navigation-list-item
-              a(href="#").footer-navigation-list-item__link Ручки
-            li.footer-navigation-list-item
-              a(href="#").footer-navigation-list-item__link Промо-сувениры
-            li.footer-navigation-list-item
-              a(href="#").footer-navigation-list-item__link Часы
-            li.footer-navigation-list-item
-              a(href="#").footer-navigation-list-item__link Уютный дом
-            li.footer-navigation-list-item
-              a(href="#").footer-navigation-list-item__link Упаковка подарочная
-
-        .w-footer-navigation-group
-          span.footer-title О компании
-
-          ul.footer-navigation-list.js-component-expand-block__list
-            li.footer-navigation-list-item
-              a(href="#").footer-navigation-list-item__link Кто мы
-            li.footer-navigation-list-item
-              a(href="#").footer-navigation-list-item__link Отзывы
-            li.footer-navigation-list-item
-              a(href="#").footer-navigation-list-item__link Портфолио
-            li.footer-navigation-list-item
-              a(href="#").footer-navigation-list-item__link Услуги
-            li.footer-navigation-list-item
-              a(href="#").footer-navigation-list-item__link Контакты
-            li.footer-navigation-list-item
-              a(href="#").footer-navigation-list-item__link Для поставщиков
-            li.footer-navigation-list-item
-              a(href="#").footer-navigation-list-item__link Условия работы
-            li.footer-navigation-list-item
-              a(href="#").footer-navigation-list-item__link Блог
-
-        .w-footer-navigation-group
-          span.footer-title Для клиентов 
-
-          ul.footer-navigation-list.js-component-expand-block__list
-            li.footer-navigation-list-item
-              a(href="#").footer-navigation-list-item__link Оплата
-            li.footer-navigation-list-item
-              a(href="#").footer-navigation-list-item__link Вопрос-ответ
-            li.footer-navigation-list-item
-              a(href="#").footer-navigation-list-item__link Доставка
-            li.footer-navigation-list-item
-              a(href="#").footer-navigation-list-item__link Бонусная программа
-            li.footer-navigation-list-item
-              a(href="#").footer-navigation-list-item__link Как сделать заказ
-            li.footer-navigation-list-item
-              a(href="#").footer-navigation-list-item__link Как стать поставщиком
-            li.footer-navigation-list-item
-              a(href="#").footer-navigation-list-item__link Документы
-            li.footer-navigation-list-item
-              a(href="#").footer-navigation-list-item__link Возврат товара
-
-      //- === правая колонка
-      .w-contact-info-group
-        span.footer-title Контакты
-
-        .w-contact-info-list
-          address.contact-info-item.--phone
-            a(href="tel:+74956004177").contact-info-item__text +7 (495) 600-41-77
-          address.contact-info-item.--mail
-            a(href="mailto:info@boxpresent.ru").contact-info-item__text info@boxpresent.ru
-          address.contact-info-item.--location
-            span.contact-info-item__text Москва, пл. Тверская застава д.3
-
-    .w-line-02
-      .l-container.footer-container-02
-        ul.footer-soc-icons
-
-          li.footer-soc-icons-item
-            a(href="#").footer-soc-icons-item__link.--fcbk
-              span.visually-hidden Facebook
-
-          li.footer-soc-icons-item
-            a(href="#").footer-soc-icons-item__link.--instgr
-              span.visually-hidden Instagram
-
-          li.footer-soc-icons-item
-            a(href="#").footer-soc-icons-item__link.--ytb
-              span.visually-hidden Youtube
-
-          li.footer-soc-icons-item
-            a(href="#").footer-soc-icons-item__link.--whtsp
-              span.visually-hidden WhatsApp
-
-          li.footer-soc-icons-item
-            a(href="#").footer-soc-icons-item__link.--tlgr
-              span.visually-hidden Telegram
-
-        .w-yandex-cashbox
-          a(href="#").yandex-cashbox__link
-            img(src="./assets/img/footer/yandex-cashbox.svg" alt="yandex cashbox logotype")
-            span.visually-hidden Яндекс Касса
-
-        .w-banner
-          a(href="#").banner-link
-            img(src="./assets/img/footer/supplier-portal.png" alt="image banner")
-            span.visually-hidden Портал поставщиков
-
-
+    include ./assets/components/sections/footer/_s-footer.jade
 
 block modal-window
   //- a.js-show-modal(href="#modal_01" data-target-modal="#modal_01") Заказать звонок

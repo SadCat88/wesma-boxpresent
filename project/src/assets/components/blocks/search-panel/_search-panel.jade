@@ -1,0 +1,11 @@
+//- to include
+//- include ./assets/components/blocks/search-panel/_search-panel.jade
+
+
+.w-search-panel.--js-close#searchPanel
+  .l-container
+    form(method="post" action="https://echo.htmlacademy.ru").search-form
+      input(type="text" name="search" placeholder="Поиск" autofocus).search-form__input-text.js-input-text
+      button(type="submit").btn-as-wrapper.btn-main.btn--filled-green.search-form__btn-submit Найти
+      button(type="button").btn-as-wrapper.btn-close.search-form__btn-close.js-close
+        span.visually-hidden Закрыть

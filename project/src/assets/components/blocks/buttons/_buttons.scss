@@ -46,7 +46,7 @@
   transition: border-color 0.3s ease 0s, background-image 0.8s ease 0s;
 
   &:hover {
-    // border-color: transparentize($color-gray-2, 0.3);
+    border: 1px solid $color-green-1;
 
     animation-name: btnWhiteGradientToRight;
     animation-duration: 0.1s;
@@ -60,7 +60,7 @@
   border: 1px solid $color-green-1;
 
   &:hover {
-    border-color: transparentize($color-gray-2, 0.3);
+    border: 1px solid $color-green-1;
 
     background-color: $color-green-1;
     animation-name: btnWhiteGradientToRight;

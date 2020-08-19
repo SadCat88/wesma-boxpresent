@@ -6,7 +6,6 @@
   z-index: 199;
   left: 0;
   right: 0;
-  //   top: 0;
   box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.35);
 
 
@@ -50,7 +49,7 @@
 
     margin-left: 2%;
 
-    background-size: 32px 32px;
+    background-size: 18px 18px;
   }
 }
 
@@ -58,37 +57,18 @@
 // === animations and actions
 // =============================================================================
 .w-search-panel {
-  display: none;
-  opacity: 0;
   transform: translate(0, -100%);
-  transition: all 0.3s ease 0s;
+  transition: opacity 0.1s ease 0s, transform 0.4s ease 0s;
 
   &.--js-show {
-    display: initial;
-    opacity: 1;
     transform: translate(0);
-    animation-name: panelShow;
-    animation-duration: 0.3s;
-    animation-fill-mode: forwards;
   }
-
 
   .search-form__btn-close {
     transition: all 0.3s ease 0s;
 
     &:hover {
       opacity: 0.7;
-    }
-  }
-
-  @keyframes panelShow {
-    0% {
-      opacity: 0;
-    }
-
-    100% {
-      opacity: 1;
-      transform: translate(0);
     }
   }
 }

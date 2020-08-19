@@ -1,20 +1,20 @@
 'use strict';
 
-// === mmenu
-// =============================================================================
-
-// === нацеливание на страницу
-Mmenu.configs.offCanvas.page.selector = '#page';
-
-// === когда показывать мобильную панель
-let mobileSize = 992;
-
-// === высота мобильной панели
-let mobilePanelHeight = getComputedStyle(
-  document.querySelector('.js-component-mobile-top-panel')
-).height;
-
 document.addEventListener('DOMContentLoaded', function () {
+  // === mmenu
+  // =============================================================================
+
+  // === нацеливание на страницу
+  Mmenu.configs.offCanvas.page.selector = '#page';
+
+  // === когда показывать мобильную панель
+  let mobileSize = 992;
+
+  // === высота мобильной панели
+  let mobilePanelHeight = getComputedStyle(
+    document.querySelector('.js-component-mobile-top-panel')
+  ).height;
+
   // === первичная инициализация мобильной шапки
   if (window.innerWidth <= mobileSize) {
     // === показать мобильную панель, если размер окна меньше нужного
@@ -75,6 +75,22 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     }
   );
+
+  //
+  //
+  // === intl-tel-input
+  // ===========================================================================
+  // let phoneInput = document.querySelector('.js-input-mask-phone');
+
+  // window.intlTelInput(phoneInput, {
+  //   initialCountry: 'ru',
+  //   preferredCountries: ['ru', 'by', 'ua', 'kz'],
+  //   onlyCountries: ['ru', 'by', 'ua', 'kz', 'en', 'gr'],
+  //   separateDialCode: false,
+  //   // utilsScript: '../vendors/intl-tel-input/js/utils.js',
+  // });
+
+
 });
 
 //
@@ -92,6 +108,9 @@ window.addEventListener('load', function () {
   });
 });
 
+//
+//
+//
 //
 //
 //
@@ -817,22 +836,4 @@ jQuery(document).ready(function ($) {
       $('#blog-preview-slider').slick('slickNext');
     });
   });
-});
-
-$('#trigger_characteristic').on('click', function (e) {
-  if (window.innerWidth > 740) {
-    e.preventDefault();
-    $('#tab_characteristic').trigger('click');
-    $('html, body').animate(
-      { scrollTop: $('#tab_characteristic').offset().top - 100 },
-      500
-    );
-  } else {
-    e.preventDefault();
-    $('#tab_characteristic').trigger('click');
-    $('html, body').animate(
-      { scrollTop: $('#tab_characteristic_2').offset().top - 100 },
-      500
-    );
-  }
 });

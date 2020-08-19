@@ -76,7 +76,7 @@
   min-height: 43px;
   display: inline-block;
 
-  // градиент
+  // === градиент
   &::after {
     content: "";
     position: absolute;
@@ -85,6 +85,7 @@
     top: 0;
     bottom: 0;
     background: linear-gradient(180deg, rgba(196, 196, 196, 0) 0.04%, rgba(54, 80, 92, 0.63) 100%);
+    opacity: 0.8;
   }
 
   .promotions-list-card-heading {
@@ -183,23 +184,7 @@
     transition: all 0.5s ease 0s;
   }
 
-  .promotions-list-car-heading__title {
-    transition: all 0.5s ease 0s;
-  }
-
-  .promotions-list-card__time-left {
-    transition: all 0.5s ease 0s;
-  }
-
   &:hover {
-    .promotions-list-card__time-left {
-      padding-right: 2.3em;
-      padding-left: 3em;
-    }
-
-    .promotions-list-car-heading__title {
-      transform: scale(1.025) translateY(-0.2em);
-    }
 
     .promotions-list__img {
       height: 103%;

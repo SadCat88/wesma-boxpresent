@@ -4,7 +4,7 @@
 .s-subscribe {
   padding-top: 1.4%;
   padding-bottom: 1.4%;
-  background-color: $color-gray-4;
+  background-color: $color-section-bg-2;
 }
 
 .w-subscribe {
@@ -85,13 +85,18 @@
   .input-text-form {
     padding-right: 240px;
     background-color: $color-white-1;
+    font-weight: normal;
+    font-size: 14px;
+    color: $color-black-2;
   }
 
   .input-text-label {
     left: 6.6%;
     z-index: 1;
     background: none;
-    color: $color-black-1;
+    font-weight: normal;
+    font-size: 14px;
+    color: $color-black-2;
   }
 }
 

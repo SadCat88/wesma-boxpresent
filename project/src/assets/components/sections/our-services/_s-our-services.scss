@@ -211,20 +211,12 @@
 // === animations and actions
 // =============================================================================
 .our-services-card {
-  .our-services-card__heading {
-    transform: translateZ(0);
-    transition: all 0.3s ease 0s;
-  }
 
-  .our-services-card__description {
-    transform: translateZ(0);
-    transition: all 0.3s ease 0s;
-  }
-
+  // === рамка
   &::after {
     content: "";
     position: absolute;
-    z-index: 0;
+    z-index: 2;
     left: 0;
     right: 0;
     top: 0;
@@ -233,18 +225,14 @@
     outline: 1px solid $color-green-1;
     outline-offset: -1px;
 
+    background: transparentize($color-green-1, 0.9);
+    box-shadow: inset 0 0 16px rgba(0, 0, 0, 0.2);
+
     opacity: 0;
     transition: all 0.3s ease 0s;
   }
 
   &:hover {
-    .our-services-card__heading {
-      transform: scale(1.05);
-    }
-
-    .our-services-card__description {
-      transform: translateX(1%);
-    }
 
     &::after {
       opacity: 1;

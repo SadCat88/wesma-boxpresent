@@ -56,22 +56,6 @@
       background: URL('../img/icons/cart.svg') center center/contain no-repeat;
       background-size: 20px 20px;
     }
-
-    // === обрезка окружности
-    &::after {
-      content: "";
-      position: absolute;
-      left: 72%;
-      top: 60%;
-      transform: translate(-50%, -50%) rotate(-15deg);
-
-      width: 32px;
-      height: 32px;
-      border-radius: 100% 50% 100% 50%;
-
-      background: $color-section-bg-1;
-    }
-
   }
 
   .cart-qty {
@@ -84,13 +68,16 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: 28px;
-    height: 28px;
+    width: auto;
+    min-width: 34px;
+    height: 34px;
+    padding: 0 4px;
 
     font-size: 12px;
     color: #FFFFFF;
     background-color: #282828;
-    border-radius: 50%;
+    border-radius: 100px;
+    border: 4px solid $color-white-1;
   }
 
   .w-cart-description {
@@ -120,8 +107,36 @@
     display: inline-block;
     width: 100%;
     height: 100%;
+  }
+
+  .user-navigation-image {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
     background: URL('../img/icons/heart.svg') center center/contain no-repeat;
     background-size: 33px 33px;
+  }
+
+  .like-qty {
+    position: absolute;
+    z-index: 2;
+    top: 60%;
+    left: 72%;
+    transform: translate(-50%, -50%);
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    min-width: 34px;
+    height: 34px;
+    padding: 0 4px;
+
+    font-size: 12px;
+    color: #FFFFFF;
+    background-color: #282828;
+    border-radius: 100px;
+    border: 4px solid $color-white-1;
   }
 }
 
@@ -221,7 +236,7 @@
     z-index: 2;
     border: 1px solid $color-green-1;
 
-    .user-navigation-item-action {
+    .user-navigation-image {
       animation-name: pulse;
       animation-duration: 0.8s;
       animation-fill-mode: forwards;

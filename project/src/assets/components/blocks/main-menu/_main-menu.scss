@@ -87,7 +87,7 @@ $main-menu-item-color-bg: $color-white-1;
 .main-menu-sublevel {
   background: $color-white-1;
   position: absolute;
-  left: 4px;
+  left: 0;
   z-index: -1;
   padding-top: 0.5em;
   padding-bottom: 0.75em;
@@ -136,56 +136,16 @@ $main-menu-item-color-bg: $color-white-1;
     transform: translateZ(0);
     transition: all 0.3s ease 0s;
 
-    // === псевдо бэкграунд для ховер эффекта
-    // &::before {
-    //   content: "";
-
-    //   position: absolute;
-    //   z-index: -1;
-    //   bottom: 0;
-    //   top: 0;
-    //   left: 0;
-    //   right: 0;
-
-    //   background: $main-menu-item-color-bg;
-    //   transition: left 0.3s ease 0s, right 0.3s ease 0s, box-shadow 0.3s ease 0s;
-    // }
-
-    // &::after {
-    //   transition: all 0.3s ease 0s;
-    //   opacity: 0;
-    // }
-
     &:hover {
       z-index: 2;
-      //   color: $main-menu-item-color-text--hover;
       padding-top: 3px;
       background-color: $color-gray-3;
-
-      // === точка снизу
-      // &::after {
-      //   opacity: 1;
-      // }
-
-      // === псевдо бэкграунд во время ховера
-      // &::before {
-      //   left: -5px;
-      //   right: -5px;
-      //   bottom: -3px;
-
-      //   background: radial-gradient(circle, $main-menu-item-color-bg 20%, lighten($main-menu-item-color-bg--hover, 5%) 100%);
-      //   border-left: $main-menu-item-border-size solid $color-border-1;
-      //   border-right: $main-menu-item-border-size solid $color-border-1;
-      //   border-bottom: $main-menu-item-border-size solid $color-border-1;
-
-      //   @extend %shadow-2;
-      // }
     }
   }
 
   // === подуровень
   .main-menu-sublevel-item {
-    .main-menu-sublevel-item__link {
+    .main-menu-sublevel-item__link:not(.mm-listitem__text) {
       position: relative;
 
       // === подчеркивание
@@ -262,7 +222,12 @@ $main-menu-item-color-bg: $color-white-1;
   .mm-listview {
     flex-direction: column;
     width: 100%;
+    max-width: 100%;
     height: auto;
+    position: static;
+    background: none;
+    box-shadow: none;
+    border: none;
 
     // === li
     .mm-listitem {
@@ -299,6 +264,7 @@ $main-menu-item-color-bg: $color-white-1;
 
         color: --mm-color-text;
         font-weight: 500;
+        font-size: 14px;
 
         transition: all 0.3s ease 0s;
       }
@@ -311,6 +277,9 @@ $main-menu-item-color-bg: $color-white-1;
         }
       }
     }
+
+    // === sublevel
+
   }
 
   .separator.mm-listitem {
