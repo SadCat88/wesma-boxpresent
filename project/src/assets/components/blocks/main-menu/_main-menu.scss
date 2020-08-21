@@ -204,8 +204,89 @@ $main-menu-item-color-bg: $color-white-1;
 // === mmenu plugin
 
 .main-menu-list {
+  .main-menu-item.--city-choice {
+    display: none;
+    margin-top: 1em;
+    margin-bottom: 2em;
+    position: relative;
+    z-index: 4;
+
+    &::before {
+
+      content: '';
+      -webkit-box-sizing: content-box;
+      box-sizing: content-box;
+      display: block;
+      width: 8px;
+      height: 8px;
+      margin: auto;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      border: 2px solid var(--mm-color-button);
+      border-bottom: none;
+      border-right: none;
+      transform: rotate(135deg);
+      right: 42px;
+      left: auto;
+    }
+
+
+    .menu-heading__title {
+      margin-right: 0.5em;
+    }
+
+    @media(max-width: 760px) {
+      display: flex;
+    }
+  }
+
   .main-menu-item.--hide-is-desktop {
     display: none;
+  }
+
+  .main-menu-item.--separator-to-bottom {
+    margin-bottom: 3em;
+  }
+
+
+  .main-menu-item.--info {
+    display: none;
+
+    @media(max-width: 580px) {
+      display: flex;
+    }
+
+    .main-menu__item-link {
+
+      &::before {
+        content: "";
+        margin-right: 0.5em;
+        margin-bottom: -0.2em;
+        display: inline-block;
+
+        width: 18px;
+        height: 18px;
+      }
+
+      &.--phone {
+        &::before {
+          background: URL('../img/icons/phone.svg') center center / contain no-repeat;
+        }
+      }
+
+      &.--mail {
+        &::before {
+          background: URL('../img/icons/mail.svg') center center / contain no-repeat;
+        }
+      }
+
+      &.--location {
+        &::before {
+          background: URL('../img/icons/location.svg') center center / contain no-repeat;
+        }
+      }
+    }
   }
 }
 
@@ -304,6 +385,10 @@ $main-menu-item-color-bg: $color-white-1;
 
     // === sublevel
 
+    // === кнопка
+    .mm-listitem__btn:not(.mm-listitem__text) {
+      border-left: none;
+    }
   }
 
   .separator.mm-listitem {

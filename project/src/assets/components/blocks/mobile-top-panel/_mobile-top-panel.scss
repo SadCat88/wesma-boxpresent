@@ -229,59 +229,99 @@
 
 // === adaptive
 // =============================================================================
+
 @media(max-width: 460px) {
-  .component-mobile-top-panel {
 
-    .mobile-panel-item {
-      .mobile-panel-item__action {
-        padding: 0 2px;
-      }
-    }
-
+  .w-mobile-top-panel {
     .mobile-panel-item__cart {
-      .mobile-panel-item__action {
-        .cart-qty {
-          top: 20px;
-          left: -10px;
-        }
-      }
-    }
-
-    .mobile-panel-item__favorites {
-      .mobile-panel-item__action {
-        .like-qty {
-          top: 20px;
-          left: -4px;
-        }
+      .cart-total {
+        display: none;
       }
     }
   }
-}
 
+  .mobile-panel-navigation {
+    width: 100%;
 
-@media(max-width: 410px) {
-  .component-mobile-top-panel {
-    .w-mobile-top-panel {
-      padding-left: 3%;
-      padding-right: 3%;
-    }
-
-    .mobile-top-panel-btn {
-      margin-right: 8px;
-    }
-
-    .component-city-choice-menu {
-      width: 80px;
-      min-width: 80px;
-      margin-right: 8px;
+    .mobile-panel-list {
+      justify-content: space-around;
     }
   }
 }
 
-@media(max-width:340px) {
-  .component-mobile-top-panel {
-    .mobile-panel-item {
-      margin: 0;
-    }
-  }
-}
+
+// @media(max-width: 760px) {
+//   .w-mobile-top-panel {
+//     .component-city-choice-menu {
+//       display: flex;
+//     }
+//   }
+// }
+
+
+// @media(max-width: 580px) {
+//   .w-mobile-top-panel {
+//     .mobile-panel-item__cart {
+//       .cart-total {
+//         display: none;
+//       }
+//     }
+//   }
+// }
+
+// @media(max-width: 460px) {
+//   .component-mobile-top-panel {
+
+//     .mobile-panel-item {
+//       .mobile-panel-item__action {
+//         padding: 0 2px;
+//       }
+//     }
+
+//     .mobile-panel-item__cart {
+//       .mobile-panel-item__action {
+//         .cart-qty {
+//           top: 20px;
+//           left: -10px;
+//         }
+//       }
+//     }
+
+//     .mobile-panel-item__favorites {
+//       .mobile-panel-item__action {
+//         .like-qty {
+//           top: 20px;
+//           left: -4px;
+//         }
+//       }
+//     }
+//   }
+// }
+
+
+// @media(max-width: 410px) {
+//   .component-mobile-top-panel {
+//     .w-mobile-top-panel {
+//       padding-left: 3%;
+//       padding-right: 3%;
+//     }
+
+//     .mobile-top-panel-btn {
+//       margin-right: 8px;
+//     }
+
+//     .component-city-choice-menu {
+//       width: 80px;
+//       min-width: 80px;
+//       margin-right: 8px;
+//     }
+//   }
+// }
+
+// @media(max-width:340px) {
+//   .component-mobile-top-panel {
+//     .mobile-panel-item {
+//       margin: 0;
+//     }
+//   }
+// }

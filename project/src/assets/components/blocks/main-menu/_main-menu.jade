@@ -3,6 +3,13 @@
 
 nav.w-main-menu#mmenu
   ul.main-menu-list
+
+    //- выбор города
+    li.main-menu-item.--city-choice.js-component-city-choice-menu
+      a(href="#page" data-target-modal="#modalCityChoice").main-menu-item__link.js-component-city-choice-menu-heading.js-show-modal
+        span.menu-heading__title Ваш город:
+        span.menu-heading__selected.js-city-selected Москва
+
     li.main-menu-item
       a(href="#").main-menu-item__link.
         О компании
@@ -21,7 +28,7 @@ nav.w-main-menu#mmenu
             Lorem ipsum
 
     li.main-menu-item
-      a(href="#").main-menu-item__link.kek.
+      a(href="#").main-menu-item__link.
         Услуги
     li.main-menu-item
       a(href="#").main-menu-item__link.
@@ -38,6 +45,17 @@ nav.w-main-menu#mmenu
     li.main-menu-item
       a(href="#").main-menu-item__link.
         Контакты
-    li.main-menu-item.--hide-is-desktop
+
+    //- скрыто в десктопе
+    li.main-menu-item.--hide-is-desktop.--separator-to-bottom
       a(href="#").main-menu-item__link.
         Каталог
+
+    //- инфа из шапки и подвала, там прячется
+    li.main-menu-item.--info
+      a(href="tel:+74956004177").main-menu__item-link.--phone +7 (495) 600-41-77
+    li.main-menu-item.--info
+      a(href="mailto:info@boxpresent.ru").main-menu__item-link.--mail info@boxpresent.ru
+    li.main-menu-item.--info
+      a(href="#").main-menu__item-link.--location Москва, пл. Тверская застава д.3
+

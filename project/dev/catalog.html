@@ -15,7 +15,6 @@
       <header class="s-header">
         <div class="component-mobile-top-panel js-component-mobile-top-panel">
           <div class="l-container w-mobile-top-panel"><a class="mobile-top-panel-btn btn-mobile --main-menu" href="#mmenu"><span class="visually-hidden">menu</span></a>
-            <nav class="component-city-choice-menu js-component-city-choice-menu"><span class="menu-heading js-component-city-choice-menu-heading js-show-modal" data-target-modal="#modalCityChoice"><span class="menu-heading__title">Ваш город:</span><span class="menu-heading__selected js-city-selected">Москва</span></span></nav>
             <nav class="mobile-panel-navigation">
               <ul class="mobile-panel-list">
                 <li class="mobile-panel-item mobile-panel-item__cart">
@@ -377,6 +376,7 @@
             </nav>
             <nav class="w-main-menu" id="mmenu">
               <ul class="main-menu-list">
+                <li class="main-menu-item --city-choice js-component-city-choice-menu"><a class="main-menu-item__link js-component-city-choice-menu-heading js-show-modal" href="#page" data-target-modal="#modalCityChoice"><span class="menu-heading__title">Ваш город:</span><span class="menu-heading__selected js-city-selected">Москва</span></a></li>
                 <li class="main-menu-item"><a class="main-menu-item__link" href="#">О компании</a>
                   <ul class="main-menu-sublevel">
                     <li class="main-menu-sublevel-item"><a class="main-menu-sublevel-item__link" href="#">Lorem ipsum</a></li>
@@ -387,13 +387,20 @@
                         </a></li>
                   </ul>
                 </li>
-                <li class="main-menu-item"><a class="main-menu-item__link kek" href="#">Услуги</a></li>
+                <li class="main-menu-item"><a class="main-menu-item__link" href="#">Услуги</a></li>
                 <li class="main-menu-item"><a class="main-menu-item__link" href="#">Нанесение логотипа</a></li>
                 <li class="main-menu-item"><a class="main-menu-item__link" href="#">Наши работы</a></li>
                 <li class="main-menu-item"><a class="main-menu-item__link" href="#">Оплата и доставка</a></li>
                 <li class="main-menu-item"><a class="main-menu-item__link" href="#">Новости </a></li>
-                <li class="main-menu-item"><a class="main-menu-item__link" href="#">Контакты</a></li>
-                <li class="main-menu-item --hide-is-desktop"><a class="main-menu-item__link" href="#">Каталог</a></li>
+                <li class="main-menu-item"><a class="main-menu-item__link" href="#">
+                    Контакты
+                    </a></li>
+                <li class="main-menu-item --hide-is-desktop --separator-to-bottom"><a class="main-menu-item__link" href="#">
+                    Каталог
+                    </a></li>
+                <li class="main-menu-item --info"><a class="main-menu__item-link --phone" href="tel:+74956004177">+7 (495) 600-41-77</a></li>
+                <li class="main-menu-item --info"><a class="main-menu__item-link --mail" href="mailto:info@boxpresent.ru">info@boxpresent.ru</a></li>
+                <li class="main-menu-item --info"><a class="main-menu__item-link --location" href="#">Москва, пл. Тверская застава д.3</a></li>
               </ul>
             </nav>
             <nav class="check-order-status"><a class="check-order-status__link" href="#"> <span class="inner-content">Проверить статус заказа</span></a></nav>
