@@ -21,7 +21,7 @@
                 <li class="mobile-panel-item mobile-panel-item__cart">
                   <button class="btn-as-wrapper mobile-panel-item__action" type="button"><span class="cart-qty">12</span><span class="cart-total one-line"><span class="value">35 350</span> руб.</span></button>
                 </li>
-                <li class="mobile-panel-item mobile-panel-item__favorites"><a class="mobile-panel-item__action" href="#"><span class="visually-hidden">Избранное</span></a></li>
+                <li class="mobile-panel-item mobile-panel-item__favorites"><a class="mobile-panel-item__action" href="#"><span class="like-qty">48</span><span class="visually-hidden">Избранное</span></a></li>
                 <li class="mobile-panel-item mobile-panel-item__search">
                   <button class="btn-as-wrapper mobile-panel-item__action --js-btn-search" type="button"><span class="visually-hidden">Поиск</span></button>
                 </li>
@@ -50,7 +50,7 @@
                   <div class="modal-body-heading"> <span class="modal-body-heading__title">Выберите ваш город</span>
                     <form class="form-city-choice-search" method="post" action="https://echo.htmlacademy.ru">
                       <label class="component-input-text js-component-input-text --style-02 --local-style">
-                        <input class="input-text-form js-input" type="text" name="username"/><span class="input-text-label">Поиск города:</span>
+                        <input class="input-text-form js-c-city-search" type="text" name="username" autocomplete="off" placeholder="Поиск города:"/>
                       </label>
                       <button class="btn-as-wrapper btn-search" type="submit"><span class="visually-hidden">Поиск</span></button>
                     </form>
@@ -281,7 +281,6 @@
                           <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Северск</a></li>
                           <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Сергиев Посад</a></li>
                           <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Серпухов</a></li>
-                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Ростов-на-Дону</a></li>
                           <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Славянск-на-Кубани</a></li>
                           <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Смоленск</a></li>
                           <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Сортавала</a></li>
@@ -371,7 +370,7 @@
                           <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Ярославль</a></li>
                         </ul>
                       </li>
-                    </ul>
+                    </ul><span class="city-not-found">По заданному запросу город не найден.</span>
                   </div>
                 </div>
               </div>
@@ -394,6 +393,7 @@
                 <li class="main-menu-item"><a class="main-menu-item__link" href="#">Оплата и доставка</a></li>
                 <li class="main-menu-item"><a class="main-menu-item__link" href="#">Новости </a></li>
                 <li class="main-menu-item"><a class="main-menu-item__link" href="#">Контакты</a></li>
+                <li class="main-menu-item --hide-is-desktop"><a class="main-menu-item__link" href="#">Каталог</a></li>
               </ul>
             </nav>
             <nav class="check-order-status"><a class="check-order-status__link" href="#"> <span class="inner-content">Проверить статус заказа</span></a></nav>
@@ -566,10 +566,10 @@
                     <button class="btn-as-wrapper product-card-color-item__action" type="button"> <span class="inner-content --color-02" style="background-color: #A94525"><span class="visually-hidden">Красный</span></span></button>
                   </li>
                   <li class="product-card-color-item">
-                    <button class="btn-as-wrapper product-card-color-item__action" type="button"> <span class="inner-content --color-03" style="background-color: #B1C918"><span class="visually-hidden">Зеленый]</span></span></button>
+                    <button class="btn-as-wrapper product-card-color-item__action" type="button"> <span class="inner-content --color-03" style="background-color: #B1C918"><span class="visually-hidden">Зеленый</span></span></button>
                   </li>
                   <li class="product-card-color-item">
-                    <button class="btn-as-wrapper product-card-color-item__action" type="button"> <span class="inner-content --color-04" style="background-color: #FFEB3A"><span class="visually-hidden">Желтый]</span></span></button>
+                    <button class="btn-as-wrapper product-card-color-item__action" type="button"> <span class="inner-content --color-04" style="background-color: #FFEB3A"><span class="visually-hidden">Желтый</span></span></button>
                   </li>
                   <li class="product-card-color-item">
                     <button class="btn-as-wrapper product-card-color-item__action" type="button"><span class="inner-content --color-05" style="background-color: #83C5E5"><span class="visually-hidden">Синий</span></span></button>
@@ -577,13 +577,17 @@
                 </ul>
                 <div class="w-icon-buttons">
                   <button class="btn-as-wrapper product-card-icon-btn --add-to-favorites --active" type="button"><span class="inner-content"> <span class="visually-hidden">Добавить в избранное</span></span></button>
-                  <button class="btn-as-wrapper product-card-icon-btn --order-sample js-show-modal" type="button" data-target-modal="#modal_02"><span class="inner-content"> <span class="visually-hidden">Заказать образец</span></span></button>
+                  <div class="product-card-icon-btn --order-sample"><span class="inner-content"> <span class="visually-hidden">Заказать образец</span></span>
+                    <div class="popup">
+                      <button class="btn-as-wrapper btn-main btn--filled-green product-card-icon-btn__btn js-show-modal" type="button" data-target-modal="#modal_02">Заказать образец </button>
+                    </div>
+                  </div>
                 </div>
                 <div class="product-card__image"><img class="product-card__image-img product-card__image-img" src="./assets/img/products/product-card/product_01.jpg" alt="product image"/></div><a class="product-card-title" href="#">
                   Футболка детская "Kids Original T", желтый, 12-13 лет, 100% х/б, 145 г/м2
                   </a><span class="product-card-availability --not-available">Нет в наличии</span>
-                <div class="w-price-and-btn"><span class="product-card-price"><span class="product-card-price__new-price"><span class="value">1 768</span>₽</span></span>
-                  <button class="btn-main btn--filled-transparent product-card-price__btn" type="button"> <span class="inner-content">В корзину</span></button>
+                <div class="w-price-and-btn"><span class="product-card-price"><span class="product-card-price__new-price"><span class="value">99 999</span>₽</span></span>
+                  <button class="btn-main btn--filled-transparent product-card-price__btn" type="button"> <span class="inner-content"><span class="text">В корзину</span></span></button>
                 </div>
               </div>
             </li>
@@ -597,10 +601,10 @@
                     <button class="btn-as-wrapper product-card-color-item__action" type="button"> <span class="inner-content --color-02" style="background-color: #A94525"><span class="visually-hidden">Красный</span></span></button>
                   </li>
                   <li class="product-card-color-item">
-                    <button class="btn-as-wrapper product-card-color-item__action" type="button"> <span class="inner-content --color-03" style="background-color: #B1C918"><span class="visually-hidden">Зеленый]</span></span></button>
+                    <button class="btn-as-wrapper product-card-color-item__action" type="button"> <span class="inner-content --color-03" style="background-color: #B1C918"><span class="visually-hidden">Зеленый</span></span></button>
                   </li>
                   <li class="product-card-color-item">
-                    <button class="btn-as-wrapper product-card-color-item__action" type="button"> <span class="inner-content --color-04" style="background-color: #FFEB3A"><span class="visually-hidden">Желтый]</span></span></button>
+                    <button class="btn-as-wrapper product-card-color-item__action" type="button"> <span class="inner-content --color-04" style="background-color: #FFEB3A"><span class="visually-hidden">Желтый</span></span></button>
                   </li>
                   <li class="product-card-color-item">
                     <button class="btn-as-wrapper product-card-color-item__action" type="button"><span class="inner-content --color-05" style="background-color: #83C5E5"><span class="visually-hidden">Синий</span></span></button>
@@ -608,12 +612,16 @@
                 </ul>
                 <div class="w-icon-buttons">
                   <button class="btn-as-wrapper product-card-icon-btn --add-to-favorites" type="button"><span class="inner-content"> <span class="visually-hidden">Добавить в избранное</span></span></button>
-                  <button class="btn-as-wrapper product-card-icon-btn --order-sample js-show-modal" type="button" data-target-modal="#modal_02"><span class="inner-content"> <span class="visually-hidden">Заказать образец</span></span></button>
+                  <div class="product-card-icon-btn --order-sample"><span class="inner-content"> <span class="visually-hidden">Заказать образец</span></span>
+                    <div class="popup">
+                      <button class="btn-as-wrapper btn-main btn--filled-green product-card-icon-btn__btn js-show-modal" type="button" data-target-modal="#modal_02">Заказать образец </button>
+                    </div>
+                  </div>
                 </div><a class="product-card__image" href="#"><img class="product-card__image-img product-card__image-img" src="./assets/img/products/product-card/product_02.jpg" alt="product image"/></a><a class="product-card-title" href="#">
                   Ежедневник недатированный Ellie, А5, бордовый, кремовый блок, без обреза
                   </a><span class="product-card-availability --in-stock">В наличии</span>
                 <div class="w-price-and-btn"><span class="product-card-price"><span class="product-card-price__old-price"><span class="value">2 500</span></span><span class="product-card-price__new-price"><span class="value">1 768</span>₽</span></span>
-                  <button class="btn-main btn--filled-transparent product-card-price__btn" type="button"> <span class="inner-content">В корзину</span></button>
+                  <button class="btn-main btn--filled-transparent product-card-price__btn" type="button"> <span class="inner-content"><span class="text">В корзину</span></span></button>
                 </div>
               </div>
             </li>
@@ -627,17 +635,21 @@
                     <button class="btn-as-wrapper product-card-color-item__action" type="button"> <span class="inner-content --color-02" style="background-color: #A94525"><span class="visually-hidden">Красный</span></span></button>
                   </li>
                   <li class="product-card-color-item">
-                    <button class="btn-as-wrapper product-card-color-item__action" type="button"> <span class="inner-content --color-03" style="background-color: #B1C918"><span class="visually-hidden">Зеленый]</span></span></button>
+                    <button class="btn-as-wrapper product-card-color-item__action" type="button"> <span class="inner-content --color-03" style="background-color: #B1C918"><span class="visually-hidden">Зеленый</span></span></button>
                   </li>
                 </ul>
                 <div class="w-icon-buttons">
                   <button class="btn-as-wrapper product-card-icon-btn --add-to-favorites" type="button"><span class="inner-content"> <span class="visually-hidden">Добавить в избранное</span></span></button>
-                  <button class="btn-as-wrapper product-card-icon-btn --order-sample js-show-modal" type="button" data-target-modal="#modal_02"><span class="inner-content"> <span class="visually-hidden">Заказать образец</span></span></button>
+                  <div class="product-card-icon-btn --order-sample"><span class="inner-content"> <span class="visually-hidden">Заказать образец</span></span>
+                    <div class="popup">
+                      <button class="btn-as-wrapper btn-main btn--filled-green product-card-icon-btn__btn js-show-modal" type="button" data-target-modal="#modal_02">Заказать образец </button>
+                    </div>
+                  </div>
                 </div><a class="product-card__image" href="#"><img class="product-card__image-img product-card__image-img" src="./assets/img/products/product-card/product_03.jpg" alt="product image"/></a><a class="product-card-title" href="#">
                   N6, ручка шариковая, белый, пластик
                   </a><span class="product-card-availability --in-stock">В наличии</span>
                 <div class="w-price-and-btn"><span class="product-card-price"><span class="product-card-price__old-price"><span class="value">2 500</span></span><span class="product-card-price__new-price"><span class="value">1 768</span>₽</span></span>
-                  <button class="btn-main btn--filled-transparent product-card-price__btn" type="button"> <span class="inner-content">В корзину</span></button>
+                  <button class="btn-main btn--filled-transparent product-card-price__btn" type="button"> <span class="inner-content"><span class="text">В корзину</span></span></button>
                 </div>
               </div>
             </li>
@@ -651,10 +663,10 @@
                     <button class="btn-as-wrapper product-card-color-item__action" type="button"> <span class="inner-content --color-02" style="background-color: #A94525"><span class="visually-hidden">Красный</span></span></button>
                   </li>
                   <li class="product-card-color-item">
-                    <button class="btn-as-wrapper product-card-color-item__action" type="button"> <span class="inner-content --color-03" style="background-color: #B1C918"><span class="visually-hidden">Зеленый]</span></span></button>
+                    <button class="btn-as-wrapper product-card-color-item__action" type="button"> <span class="inner-content --color-03" style="background-color: #B1C918"><span class="visually-hidden">Зеленый</span></span></button>
                   </li>
                   <li class="product-card-color-item">
-                    <button class="btn-as-wrapper product-card-color-item__action" type="button"> <span class="inner-content --color-04" style="background-color: #FFEB3A"><span class="visually-hidden">Желтый]</span></span></button>
+                    <button class="btn-as-wrapper product-card-color-item__action" type="button"> <span class="inner-content --color-04" style="background-color: #FFEB3A"><span class="visually-hidden">Желтый</span></span></button>
                   </li>
                   <li class="product-card-color-item">
                     <button class="btn-as-wrapper product-card-color-item__action" type="button"><span class="inner-content --color-05" style="background-color: #83C5E5"><span class="visually-hidden">Синий</span></span></button>
@@ -662,12 +674,16 @@
                 </ul>
                 <div class="w-icon-buttons">
                   <button class="btn-as-wrapper product-card-icon-btn --add-to-favorites" type="button"><span class="inner-content"> <span class="visually-hidden">Добавить в избранное</span></span></button>
-                  <button class="btn-as-wrapper product-card-icon-btn --order-sample js-show-modal" type="button" data-target-modal="#modal_02"><span class="inner-content"> <span class="visually-hidden">Заказать образец</span></span></button>
+                  <div class="product-card-icon-btn --order-sample"><span class="inner-content"> <span class="visually-hidden">Заказать образец</span></span>
+                    <div class="popup">
+                      <button class="btn-as-wrapper btn-main btn--filled-green product-card-icon-btn__btn js-show-modal" type="button" data-target-modal="#modal_02">Заказать образец </button>
+                    </div>
+                  </div>
                 </div><a class="product-card__image" href="#"><img class="product-card__image-img product-card__image-img" src="./assets/img/products/product-card/product_04.jpg" alt="product image"/></a><a class="product-card-title" href="#">
                   Набор "Грильяж - глинвейн",мягкий кедровый грильяж и чайный напиток 21,5*21,5*6 см
                   </a><span class="product-card-availability --in-stock">В наличии</span>
                 <div class="w-price-and-btn"><span class="product-card-price"><span class="product-card-price__old-price"><span class="value">2 500</span></span><span class="product-card-price__new-price"><span class="value">1 768</span>₽</span></span>
-                  <button class="btn-main btn--filled-transparent product-card-price__btn" type="button"> <span class="inner-content">В корзину</span></button>
+                  <button class="btn-main btn--filled-transparent product-card-price__btn" type="button"> <span class="inner-content"><span class="text">В корзину</span></span></button>
                 </div>
               </div>
             </li>
@@ -681,10 +697,10 @@
                     <button class="btn-as-wrapper product-card-color-item__action" type="button"> <span class="inner-content --color-02" style="background-color: #A94525"><span class="visually-hidden">Красный</span></span></button>
                   </li>
                   <li class="product-card-color-item">
-                    <button class="btn-as-wrapper product-card-color-item__action" type="button"> <span class="inner-content --color-03" style="background-color: #B1C918"><span class="visually-hidden">Зеленый]</span></span></button>
+                    <button class="btn-as-wrapper product-card-color-item__action" type="button"> <span class="inner-content --color-03" style="background-color: #B1C918"><span class="visually-hidden">Зеленый</span></span></button>
                   </li>
                   <li class="product-card-color-item">
-                    <button class="btn-as-wrapper product-card-color-item__action" type="button"> <span class="inner-content --color-04" style="background-color: #FFEB3A"><span class="visually-hidden">Желтый]</span></span></button>
+                    <button class="btn-as-wrapper product-card-color-item__action" type="button"> <span class="inner-content --color-04" style="background-color: #FFEB3A"><span class="visually-hidden">Желтый</span></span></button>
                   </li>
                   <li class="product-card-color-item">
                     <button class="btn-as-wrapper product-card-color-item__action" type="button"><span class="inner-content --color-05" style="background-color: #83C5E5"><span class="visually-hidden">Синий</span></span></button>
@@ -692,12 +708,16 @@
                 </ul>
                 <div class="w-icon-buttons">
                   <button class="btn-as-wrapper product-card-icon-btn --add-to-favorites" type="button"><span class="inner-content"> <span class="visually-hidden">Добавить в избранное</span></span></button>
-                  <button class="btn-as-wrapper product-card-icon-btn --order-sample js-show-modal" type="button" data-target-modal="#modal_02"><span class="inner-content"> <span class="visually-hidden">Заказать образец</span></span></button>
+                  <div class="product-card-icon-btn --order-sample"><span class="inner-content"> <span class="visually-hidden">Заказать образец</span></span>
+                    <div class="popup">
+                      <button class="btn-as-wrapper btn-main btn--filled-green product-card-icon-btn__btn js-show-modal" type="button" data-target-modal="#modal_02">Заказать образец </button>
+                    </div>
+                  </div>
                 </div><a class="product-card__image" href="#"><img class="product-card__image-img product-card__image-img" src="./assets/img/test/210x210-01.png" alt="product image"/></a><a class="product-card-title" href="#">
                   Тест
                   </a><span class="product-card-availability --in-stock">В наличии</span>
                 <div class="w-price-and-btn"><span class="product-card-price"><span class="product-card-price__old-price"><span class="value">9 999</span></span><span class="product-card-price__new-price"><span class="value">8 888</span>₽</span></span>
-                  <button class="btn-main btn--filled-transparent product-card-price__btn" type="button"> <span class="inner-content">В корзину</span></button>
+                  <button class="btn-main btn--filled-transparent product-card-price__btn" type="button"> <span class="inner-content"><span class="text">В корзину</span></span></button>
                 </div>
               </div>
             </li>
@@ -711,10 +731,10 @@
                     <button class="btn-as-wrapper product-card-color-item__action" type="button"> <span class="inner-content --color-02" style="background-color: #A94525"><span class="visually-hidden">Красный</span></span></button>
                   </li>
                   <li class="product-card-color-item">
-                    <button class="btn-as-wrapper product-card-color-item__action" type="button"> <span class="inner-content --color-03" style="background-color: #B1C918"><span class="visually-hidden">Зеленый]</span></span></button>
+                    <button class="btn-as-wrapper product-card-color-item__action" type="button"> <span class="inner-content --color-03" style="background-color: #B1C918"><span class="visually-hidden">Зеленый</span></span></button>
                   </li>
                   <li class="product-card-color-item">
-                    <button class="btn-as-wrapper product-card-color-item__action" type="button"> <span class="inner-content --color-04" style="background-color: #FFEB3A"><span class="visually-hidden">Желтый]</span></span></button>
+                    <button class="btn-as-wrapper product-card-color-item__action" type="button"> <span class="inner-content --color-04" style="background-color: #FFEB3A"><span class="visually-hidden">Желтый</span></span></button>
                   </li>
                   <li class="product-card-color-item">
                     <button class="btn-as-wrapper product-card-color-item__action" type="button"><span class="inner-content --color-05" style="background-color: #83C5E5"><span class="visually-hidden">Синий</span></span></button>
@@ -722,78 +742,17 @@
                 </ul>
                 <div class="w-icon-buttons">
                   <button class="btn-as-wrapper product-card-icon-btn --add-to-favorites" type="button"><span class="inner-content"> <span class="visually-hidden">Добавить в избранное</span></span></button>
-                  <button class="btn-as-wrapper product-card-icon-btn --order-sample js-show-modal" type="button" data-target-modal="#modal_02"><span class="inner-content"> <span class="visually-hidden">Заказать образец</span></span></button>
+                  <div class="product-card-icon-btn --order-sample"><span class="inner-content"> <span class="visually-hidden">Заказать образец</span></span>
+                    <div class="popup">
+                      <button class="btn-as-wrapper btn-main btn--filled-green product-card-icon-btn__btn js-show-modal" type="button" data-target-modal="#modal_02">Заказать образец </button>
+                    </div>
+                  </div>
                 </div><a class="product-card__image" href="#"><img class="product-card__image-img product-card__image-img" src="./assets/img/test/210x210-02.png" alt="product image"/></a><a class="product-card-title" href="#">
                   Тест <br>
                   тест
                   </a><span class="product-card-availability --in-stock">В наличии</span>
                 <div class="w-price-and-btn"><span class="product-card-price"><span class="product-card-price__old-price"><span class="value">99 999</span></span><span class="product-card-price__new-price"><span class="value">88 888</span>₽</span></span>
-                  <button class="btn-main btn--filled-transparent product-card-price__btn" type="button"> <span class="inner-content">В корзину</span></button>
-                </div>
-              </div>
-            </li>
-            <li class="slider-group-slide">
-              <div class="product-card">
-                <ul class="product-card-color-list">
-                  <li class="product-card-color-item">
-                    <button class="btn-as-wrapper product-card-color-item__action" type="button"> <span class="inner-content --color-01" style="background-color: #C4C4C4"><span class="visually-hidden">Серый</span></span></button>
-                  </li>
-                  <li class="product-card-color-item">
-                    <button class="btn-as-wrapper product-card-color-item__action" type="button"> <span class="inner-content --color-02" style="background-color: #A94525"><span class="visually-hidden">Красный</span></span></button>
-                  </li>
-                  <li class="product-card-color-item">
-                    <button class="btn-as-wrapper product-card-color-item__action" type="button"> <span class="inner-content --color-03" style="background-color: #B1C918"><span class="visually-hidden">Зеленый]</span></span></button>
-                  </li>
-                  <li class="product-card-color-item">
-                    <button class="btn-as-wrapper product-card-color-item__action" type="button"> <span class="inner-content --color-04" style="background-color: #FFEB3A"><span class="visually-hidden">Желтый]</span></span></button>
-                  </li>
-                  <li class="product-card-color-item">
-                    <button class="btn-as-wrapper product-card-color-item__action" type="button"><span class="inner-content --color-05" style="background-color: #83C5E5"><span class="visually-hidden">Синий</span></span></button>
-                  </li>
-                </ul>
-                <div class="w-icon-buttons">
-                  <button class="btn-as-wrapper product-card-icon-btn --add-to-favorites" type="button"><span class="inner-content"> <span class="visually-hidden">Добавить в избранное</span></span></button>
-                  <button class="btn-as-wrapper product-card-icon-btn --order-sample js-show-modal" type="button" data-target-modal="#modal_02"><span class="inner-content"> <span class="visually-hidden">Заказать образец</span></span></button>
-                </div><a class="product-card__image" href="#"><img class="product-card__image-img product-card__image-img" src="./assets/img/test/210x210-03.png" alt="product image"/></a><a class="product-card-title" href="#">
-                  Тест <br>
-                  тест <br>
-                  тест
-                  </a><span class="product-card-availability --in-stock">В наличии</span>
-                <div class="w-price-and-btn"><span class="product-card-price"><span class="product-card-price__old-price"><span class="value">999 999</span></span><span class="product-card-price__new-price"><span class="value">888 888</span>₽</span></span>
-                  <button class="btn-main btn--filled-transparent product-card-price__btn" type="button"> <span class="inner-content">В корзину</span></button>
-                </div>
-              </div>
-            </li>
-            <li class="slider-group-slide">
-              <div class="product-card">
-                <ul class="product-card-color-list">
-                  <li class="product-card-color-item">
-                    <button class="btn-as-wrapper product-card-color-item__action" type="button"> <span class="inner-content --color-01" style="background-color: #C4C4C4"><span class="visually-hidden">Серый</span></span></button>
-                  </li>
-                  <li class="product-card-color-item">
-                    <button class="btn-as-wrapper product-card-color-item__action" type="button"> <span class="inner-content --color-02" style="background-color: #A94525"><span class="visually-hidden">Красный</span></span></button>
-                  </li>
-                  <li class="product-card-color-item">
-                    <button class="btn-as-wrapper product-card-color-item__action" type="button"> <span class="inner-content --color-03" style="background-color: #B1C918"><span class="visually-hidden">Зеленый]</span></span></button>
-                  </li>
-                  <li class="product-card-color-item">
-                    <button class="btn-as-wrapper product-card-color-item__action" type="button"> <span class="inner-content --color-04" style="background-color: #FFEB3A"><span class="visually-hidden">Желтый]</span></span></button>
-                  </li>
-                  <li class="product-card-color-item">
-                    <button class="btn-as-wrapper product-card-color-item__action" type="button"><span class="inner-content --color-05" style="background-color: #83C5E5"><span class="visually-hidden">Синий</span></span></button>
-                  </li>
-                </ul>
-                <div class="w-icon-buttons">
-                  <button class="btn-as-wrapper product-card-icon-btn --add-to-favorites" type="button"><span class="inner-content"> <span class="visually-hidden">Добавить в избранное</span></span></button>
-                  <button class="btn-as-wrapper product-card-icon-btn --order-sample js-show-modal" type="button" data-target-modal="#modal_02"><span class="inner-content"> <span class="visually-hidden">Заказать образец</span></span></button>
-                </div><a class="product-card__image" href="#"><img class="product-card__image-img product-card__image-img" src="./assets/img/test/210x210-04.png" alt="product image"/></a><a class="product-card-title" href="#">
-                  Тест <br>
-                  тест <br>
-                  тест
-                  
-                  </a><span class="product-card-availability --in-stock">В наличии</span>
-                <div class="w-price-and-btn"><span class="product-card-price"><span class="product-card-price__old-price"><span class="value">9 999 999</span></span><span class="product-card-price__new-price"><span class="value">8 888 888</span>₽</span></span>
-                  <button class="btn-main btn--filled-transparent product-card-price__btn" type="button"> <span class="inner-content">В корзину</span></button>
+                  <button class="btn-main btn--filled-transparent product-card-price__btn" type="button"> <span class="inner-content"><span class="text">В корзину</span></span></button>
                 </div>
               </div>
             </li>
@@ -1197,8 +1156,8 @@
             <div class="w-subscribe-heading"><span class="subscribe-heading__title">Будьте всегда в курсе!</span><span class="subscribe-heading__description">Не пропускайте новости о наших акциях, скидках и событиях, подпишитесь и узнавайте о них первым.</span></div>
             <div class="w-subscribe-form">
               <form class="subscribe-form-inputs" method="post" action="https://echo.htmlacademy.ru">
-                <label class="component-input-text js-component-input-text subscribe-form-email --style-01">
-                  <input class="input-text-form js-input" type="text" name="subscribe-email"/><span class="input-text-label --bg-white">Ваш e-mail</span>
+                <label class="component-input-text subscribe-form-email --style-01">
+                  <input class="input-text-form" type="text" name="subscribe-email" placeholder="Ваш e-mail"/>
                 </label>
                 <button class="btn-main btn--filled-green subscribe-form-btn-submit" type="submit">Подписаться</button>
               </form><span class="subscribe-form__description">Отправляя данные, вы соглашаетесь с <a class="link" href="#">политикой конфиденциальности</a></span>
@@ -1344,7 +1303,11 @@
                 <input class="input-text-form js-input" type="password" name="password_02"/><span class="input-text-label --bg-white">Повторите пароль<span class="star">*</span></span>
               </label>
               <div class="w-line --reg">
-                <button class="btn-main btn--filled-green modal-body__btn-send" type="submit">Зарегистрироваться</button><span class="modal-description">Отправляя данные, вы соглашаетесь на <a class="link --underline" href="#">обработку персональных данных</a></span>
+                <button class="btn-main btn--filled-green modal-body__btn-send" type="submit">Зарегистрироваться</button><span class="modal-description">Отправляя данные, вы соглашаетесь на <a class="link --underline" href="#">обработку персональных данных</a>
+                  
+                  
+                  
+                  </span>
               </div>
             </div>
           </div>

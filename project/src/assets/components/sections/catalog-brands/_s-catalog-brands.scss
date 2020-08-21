@@ -88,7 +88,6 @@
 
       border-radius: 50%;
 
-
       &.slick-prev {
         left: 0;
         top: 50%;
@@ -104,7 +103,6 @@
           height: 18px;
           background: URL('../img/icons/arrow-left.svg') center center/contain no-repeat;
         }
-
       }
 
       &.slick-next {
@@ -156,11 +154,43 @@
         height: 38px;
 
         &.slick-prev {
-          transform: translate(-5vw, -50%);
+          transform: translate(-3vw, -50%);
         }
 
         &.slick-next {
-          transform: translate(5vw, -50%);
+          transform: translate(3vw, -50%);
+        }
+      }
+    }
+  }
+
+
+  @media(max-width: 568px) {
+    .brands-list.slick-slider {
+      .slick-arrow {
+        height: 98%;
+        border-radius: 6%;
+        width: 44px;
+        background: none;
+
+        &.slick-prev {
+          transform: translate(-4vw, -50%);
+
+          &::after {
+            background: URL('../img/icons/arrow-left-green-2.svg') center center/contain no-repeat;
+            height: 32px;
+            width: 32px;
+          }
+        }
+
+        &.slick-next {
+          transform: translate(4vw, -50%);
+
+          &::after {
+            background: URL('../img/icons/arrow-right-green-2.svg') center center/contain no-repeat;
+            height: 32px;
+            width: 32px;
+          }
         }
       }
     }

@@ -207,6 +207,10 @@
 
         .features-card {
 
+          .features-card__description {
+            max-width: 100%;
+          }
+
           .features-card-features-list {
             margin: 0;
 

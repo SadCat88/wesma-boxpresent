@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <link rel="shortcut icon" href="./assets/img/favicon.ico"/>
+    <link rel="stylesheet" href="./assets/simple-grid-layout/css/simple-grid-layout.css"/>
+    <link rel="stylesheet" href="./assets/vendors/mmenu/css/mmenu.css"/>
+    <link rel="stylesheet" href="./assets/css/style.css"/>
+    <title>Boxpresent.ru - catalog page</title>
+  </head>
+  <body>
+    <div id="page">
+      <header class="s-header">
+        <div class="component-mobile-top-panel js-component-mobile-top-panel">
+          <div class="l-container w-mobile-top-panel"><a class="mobile-top-panel-btn btn-mobile --main-menu" href="#mmenu"><span class="visually-hidden">menu</span></a>
+            <nav class="component-city-choice-menu js-component-city-choice-menu"><span class="menu-heading js-component-city-choice-menu-heading js-show-modal" data-target-modal="#modalCityChoice"><span class="menu-heading__title">Ваш город:</span><span class="menu-heading__selected js-city-selected">Москва</span></span></nav>
+            <nav class="mobile-panel-navigation">
+              <ul class="mobile-panel-list">
+                <li class="mobile-panel-item mobile-panel-item__cart">
+                  <button class="btn-as-wrapper mobile-panel-item__action" type="button"><span class="cart-qty">12</span><span class="cart-total one-line"><span class="value">35 350</span> руб.</span></button>
+                </li>
+                <li class="mobile-panel-item mobile-panel-item__favorites"><a class="mobile-panel-item__action" href="#"><span class="like-qty">48</span><span class="visually-hidden">Избранное</span></a></li>
+                <li class="mobile-panel-item mobile-panel-item__search">
+                  <button class="btn-as-wrapper mobile-panel-item__action --js-btn-search" type="button"><span class="visually-hidden">Поиск</span></button>
+                </li>
+                <li class="mobile-panel-item mobile-panel-item__account">
+                  <button class="btn-as-wrapper mobile-panel-item__action js-show-modal" type="button" data-target-modal="#modal_03"><span class="visually-hidden">Личный кабинет</span></button>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <div class="w-search-panel --js-close" id="searchPanel">
+          <div class="l-container">
+            <form class="search-form" method="post" action="https://echo.htmlacademy.ru">
+              <input class="search-form__input-text js-input-text" type="text" name="search" placeholder="Поиск" autofocus="autofocus"/>
+              <button class="btn-as-wrapper btn-main btn--filled-green search-form__btn-submit" type="submit">Найти</button>
+              <button class="btn-as-wrapper btn-close search-form__btn-close js-close" type="button"><span class="visually-hidden">Закрыть</span></button>
+            </form>
+          </div>
+        </div>
+        <div class="l-container">
+          <div class="w-top-menu">
+            <nav class="component-city-choice-menu js-component-city-choice-menu"><span class="menu-heading js-component-city-choice-menu-heading js-show-modal" data-target-modal="#modalCityChoice"><span class="menu-heading__title">Ваш город:</span><span class="menu-heading__selected js-city-selected">Москва</span></span>
+              <div class="modal-overlay js-modal-overlay" id="modalCityChoice">
+                <div class="modal-body js-component-city-choice-menu-dropdown">
+                  <button class="btn-as-wrapper modal-close" type="button"></button>
+                  <div class="modal-body-heading"> <span class="modal-body-heading__title">Выберите ваш город</span>
+                    <form class="form-city-choice-search" method="post" action="https://echo.htmlacademy.ru">
+                      <label class="component-input-text js-component-input-text --style-02 --local-style">
+                        <input class="input-text-form js-c-city-search" type="text" name="username" autocomplete="off" placeholder="Поиск города:"/>
+                      </label>
+                      <button class="btn-as-wrapper btn-search" type="submit"><span class="visually-hidden">Поиск</span></button>
+                    </form>
+                  </div>
+                  <div class="modal-body-content">
+                    <ul class="big-city-list">
+                      <li class="big-city-item"> <a class="big-city-item__link js-city-name" href="#">Москва</a></li>
+                      <li class="big-city-item"> <a class="big-city-item__link js-city-name" href="#">Санкт-Петербург</a></li>
+                    </ul>
+                    <ul class="small-city-list">
+                      <li class="small-city-letter" tabindex="0"><span class="letter">А</span>
+                        <ul class="small-city-letter-list">
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Абакан</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Альметьевск</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Анадырь</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Анапа</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Ангарск</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Апатиты</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Апшеронск</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Армавир</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Архангельск</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Астрахань</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Ачинск</a></li>
+                        </ul>
+                      </li>
+                      <li class="small-city-letter" tabindex="0"><span class="letter">Б</span>
+                        <ul class="small-city-letter-list">
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Балаково</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Балашиха</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Барнаул</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Белгород</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Березники</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Бийск</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Биробиджан</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Благовещенск</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Боровичи</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Братск</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Брянск</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Бугульма</a></li>
+                        </ul>
+                      </li>
+                      <li class="small-city-letter" tabindex="0"><span class="letter">В</span>
+                        <ul class="small-city-letter-list">
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Великие Луки</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Великий Новгород</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Вичуга</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Владивосток</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Владикавказ</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Владимир</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Волгоград</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Волгодонск</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Волжский</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Вологда</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Волхов</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Воркута</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Воронеж</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Воскресенск</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Всеволожск</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Выборг</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Выкса</a></li>
+                        </ul>
+                      </li>
+                      <li class="small-city-letter" tabindex="0"><span class="letter">Г</span>
+                        <ul class="small-city-letter-list">
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Гатчина</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Глазов</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Горно-Алтайск</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Грозный</a></li>
+                        </ul>
+                      </li>
+                      <li class="small-city-letter" tabindex="0"><span class="letter">Д</span>
+                        <ul class="small-city-letter-list">
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Дзержинск</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Дмитров</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Дмитровград</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Долгопрудный</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Дубна</a></li>
+                        </ul>
+                      </li>
+                      <li class="small-city-letter" tabindex="0"><span class="letter">Е</span>
+                        <ul class="small-city-letter-list">
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Ейск</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Екатеринбург</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Ессентуки</a></li>
+                        </ul>
+                      </li>
+                      <li class="small-city-letter" tabindex="0"><span class="letter">Ж</span>
+                        <ul class="small-city-letter-list">
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Железногорск</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Железнодорожный</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Жигулевск</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Жуковский</a></li>
+                        </ul>
+                      </li>
+                      <li class="small-city-letter" tabindex="0"><span class="letter">И</span>
+                        <ul class="small-city-letter-list">
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Иваново</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Ивантеевка</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Ижевск</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Иркутск</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Ишим</a></li>
+                        </ul>
+                      </li>
+                      <li class="small-city-letter" tabindex="0"><span class="letter">Й</span>
+                        <ul class="small-city-letter-list">
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Йошкар-Ола</a></li>
+                        </ul>
+                      </li>
+                      <li class="small-city-letter" tabindex="0"><span class="letter">К</span>
+                        <ul class="small-city-letter-list">
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Казань</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Калиниград</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Калуга</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Каменск-Уральский</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Каменск-Шахтинский</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Камышин</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Кемерово</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Кингисепп</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Кириши</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Киров</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Кисловодск</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Ковров</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Коломна</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Колпино</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Комсомольск-на-Амуре</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Кондопога</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Королев</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Кострома</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Котлас</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Красногорск</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Краснодар</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Красноярск</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Крым</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Кстово</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Курган</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Курск</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Кызыл</a></li>
+                        </ul>
+                      </li>
+                      <li class="small-city-letter" tabindex="0"><span class="letter">Л</span>
+                        <ul class="small-city-letter-list">
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Липецк</a></li>
+                        </ul>
+                      </li>
+                      <li class="small-city-letter" tabindex="0"><span class="letter">М</span>
+                        <ul class="small-city-letter-list">
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Магадан</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Магнитогорск</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Майкоп</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Махачкала</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Междуреченск</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Миасс</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Минеральные Воды</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Минусинск</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Могилев</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Можайск</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Мурманск</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Муром</a></li>
+                        </ul>
+                      </li>
+                      <li class="small-city-letter" tabindex="0"><span class="letter">Н</span>
+                        <ul class="small-city-letter-list">
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Набережные Челны</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Назрань</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Нальчик</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Находка</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Невинномысск</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Нефтекамск</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Нефтеюганск</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Нижневартовск</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Нижнекамск</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Нижний Новгород</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Нижний Тагил</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Новокузнецк</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Новомосковск</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Новороссийск</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Новосибирск</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Новочебоксарск</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Новый Уренгой</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Норильск</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Ноябрьск</a></li>
+                        </ul>
+                      </li>
+                      <li class="small-city-letter" tabindex="0"><span class="letter">О</span>
+                        <ul class="small-city-letter-list">
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Обнинск</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Озерск</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Октябрьский</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Омск</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Орёл</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Оренбург</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Орехово-Зуево</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Орск</a></li>
+                        </ul>
+                      </li>
+                      <li class="small-city-letter" tabindex="0"><span class="letter">П</span>
+                        <ul class="small-city-letter-list">
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Пенза</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Пермь</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Петрозаводск</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Петропавловск-Камчатский</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Подольск</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Псков</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Пущино</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Пятигорск</a></li>
+                        </ul>
+                      </li>
+                      <li class="small-city-letter" tabindex="0"><span class="letter">Р</span>
+                        <ul class="small-city-letter-list">
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Раменское</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Ростов-на-Дону</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Рыбинск</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Рязань</a></li>
+                        </ul>
+                      </li>
+                      <li class="small-city-letter" tabindex="0"><span class="letter">С</span>
+                        <ul class="small-city-letter-list">
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Салават</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Салехард</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Самара</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Саранск</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Сарапул</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Саратов</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Саров</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Сатка</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Севастополь</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Северодвинск</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Северск</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Сергиев Посад</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Серпухов</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Славянск-на-Кубани</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Смоленск</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Сортавала</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Сосновый Бор</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Сочи</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Ставрополь</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Старый Оскол</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Стерлитамак</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Сургут</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Сызрань</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Сыктывкар</a></li>
+                        </ul>
+                      </li>
+                      <li class="small-city-letter" tabindex="0"><span class="letter">Т</span>
+                        <ul class="small-city-letter-list">
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Таганрог</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Тамбов</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Тверь</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Тихвин</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Тобольск</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Тольятти</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Томск</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Туапсе</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Тула</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Тутаев</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Тында</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Тюмень</a></li>
+                        </ul>
+                      </li>
+                      <li class="small-city-letter" tabindex="0"><span class="letter">У</span>
+                        <ul class="small-city-letter-list">
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Улан-Удэ</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Ульяновск</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Урай</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Усинск</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Уссурийск</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Усть-Илимск</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Уфа</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Ухта</a></li>
+                        </ul>
+                      </li>
+                      <li class="small-city-letter" tabindex="0"><span class="letter">Ф</span>
+                        <ul class="small-city-letter-list">
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Фрязино</a></li>
+                        </ul>
+                      </li>
+                      <li class="small-city-letter" tabindex="0"><span class="letter">Х</span>
+                        <ul class="small-city-letter-list">
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Хабаровск</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Ханты-Мансийск</a></li>
+                        </ul>
+                      </li>
+                      <li class="small-city-letter" tabindex="0"><span class="letter">Ч</span>
+                        <ul class="small-city-letter-list">
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Чебоксары</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Челябинск</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Череповец</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Черкесск</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Черноголовка</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Чита</a></li>
+                        </ul>
+                      </li>
+                      <li class="small-city-letter" tabindex="0"><span class="letter">Ш</span>
+                        <ul class="small-city-letter-list">
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Шахты</a></li>
+                        </ul>
+                      </li>
+                      <li class="small-city-letter" tabindex="0"><span class="letter">Ш</span>
+                        <ul class="small-city-letter-list">
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Щелково</a></li>
+                        </ul>
+                      </li>
+                      <li class="small-city-letter" tabindex="0"><span class="letter">Э</span>
+                        <ul class="small-city-letter-list">
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Элиста</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Энгельс</a></li>
+                        </ul>
+                      </li>
+                      <li class="small-city-letter" tabindex="0"><span class="letter">Ю</span>
+                        <ul class="small-city-letter-list">
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Южно-Сахалинск</a></li>
+                        </ul>
+                      </li>
+                      <li class="small-city-letter" tabindex="0"><span class="letter">Я</span>
+                        <ul class="small-city-letter-list">
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Якутск</a></li>
+                          <li class="small-city-letter-list-item"><a class="small-city-list__item-link js-city-name" href="#">Ярославль</a></li>
+                        </ul>
+                      </li>
+                    </ul><span class="city-not-found">По заданному запросу город не найден.</span>
+                  </div>
+                </div>
+              </div>
+            </nav>
+            <nav class="w-main-menu" id="mmenu">
+              <ul class="main-menu-list">
+                <li class="main-menu-item"><a class="main-menu-item__link" href="#">О компании</a>
+                  <ul class="main-menu-sublevel">
+                    <li class="main-menu-sublevel-item"><a class="main-menu-sublevel-item__link" href="#">Lorem ipsum</a></li>
+                    <li class="main-menu-sublevel-item"><a class="main-menu-sublevel-item__link" href="#">Lorem ipsum</a></li>
+                    <li class="main-menu-sublevel-item"><a class="main-menu-sublevel-item__link" href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></li>
+                    <li class="main-menu-sublevel-item"><a class="main-menu-sublevel-item__link" href="#">
+                        Lorem ipsum
+                        </a></li>
+                  </ul>
+                </li>
+                <li class="main-menu-item"><a class="main-menu-item__link kek" href="#">Услуги</a></li>
+                <li class="main-menu-item"><a class="main-menu-item__link" href="#">Нанесение логотипа</a></li>
+                <li class="main-menu-item"><a class="main-menu-item__link" href="#">Наши работы</a></li>
+                <li class="main-menu-item"><a class="main-menu-item__link" href="#">Оплата и доставка</a></li>
+                <li class="main-menu-item"><a class="main-menu-item__link" href="#">Новости </a></li>
+                <li class="main-menu-item"><a class="main-menu-item__link" href="#">Контакты</a></li>
+                <li class="main-menu-item --hide-is-desktop"><a class="main-menu-item__link" href="#">Каталог</a></li>
+              </ul>
+            </nav>
+            <nav class="check-order-status"><a class="check-order-status__link" href="#"> <span class="inner-content">Проверить статус заказа</span></a></nav>
+          </div>
+        </div>
+        <div class="l-container container-middle-menu">
+          <div class="w-middle-menu"><a class="logo" href="./index.html"><img class="logo__img" src="./assets/img/logo.png" alt="Logotype"/><span class="logo__title">Сувениры и подарки с логотипом</span></a>
+            <nav class="w-communication-methods">
+              <ul class="communication-methods-list">
+                <li class="communication-methods-item --phone"><a class="communication-methods-item__title" href="tel:+74956004177">+7 (495) 600-41-77</a>
+                  <button class="communication-methods-item__action js-show-modal" data-target-modal="#modal_01"><span class="btn-text">Заказать звонок</span></button>
+                </li>
+                <li class="communication-methods-item --email"><span class="communication-methods-item__title">C 09:00 до 21:00, без выходных!</span><a class="communication-methods-item__action" href="mailto:info@boxpresent.ru">info@boxpresent.ru</a></li>
+              </ul>
+            </nav>
+            <nav class="w-user-navigation">
+              <ul class="user-navigation-list">
+                <li class="user-navigation-item user-navigation-item__cart">
+                  <button class="user-navigation-item-action btn-as-wrapper" type="button"><span class="w-cart-qty"><span class="cart-qty">12</span></span><span class="w-cart-description"><span class="cart-title one-line">Корзина</span><span class="cart-total one-line"><span class="value">35 350</span> руб.</span></span></button>
+                </li>
+                <li class="user-navigation-item user-navigation-item__favorites"><a class="user-navigation-item-action" href="#"><span class="w-like-qty"><span class="like-qty">21</span></span><span class="user-navigation-image"> <span class="visually-hidden">Избранное</span></span></a></li>
+                <li class="user-navigation-item user-navigation-item__search">
+                  <button class="user-navigation-item-action btn-as-wrapper --js-btn-search" type="button"><span class="visually-hidden">Поиск</span></button>
+                </li>
+                <li class="user-navigation-item user-navigation-item__account">
+                  <button class="user-navigation-item-action btn-as-wrapper js-show-modal" type="button" data-target-modal="#modal_03"><span class="visually-hidden">Личный кабинет</span></button>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </header>
+      <section class="s-fast-category">
+        <div class="l-container container-fast-category js-component-fast-category">
+          <button class="btn-as-wrapper fast-category-btn-view-all js-component-fast-category-btn" title="Показать еще"><span class="inner-content"></span></button>
+          <nav class="l-row fast-category-list js-component-fast-category-list">
+            <div class="l-col-02 --col-1280-04 --col-640-08">
+              <div class="fast-category-item"><a class="fast-category-item__link" href="#">
+                  <div class="fast-category-item__image"><img class="fast-category-item__image-img" src="./assets/img/icons/fast-category/category_1.svg" alt="category image"/></div>
+                  <div class="fast-category-item__title">Ручки</div></a></div>
+            </div>
+            <div class="l-col-02 --col-1280-04 --col-640-08">
+              <div class="fast-category-item"><a class="fast-category-item__link" href="#">
+                  <div class="fast-category-item__image"><img class="fast-category-item__image-img" src="./assets/img/icons/fast-category/category_2.svg" alt="category image"/></div>
+                  <div class="fast-category-item__title">Сумки</div></a></div>
+            </div>
+            <div class="l-col-02 --col-1280-04 --col-640-08">
+              <div class="fast-category-item"><a class="fast-category-item__link" href="#">
+                  <div class="fast-category-item__image"><img class="fast-category-item__image-img" src="./assets/img/icons/fast-category/category_3.svg" alt="category image"/></div>
+                  <div class="fast-category-item__title">Календари</div></a></div>
+            </div>
+            <div class="l-col-02 --col-1280-04 --col-640-08">
+              <div class="fast-category-item"><a class="fast-category-item__link" href="#">
+                  <div class="fast-category-item__image"><img class="fast-category-item__image-img" src="./assets/img/icons/fast-category/category_4.svg" alt="category image"/></div>
+                  <div class="fast-category-item__title">Корпоративные подарки </div></a></div>
+            </div>
+            <div class="l-col-02 --col-1280-04 --col-640-08">
+              <div class="fast-category-item"><a class="fast-category-item__link" href="#">
+                  <div class="fast-category-item__image"><img class="fast-category-item__image-img" src="./assets/img/icons/fast-category/category_5.svg" alt="category image"/></div>
+                  <div class="fast-category-item__title">Ежедневники и блокноты</div></a></div>
+            </div>
+            <div class="l-col-02 --col-1280-04 --col-640-08">
+              <div class="fast-category-item"><a class="fast-category-item__link" href="#">
+                  <div class="fast-category-item__image"><img class="fast-category-item__image-img" src="./assets/img/icons/fast-category/category_6.svg" alt="category image"/></div>
+                  <div class="fast-category-item__title">Промо-одежда</div></a></div>
+            </div>
+            <div class="l-col-02 --col-1280-04 --col-640-08">
+              <div class="fast-category-item"><a class="fast-category-item__link" href="#">
+                  <div class="fast-category-item__image"><img class="fast-category-item__image-img" src="./assets/img/icons/fast-category/category_7.svg" alt="category image"/></div>
+                  <div class="fast-category-item__title">Электроника</div></a></div>
+            </div>
+            <div class="l-col-02 --col-1280-04 --col-640-08">
+              <div class="fast-category-item"><a class="fast-category-item__link" href="#">
+                  <div class="fast-category-item__image"><img class="fast-category-item__image-img" src="./assets/img/icons/fast-category/category_8.svg" alt="category image"/></div>
+                  <div class="fast-category-item__title">Путешествие и отдых</div></a></div>
+            </div>
+            <div class="l-col-02 --col-1280-04 --col-640-08">
+              <div class="fast-category-item"><a class="fast-category-item__link" href="#">
+                  <div class="fast-category-item__image"><img class="fast-category-item__image-img" src="./assets/img/icons/fast-category/category_1.svg" alt="category image"/></div>
+                  <div class="fast-category-item__title">Test</div></a></div>
+            </div>
+            <div class="l-col-02 --col-1280-04 --col-640-08">
+              <div class="fast-category-item"><a class="fast-category-item__link" href="#">
+                  <div class="fast-category-item__image"><img class="fast-category-item__image-img" src="./assets/img/icons/fast-category/category_2.svg" alt="category image"/></div>
+                  <div class="fast-category-item__title">Test</div></a></div>
+            </div>
+          </nav>
+        </div>
+      </section>
+      <main class="s-catalog">
+        <p>test</p>
+      </main>
+      <section class="s-sandbox">
+        <ul class="c-breadcrumbs --style-01">
+          <li class="breadcrumbs-item"><a class="breadcrumbs-item-text" href="#">Главная</a></li>
+          <li class="breadcrumbs-item"><a class="breadcrumbs-item-text" href="#">Каталог</a></li>
+          <li class="breadcrumbs-item"><span class="breadcrumbs-item-text">Промо-одежда</span></li>
+        </ul>
+      </section>
+      <footer class="s-footer">
+        <div class="l-container footer-container-01">
+          <div class="w-footer-logotype"><a class="logo" href="./index.html"><img class="logo__img" src="./assets/img/logo.png" alt="Logotype"/><span class="logo__title">Сувениры и подарки с логотипом</span></a><span class="footer-copyright">© 2020 «Бокс Презент». Все права защищены.</span><a class="footer-privacy-policy link --text-green" href="#">Политика конфиденциальности</a></div>
+          <nav class="footer-navigation">
+            <div class="w-footer-navigation-group"><span class="footer-title">Каталог продукции</span>
+              <ul class="footer-navigation-list js-component-expand-block__list">
+                <li class="footer-navigation-list-item"><a class="footer-navigation-list-item__link" href="#">Подарочные наборы</a></li>
+                <li class="footer-navigation-list-item"><a class="footer-navigation-list-item__link" href="#">Путешествие и отдых</a></li>
+                <li class="footer-navigation-list-item"><a class="footer-navigation-list-item__link" href="#">Ежедневники и блокноты</a></li>
+                <li class="footer-navigation-list-item"><a class="footer-navigation-list-item__link" href="#">Ручки</a></li>
+                <li class="footer-navigation-list-item"><a class="footer-navigation-list-item__link" href="#">Промо-сувениры</a></li>
+                <li class="footer-navigation-list-item"><a class="footer-navigation-list-item__link" href="#">Часы</a></li>
+                <li class="footer-navigation-list-item"><a class="footer-navigation-list-item__link" href="#">Уютный дом</a></li>
+                <li class="footer-navigation-list-item"><a class="footer-navigation-list-item__link" href="#">Упаковка подарочная</a></li>
+              </ul>
+            </div>
+            <div class="w-footer-navigation-group"><span class="footer-title">О компании</span>
+              <ul class="footer-navigation-list js-component-expand-block__list">
+                <li class="footer-navigation-list-item"><a class="footer-navigation-list-item__link" href="#">Кто мы</a></li>
+                <li class="footer-navigation-list-item"><a class="footer-navigation-list-item__link" href="#">Отзывы</a></li>
+                <li class="footer-navigation-list-item"><a class="footer-navigation-list-item__link" href="#">Портфолио</a></li>
+                <li class="footer-navigation-list-item"><a class="footer-navigation-list-item__link" href="#">Услуги</a></li>
+                <li class="footer-navigation-list-item"><a class="footer-navigation-list-item__link" href="#">Контакты</a></li>
+                <li class="footer-navigation-list-item"><a class="footer-navigation-list-item__link" href="#">Для поставщиков</a></li>
+                <li class="footer-navigation-list-item"><a class="footer-navigation-list-item__link" href="#">Условия работы</a></li>
+                <li class="footer-navigation-list-item"><a class="footer-navigation-list-item__link" href="#">Блог</a></li>
+              </ul>
+            </div>
+            <div class="w-footer-navigation-group"><span class="footer-title">Для клиентов </span>
+              <ul class="footer-navigation-list js-component-expand-block__list">
+                <li class="footer-navigation-list-item"><a class="footer-navigation-list-item__link" href="#">Оплата</a></li>
+                <li class="footer-navigation-list-item"><a class="footer-navigation-list-item__link" href="#">Вопрос-ответ</a></li>
+                <li class="footer-navigation-list-item"><a class="footer-navigation-list-item__link" href="#">Доставка</a></li>
+                <li class="footer-navigation-list-item"><a class="footer-navigation-list-item__link" href="#">Бонусная программа</a></li>
+                <li class="footer-navigation-list-item"><a class="footer-navigation-list-item__link" href="#">Как сделать заказ</a></li>
+                <li class="footer-navigation-list-item"><a class="footer-navigation-list-item__link" href="#">Как стать поставщиком</a></li>
+                <li class="footer-navigation-list-item"><a class="footer-navigation-list-item__link" href="#">Документы</a></li>
+                <li class="footer-navigation-list-item"><a class="footer-navigation-list-item__link" href="#">Возврат товара</a></li>
+              </ul>
+            </div>
+          </nav>
+          <div class="w-contact-info-group"><span class="footer-title">Контакты</span>
+            <div class="w-contact-info-list">
+              <address class="contact-info-item --phone"><a class="contact-info-item__text" href="tel:+74956004177">+7 (495) 600-41-77</a></address>
+              <address class="contact-info-item --mail"><a class="contact-info-item__text" href="mailto:info@boxpresent.ru">info@boxpresent.ru</a></address>
+              <address class="contact-info-item --location"><span class="contact-info-item__text">Москва, пл. Тверская застава д.3</span></address>
+            </div>
+          </div>
+        </div>
+        <div class="w-line-02">
+          <div class="l-container footer-container-02">
+            <ul class="footer-soc-icons">
+              <li class="footer-soc-icons-item"><a class="footer-soc-icons-item__link --fcbk" href="#"><span class="visually-hidden">Facebook</span></a></li>
+              <li class="footer-soc-icons-item"><a class="footer-soc-icons-item__link --instgr" href="#"><span class="visually-hidden">Instagram</span></a></li>
+              <li class="footer-soc-icons-item"><a class="footer-soc-icons-item__link --ytb" href="#"><span class="visually-hidden">Youtube</span></a></li>
+              <li class="footer-soc-icons-item"><a class="footer-soc-icons-item__link --whtsp" href="#"><span class="visually-hidden">WhatsApp</span></a></li>
+              <li class="footer-soc-icons-item"><a class="footer-soc-icons-item__link --tlgr" href="#"><span class="visually-hidden">Telegram</span></a></li>
+            </ul>
+            <div class="w-yandex-cashbox">
+              <div class="yandex-cashbox"><img src="./assets/img/footer/yandex-cashbox.svg" alt="yandex cashbox logotype"/><span class="visually-hidden">Яндекс Касса</span></div>
+            </div>
+            <div class="w-banner"><a class="banner-link" href="#"><img src="./assets/img/footer/supplier-portal.png" alt="image banner"/><span class="visually-hidden">Портал поставщиков</span></a></div>
+          </div>
+        </div>
+      </footer>
+      <div class="modal-overlay js-modal-overlay" id="modal_01">
+        <form class="modal-body" method="post" action="https://echo.htmlacademy.ru">
+          <button class="btn-as-wrapper modal-close" type="button"> <span class="visually-hidden">Закрыть</span></button>
+          <div class="modal-body-heading"> <span class="modal-body-heading__title">Обратный звонок</span></div>
+          <div class="modal-body-content">
+            <label class="component-input-text js-component-input-text">
+              <input class="input-text-form js-input" type="text" name="username"/><span class="input-text-label --bg-white">Ваше имя<span class="star">*</span></span>
+            </label>
+            <label class="component-input-text js-component-input-text">
+              <input class="input-text-form js-input" type="text" name="phone"/><span class="input-text-label --bg-white">Ваш телефон<span class="star">*</span></span>
+            </label>
+            <button class="btn-main btn--filled-green modal-body__btn-send" type="submit">Отправить</button><span class="modal-description --callback">Отправляя данные, вы соглашаетесь на <a class="link --underline" href="#">обработку персональных данных</a>
+              </span>
+          </div>
+        </form>
+      </div>
+      <div class="modal-overlay js-modal-overlay" id="modal_02">
+        <form class="modal-body component-tabs-panel" method="post" action="https://echo.htmlacademy.ru">
+          <button class="btn-as-wrapper modal-close" type="button"> <span class="visually-hidden">Закрыть</span></button>
+          <div class="modal-body-heading"> <span class="modal-body-heading__title">Заказать образец</span></div>
+          <div class="modal-body-content">
+            <label class="component-input-text js-component-input-text">
+              <input class="input-text-form js-input" type="text" name="username"/><span class="input-text-label --bg-white">Ваше имя</span>
+            </label>
+            <label class="component-input-text js-component-input-text">
+              <input class="input-text-form js-input" type="text" name="phone"/><span class="input-text-label --bg-white">Ваш телефон<span class="star">*</span></span>
+            </label>
+            <label class="component-input-text js-component-input-text">
+              <input class="input-text-form js-input" type="text" name="login"/><span class="input-text-label --bg-white">Ваш E-mail<span class="star">*</span></span>
+            </label>
+            <label class="component-input-text input-textarea --text-black js-component-input-text">
+              <textarea class="input-text-form js-input" name="comment"></textarea><span class="input-text-label --bg-white">Ваш комментарий</span>
+            </label>
+            <button class="btn-main btn--filled-green modal-body__btn-send" type="submit">Отправить</button><span class="modal-description --callback">Отправляя данные, вы соглашаетесь на <a class="link --underline" href="#">обработку персональных данных</a>
+              </span>
+          </div>
+        </form>
+      </div>
+      <div class="modal-overlay js-modal-overlay" id="modal_03">
+        <form class="modal-body component-tabs-panel" method="post" action="https://echo.htmlacademy.ru">
+          <button class="btn-as-wrapper modal-close" type="button"> <span class="visually-hidden">Закрыть</span></button>
+          <div class="modal-body-heading"> 
+            <ul class="modal-body-heading-tab-list component-tabs-panel-list">
+              <li class="modal-body-heading-tab-item component-tabs-panel-item"><a class="btn-as-wrapper modal-body-heading-tab-item__btn component-tabs-panel-item__btn --js-active" href="#" data-num-btn="1">Вход</a></li>
+              <li class="modal-body-heading-tab-item component-tabs-panel-item"><a class="btn-as-wrapper modal-body-heading-tab-item__btn component-tabs-panel-item__btn" href="#" data-num-btn="2">Регистрация</a></li>
+            </ul>
+          </div>
+          <div class="modal-body-content w-component-tabs-panel-body">
+            <div class="component-tabs-panel-body --js-show" data-num-tab="1">
+              <label class="component-input-text js-component-input-text">
+                <input class="input-text-form js-input" type="text" name="login"/><span class="input-text-label --bg-white">Ваш E-mail<span class="star">*</span></span>
+              </label>
+              <label class="component-input-text js-component-input-text">
+                <input class="input-text-form js-input" type="password" name="password"/><span class="input-text-label --bg-white">Пароль<span class="star">*</span></span>
+              </label>
+              <div class="w-line --login"><a class="link forgot-password-link" href="#">Забыли пароль?</a>
+                <button class="btn-main btn--filled-green modal-body__btn-send" type="submit">Войти</button>
+              </div>
+            </div>
+            <div class="component-tabs-panel-body" data-num-tab="2">
+              <label class="component-input-text js-component-input-text">
+                <input class="input-text-form js-input" type="text" name="full-name"/><span class="input-text-label --bg-white">ФИО</span>
+              </label>
+              <label class="component-input-text js-component-input-text">
+                <input class="input-text-form js-input" type="text" name="email"/><span class="input-text-label --bg-white">Ваш E-mail<span class="star">*</span></span>
+              </label>
+              <label class="component-input-text js-component-input-text">
+                <input class="input-text-form js-input" type="password" name="password_01"/><span class="input-text-label --bg-white">Пароль<span class="star">*</span></span>
+              </label>
+              <label class="component-input-text js-component-input-text">
+                <input class="input-text-form js-input" type="password" name="password_02"/><span class="input-text-label --bg-white">Повторите пароль<span class="star">*</span></span>
+              </label>
+              <div class="w-line --reg">
+                <button class="btn-main btn--filled-green modal-body__btn-send" type="submit">Зарегистрироваться</button><span class="modal-description">Отправляя данные, вы соглашаетесь на <a class="link --underline" href="#">обработку персональных данных</a>
+                  
+                  
+                  
+                  </span>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <script src="./assets/vendors/jquery/jquery-3.5.1.min.js"></script>
+      <script src="./assets/vendors/intl-tel-input/js/intlTelInput.min.js"></script>
+      <script src="./assets/vendors/slick/js/slick.min.js"></script>
+      <script src="./assets/vendors/masonry/js/masonry.pkgd.min.js"></script>
+      <script src="./assets/simple-grid-layout/js/simple-grid-layout.js"></script>
+      <script src="./assets/vendors/mmenu/js/mmenu.js"></script>
+      <script src="./assets/js/index.js"></script>
+    </div>
+  </body>
+</html>

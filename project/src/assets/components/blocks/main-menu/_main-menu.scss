@@ -29,7 +29,7 @@ $main-menu-item-color-bg: $color-white-1;
   flex-wrap: nowrap;
   flex-direction: row;
 
-  font-size: 13px;
+  font-size: 14px;
   text-decoration: none;
   height: 100%;
   width: 100%;
@@ -189,7 +189,26 @@ $main-menu-item-color-bg: $color-white-1;
   }
 }
 
+@media(max-width: 1340px) {
+  .main-menu-list {
+    font-size: 13px;
+  }
+}
+
+@media(max-width: 1258px) {
+  .main-menu-list {
+    font-size: 14px;
+  }
+}
+
 // === mmenu plugin
+
+.main-menu-list {
+  .main-menu-item.--hide-is-desktop {
+    display: none;
+  }
+}
+
 .w-main-menu.mm-menu {
   --mm-color-background: #f4f6f1;
   --mm-color-text: #313640;
@@ -203,7 +222,7 @@ $main-menu-item-color-bg: $color-white-1;
   margin: 0;
   max-width: none;
 
-  width: 80%;
+  width: 80vw;
   min-width: 240px;
   max-width: 440px;
 
@@ -232,6 +251,10 @@ $main-menu-item-color-bg: $color-white-1;
     // === li
     .mm-listitem {
       padding-right: 20px;
+
+      &.--hide-is-desktop {
+        display: flex;
+      }
 
       &:hover {
         .mm-listitem__text {
@@ -267,6 +290,7 @@ $main-menu-item-color-bg: $color-white-1;
         font-size: 14px;
 
         transition: all 0.3s ease 0s;
+        white-space: normal;
       }
 
       &.marker {

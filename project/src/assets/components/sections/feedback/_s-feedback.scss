@@ -247,7 +247,7 @@
 .s-feedback {
   @media(max-width: 1280px) {
     &::after {
-      height: 25.5vw;
+      display: none;
     }
 
     .w-feedback {
@@ -299,6 +299,8 @@
 
   @media(max-width: 568px) {
     .feedback-heading {
+      margin-top: 1em;
+
       .feedback-heading__title {
         font-size: 18px;
       }
@@ -317,7 +319,7 @@
         }
 
         .feedback__btn-send {
-          margin-left: auto;
+          margin: 0 auto;
           margin-bottom: 3vw;
         }
       }

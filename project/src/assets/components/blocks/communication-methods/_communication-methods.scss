@@ -57,6 +57,7 @@
 
       .communication-methods-item__title {
         font-size: 18px;
+        margin-bottom: -0.1em;
       }
 
       .communication-methods-item__action {
@@ -79,9 +80,11 @@
       .communication-methods-item__title {
         font-size: 13px;
         color: $color-content-text-gray-1;
+        margin-top: 0.2em;
       }
 
       .communication-methods-item__action {
+        margin-top: 0.1em;
         font-size: 13px;
         font-weight: bold;
         text-decoration-line: underline;

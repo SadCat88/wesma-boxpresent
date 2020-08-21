@@ -4,3 +4,98 @@
 // === компоненты
 @import "../components/blocks/**/*.scss";
 @import "../components/sections/**/*.scss";
+
+
+
+// === sandbox
+.s-sandbox {
+  outline: 1px solid black;
+  background-color: rgb(226, 226, 226);
+  padding: 5% 10%;
+}
+
+// === variables
+// =============================================================================
+$color-item-hover: $color-green-1--hover;
+
+// === base style
+// =============================================================================
+.c-breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  height: 25px;
+
+  .breadcrumbs-item {
+    flex-shrink: 0;
+
+    &:not(:last-child) {
+      .breadcrumbs-item-text {
+        cursor: pointer;
+        font-weight: normal;
+        font-size: 14px;
+        margin-right: 0.7em;
+
+        // === символ разделителя
+        &:after {
+          content: "/";
+          display: inline-block;
+          margin-left: 0.5em;
+        }
+      }
+    }
+
+    &:last-child {
+      .breadcrumbs-item-text {
+        cursor: default;
+        font-weight: normal;
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+// === animations and actions
+// =============================================================================
+.c-breadcrumbs {
+
+  .breadcrumbs-item:not(:last-child) {
+    .breadcrumbs-item-text {
+      transition: all 0.3s ease 0s;
+    }
+
+    &:hover {
+      .breadcrumbs-item-text {
+        color: $color-item-hover
+      }
+    }
+  }
+}
+
+// === styles
+// =============================================================================
+.c-breadcrumbs {
+  &.--style-01 {
+
+
+    .breadcrumbs-item:not(:last-child) {
+      .breadcrumbs-item-text {
+        margin-right: 0.65em;
+
+        // === символ разделителя
+        &:after {
+          content: "";
+          position: relative;
+          margin-left: 0.8em;
+          width: 8px;
+          height: 8px;
+          background: URL('../img/icons/breadcrumbs-separator.svg') center center / contain no-repeat;
+        }
+      }
+    }
+
+    .breadcrumbs-item:last-child {
+      .breadcrumbs-item-text {}
+    }
+  }
+}

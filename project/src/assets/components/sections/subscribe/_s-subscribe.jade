@@ -12,8 +12,8 @@
 
     .w-subscribe-form
       form(method="post" action="https://echo.htmlacademy.ru").subscribe-form-inputs
-        label.component-input-text.js-component-input-text.subscribe-form-email.--style-01
-          input.input-text-form(type="text" name="subscribe-email").js-input
-          span.input-text-label.--bg-white Ваш e-mail
+        label.component-input-text.subscribe-form-email.--style-01
+          input.input-text-form(type="text" name="subscribe-email" placeholder="Ваш e-mail")
+          
         button(type="submit").btn-main.btn--filled-green.subscribe-form-btn-submit Подписаться
       span.subscribe-form__description Отправляя данные, вы соглашаетесь с #[a(href="#").link политикой конфиденциальности]

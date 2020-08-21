@@ -137,8 +137,13 @@ gulp.task('dev-pug-compile', function () {
       )
       .pipe(debug({ title: '+ compile:' }))
       .pipe(remember('remember-dev-pug'))
-      .pipe(pug({ pretty: true }))
-      // минификация отключена
+      .pipe(pug({ 
+        pretty: true, 
+        // минификация отключена
+        basedir: `./project/src/` 
+        // корневая папка для путей вида /root
+      }))
+      
       .pipe(gulp.dest(`./${path.root}/${path.dev}`))
       .pipe(browserSync.stream())
   );
@@ -279,17 +284,11 @@ gulp.task('dev-simple-grid-layout-copy-files', function () {
       .src([
         `./${path.root}/${path.src}/assets/simple-grid-layout/source/**/*.js`,
       ])
-      .pipe(
-        newer(
-          `./${path.root}/${path.src}/assets/simple-grid-layout/js`
-        )
-      )
+      .pipe(newer(`./${path.root}/${path.src}/assets/simple-grid-layout/js`))
       // только те, которые уже не лежат в приемнике
       .pipe(debug({ title: '= copy:' }))
       .pipe(
-        gulp.dest(
-          `./${path.root}/${path.src}/assets/simple-grid-layout/js`
-        )
+        gulp.dest(`./${path.root}/${path.src}/assets/simple-grid-layout/js`)
       )
       .pipe(browserSync.stream())
   );
@@ -328,18 +327,14 @@ gulp.task('dev-watch', function () {
   // === при изменении исходников SCSS для simple-grid-layout
   // компиляция
   gulp.watch(
-    [
-      `./${path.root}/${path.src}/assets/simple-grid-layout/source/**/*.scss`,
-    ],
+    [`./${path.root}/${path.src}/assets/simple-grid-layout/source/**/*.scss`],
     gulp.parallel(['dev-simple-grid-layout-compile'])
   );
 
   // === при изменении исходников JS для  simple-grid-layout
   // копирование
   gulp.watch(
-    [
-      `./${path.root}/${path.src}/assets/simple-grid-layout/source/**/*.js`,
-    ],
+    [`./${path.root}/${path.src}/assets/simple-grid-layout/source/**/*.js`],
     gulp.parallel(['dev-simple-grid-layout-copy-files'])
   );
 

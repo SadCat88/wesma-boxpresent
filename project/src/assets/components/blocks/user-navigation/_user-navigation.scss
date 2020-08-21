@@ -235,13 +235,6 @@
     position: relative;
     z-index: 2;
     border: 1px solid $color-green-1;
-
-    .user-navigation-image {
-      animation-name: pulse;
-      animation-duration: 0.8s;
-      animation-fill-mode: forwards;
-      animation-iteration-count: infinite;
-    }
   }
 }
 

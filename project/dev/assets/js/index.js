@@ -89,8 +89,6 @@ document.addEventListener('DOMContentLoaded', function () {
   //   separateDialCode: false,
   //   // utilsScript: '../vendors/intl-tel-input/js/utils.js',
   // });
-
-
 });
 
 //
@@ -125,27 +123,73 @@ jQuery(document).ready(function ($) {
 
     $('#searchPanel').find('.js-input-text').focus();
 
+    // === клик по btn-close
     $('#searchPanel')
       .find('.js-close')
       .on('click', function (event) {
         $(this).parents('#searchPanel').removeClass('--js-show').off();
       });
+      
+    // === клик мимо панели поиска
+    event.stopPropagation();
+    $(document).on('click', function (event) {
+      console.log($(event.target));
+      if (!$(event.target).hasClass('w-search-panel')) {
+        $('#searchPanel').removeClass('--js-show').off();
+      }
+    });
   });
 
   //
   //
-  // === fast category - lazy list
+  //
+  // ===========================================================================
+  // === component - tabs-panel
+  // ===========================================================================
+  $('.component-tabs-panel-item__btn').on('click', function (event) {
+    // === снять --js-active со всех кнопок
+    $(this)
+      .parents('.component-tabs-panel')
+      .find('.component-tabs-panel-item__btn')
+      .removeClass('--js-active');
+
+    // === пометить кнопку классом --js-active
+    $(this).addClass('--js-active');
+
+    // === считать по какой кнопке был клик
+    let dataNumTab = $(this).data('num-btn');
+
+    // === снять со всех табов класс --js-show
+    $(this)
+      .parents('.component-tabs-panel')
+      .find('.component-tabs-panel-body')
+      .removeClass('--js-show');
+
+    // === добавить нужному табу класс --js-show
+    $(this)
+      .parents('.component-tabs-panel')
+      .find(
+        `.w-component-tabs-panel-body .component-tabs-panel-body[data-num-tab = ${dataNumTab}]`
+      )
+      .addClass('--js-show');
+  });
+
+  //
+  //
+  // === fast category - expand list
   // ===========================================================================
 
-  // === замер первичной высоты блока
-  let expandBlockPrimaryHeight = $(
-    '.js-component-fast-category .js-component-fast-category-list'
-  ).prop('clientHeight');
-
-  // === на какую высоту нужно растянуть
-  let expandBlockScrollHeight = $(
-    '.js-component-fast-category .js-component-fast-category-list'
-  ).prop('scrollHeight');
+  // === первичная инициализация
+  $(document).ready(function () {
+    addDataAttrPrimaryHeight(
+      '.js-component-fast-category .js-component-fast-category-list'
+    );
+  });
+  $(window).resize(function () {
+    addDataAttrPrimaryHeight(
+      '.js-component-fast-category .js-component-fast-category-list'
+    );
+  });
 
   // === === прослушка клика по кнопке =>
   // переключить класс --js-show для компонента
@@ -156,12 +200,18 @@ jQuery(document).ready(function ($) {
     // === блок динамичной высоты
     let $expandBlock = $thisRoot.find('.js-component-fast-category-list');
 
+    // === первичная высота блока с динамичной высотой
+    let expandBlockPrimaryHeight = $expandBlock.data('primary-height');
+
+    // === на какую высоту нужно растянуть блок с динамичной высотой
+    let expandBlockSecondaryHeight = $expandBlock.prop('scrollHeight');
+
     // === установить компоненту класс --js-show
     $thisRoot.toggleClass('--js-show');
 
     if ($thisRoot.hasClass('--js-show')) {
       // === растянуть блок
-      $expandBlock.css('height', `${expandBlockScrollHeight}px`);
+      $expandBlock.css('height', `${expandBlockSecondaryHeight}px`);
     } else {
       // === сжать блок
       $expandBlock.css('height', `${expandBlockPrimaryHeight}px`);
@@ -170,7 +220,7 @@ jQuery(document).ready(function ($) {
 
   //
   //
-  // === catalog products card - lazy list
+  // === catalog products card - expand list
   // ===========================================================================
 
   // === первичная инициализация
@@ -180,15 +230,6 @@ jQuery(document).ready(function ($) {
   $(window).resize(function () {
     addDataAttrPrimaryHeight('.js-component-expand-block__list');
   });
-
-  // === функция проставления дата атрибута data-primary-height
-  // во все блоки динамичной высоты
-  function addDataAttrPrimaryHeight(selector) {
-    $(selector).each(function (index, element) {
-      let primaryHeight = $(element).prop('clientHeight');
-      $(element).attr('data-primary-height', `${primaryHeight}`);
-    });
-  }
 
   // === отслеживание клика по кнопке разворачивающей лист
   $('.js-component-expand-block__btn').on('click', function (event) {
@@ -222,7 +263,7 @@ jQuery(document).ready(function ($) {
 
   //
   //
-  // === footer menu - lazy list
+  // === footer menu - expand list
   // ===========================================================================
   // === отслеживание клика по кнопке разворачивающей лист
   $('.w-footer-navigation-group .footer-title').on('click', function (event) {
@@ -278,7 +319,7 @@ jQuery(document).ready(function ($) {
   // === group slider #slider-group
   // ===========================================================================
   $(document).ready(function () {
-    $('#slider-group').slick({
+    $('').slick({
       // === Элементы
       // ============
       //
@@ -836,4 +877,370 @@ jQuery(document).ready(function ($) {
       $('#blog-preview-slider').slick('slickNext');
     });
   });
+
+  //
+  //
+  //
+  // ===========================================================================
+  // === component - show-modal
+  // ===========================================================================
+  //
+  // кнопка для запуска модалки
+  // button.js-show-modal(data-target-modal="modal_01") Личный кабинет
+
+  // ===  отслеживание клика по кнопке/ссылке запускающей модалку =>
+  // добавить класс оверлею --js-show
+  // убрать основной скролл страницы
+  $('.js-show-modal').on('click', function (event) {
+    event.preventDefault();
+
+    // === считать целевое модальное окно
+    let nameModal = $(this).data('target-modal');
+
+    // === закрыть все модалки
+    $('.modal-overlay').removeClass('--js-show');
+    // === показать нужную модалку
+    $(nameModal).addClass('--js-show');
+
+    // === ширина скролла
+    let scrollWidth = getScrollWidth();
+
+    $('body')
+      // === убрать основной скролл страницы
+      .addClass('--js-scroll-hidden')
+      // === добавить для body padding-right равный ширине убираемого скролла
+      .css('padding-right', scrollWidth + 'px');
+
+    // === начать отслеживание клика по оверлею любой модалки =>
+    // удалить класс --js-show у оверлея
+    // убить отслеживание
+    // вернуть основной скролл страницы
+    $('.modal-overlay').on('mousedown', function (event) {
+      // === если клик именно по оверлею, то закрыть его
+      if ($(event.target).hasClass('modal-overlay')) {
+        $(this).removeClass('--js-show').off();
+        // ==== вернуть основной скролл страницы
+        $('body').removeClass('--js-scroll-hidden').css('padding-right', '0');
+      }
+    });
+
+    // === начать отслеживание клика по кнопке закрытия модалки =>
+    // удалить класс --js-show у оверлея
+    // убить отслеживание
+    // вернуть основной скролл страницы
+    $('.modal-close').on('mousedown', function (event) {
+      event.preventDefault();
+      $('.modal-overlay').removeClass('--js-show');
+      $(this).off();
+      // === вернуть основной скролл страницы
+      $('body').removeClass('--js-scroll-hidden').css('padding-right', '0');
+    });
+  });
+
+  //
+  //
+  //
+  // ===========================================================================
+  // === component - city-menu
+  // ===========================================================================
+  //
+
+  // === если модалка показывается высчитать и записать ее высоту в атрибуты
+  if ($('.js-component-city-choice-menu-heading').hasClass('js-show-modal')) {
+    addDataAttrPrimaryHeight('.js-component-city-choice-menu-dropdown');
+
+    $(window).resize(function () {
+      addDataAttrPrimaryHeight('.js-component-city-choice-menu-dropdown');
+    });
+  }
+
+  //  === клик на название города в dropdown панели
+  $('.js-component-city-choice-menu-heading').on('click', function (event) {
+    // === название города
+    let selectedCityName;
+
+    // === === отслеживание клика внутри dropdown панели
+    $('.js-component-city-choice-menu-dropdown').on('click', function (event) {
+      // === если клик прошел по названию города
+      if ($(event.target).hasClass('js-city-name')) {
+        event.preventDefault();
+
+        // === запомнить имя города
+        selectedCityName = $(event.target).text();
+
+        // === снять класс .--js-selected со всех городов в dropdown панели
+        $(event.target)
+          .parents('.js-component-city-choice-menu-dropdown')
+          .find('.js-city-name')
+          .removeClass('--js-selected');
+
+        // === пометить выбранный город в dropdown панели классом .--js-selected
+        $(event.target).addClass('--js-selected');
+
+        // === поменять имя города в шапке
+        $('.js-component-city-choice-menu-heading')
+          .find('.js-city-selected')
+          .text(selectedCityName);
+
+        // ==== вернуть основной скролл страницы
+        $('body').removeClass('--js-scroll-hidden').css('padding-right', '0');
+
+        // === закрыть dropdown панель
+        $(event.target).parents('.modal-overlay').removeClass('--js-show');
+      }
+    });
+
+    // === === набор текста в строку поиска
+    $('.js-component-city-choice-menu-dropdown .js-c-city-search').on(
+      'keyup',
+      function (event) {
+        // === считать из атрибута высоту модалки
+        let lockHeight = $('.js-component-city-choice-menu-dropdown').data(
+          'primary-height'
+        );
+
+        // === прописать в модалку минимальную высоту
+        $('.js-component-city-choice-menu-dropdown').css(
+          'min-height',
+          `${lockHeight}px`
+        );
+
+        // === карта русских букв на английских кнопках
+        const map = {
+          q: 'й',
+          w: 'ц',
+          e: 'у',
+          r: 'к',
+          t: 'е',
+          y: 'н',
+          u: 'г',
+          i: 'ш',
+          o: 'щ',
+          p: 'з',
+          '[': 'х',
+          ']': 'ъ',
+          a: 'ф',
+          s: 'ы',
+          d: 'в',
+          f: 'а',
+          g: 'п',
+          h: 'р',
+          j: 'о',
+          k: 'л',
+          l: 'д',
+          ';': 'ж',
+          "'": 'э',
+          z: 'я',
+          x: 'ч',
+          c: 'с',
+          v: 'м',
+          b: 'и',
+          n: 'т',
+          m: 'ь',
+          ',': 'б',
+          '.': 'ю',
+          Q: 'Й',
+          W: 'Ц',
+          E: 'У',
+          R: 'К',
+          T: 'Е',
+          Y: 'Н',
+          U: 'Г',
+          I: 'Ш',
+          O: 'Щ',
+          P: 'З',
+          '[': 'Х',
+          ']': 'Ъ',
+          A: 'Ф',
+          S: 'Ы',
+          D: 'В',
+          F: 'А',
+          G: 'П',
+          H: 'Р',
+          J: 'О',
+          K: 'Л',
+          L: 'Д',
+          ';': 'Ж',
+          "'": 'Э',
+          Z: '?',
+          X: 'ч',
+          C: 'С',
+          V: 'М',
+          B: 'И',
+          N: 'Т',
+          M: 'Ь',
+          ',': 'Б',
+          '.': 'Ю',
+          '{': 'Х',
+          '}': 'Ъ',
+          ':': 'Ж',
+          '"': 'Э',
+          '<': 'Б',
+          '>': 'Ю',
+        };
+
+        // === удалить все символы кроме букв
+        if (this.value.match(/[!0-9\s\-]/g))
+          this.value = this.value.replace(/[!0-9\s\-]/g, '');
+
+        // === переменная для хранения пользовательского ввода
+        let inputString = $(this).val();
+
+        // === переменная для хранения преобразованного значения, если забыли сменить язык
+        let inputEnToRuString = '';
+
+        // === цикл для сверки пользовательского ввода с картой кнопок
+        for (let i = 0; i < inputString.length; i++) {
+          inputEnToRuString +=
+            map[inputString.charAt(i)] || inputString.charAt(i);
+        }
+
+        // === занести в инпут преобразованный ввод
+        $(this).val(inputEnToRuString);
+
+        // === преобразованный пользовательский ввод в нижнем регистре
+        let inputRuSmallLetters = inputEnToRuString.toLowerCase();
+
+        // === === если в инпуте есть разрешенные символы
+        if (inputRuSmallLetters != '') {
+          // === флаг
+          let findCityName = false;
+
+          // === добавить модалке класс .--js-input-not-empty
+          $('.js-component-city-choice-menu-dropdown').addClass(
+            '--js-input-not-empty'
+          );
+
+          // === перебор доступных городов из списка
+          $('.js-component-city-choice-menu-dropdown .js-city-name').each(
+            function () {
+              // === город в текущей итерации
+              let cityListItem = $(this).text().toLowerCase();
+
+              // === если пользовательский ввод совпадает с городом из итерации
+              if (cityListItem.indexOf(inputRuSmallLetters) == 0) {
+                $(this).removeClass('--js-hide');
+                findCityName = true;
+              } else {
+                $(this).addClass('--js-hide');
+              }
+            }
+          );
+
+          // === перебор заглавных букв
+          $(
+            '.js-component-city-choice-menu-dropdown .small-city-letter .letter'
+          ).each(function () {
+            // === заглавная буква в текущей итерации
+            let cityListFirstLetter = $(this).text().toLowerCase();
+
+            // === первая буква из пользовательского ввода
+            let inputFirstLetter = inputRuSmallLetters.substr(0, 1);
+
+            // === если первая буква пользовательского ввода совпадает с загланой буквой итерации
+            if (cityListFirstLetter.indexOf(inputFirstLetter) == 0) {
+              $(this).removeClass('--js-hide');
+            } else {
+              $(this).addClass('--js-hide');
+            }
+          });
+
+          // === если города не найдены
+          if (findCityName == false) {
+            // ===  показать ошибку
+            $(
+              '.js-component-city-choice-menu-dropdown .city-not-found'
+            ).addClass('--js-show');
+            // === показать заглавные буквы
+            $(
+              '.js-component-city-choice-menu-dropdown .small-city-letter .letter'
+            ).addClass('--js-hide');
+          } else {
+            // === скрыть текст ошибки
+            $(
+              '.js-component-city-choice-menu-dropdown .city-not-found'
+            ).removeClass('--js-show');
+          }
+        }
+
+        // === === иначе (если инпут пустой)
+        else {
+          // === показать все города
+          $(
+            '.js-component-city-choice-menu-dropdown .js-city-name'
+          ).removeClass('--js-hide');
+
+          // === показать заглавные буквы
+          $(
+            '.js-component-city-choice-menu-dropdown .small-city-letter .letter'
+          ).removeClass('--js-hide');
+
+          // === скрыть текст ошибки
+          $(
+            '.js-component-city-choice-menu-dropdown .city-not-found'
+          ).removeClass('--js-show');
+
+          // === убрать из модалки класс .--js-input-not-empty
+          $('.js-component-city-choice-menu-dropdown').removeClass(
+            '--js-input-not-empty'
+          );
+
+          // === убрать минимальную высоту модалки
+          $('.js-component-city-choice-menu-dropdown').css(
+            'min-height',
+            'auto'
+          );
+        }
+      }
+    );
+  });
+
+  //
+  //
+  //
+  // ===========================================================================
+  // === component-input-text dynamic placeholder
+  // ===========================================================================
+  //
+
+  // === отслеживание потери фокуса текстовым вводом =>
+  // проверить value у input
+  // добавить инпуту класс --js-val-not-empty если value заполнено
+  // иначе убрать класс --js-val-not-empty
+  $('.js-component-input-text .js-input').on('blur', function (event) {
+    if ($(this).val() != '') {
+      $(this).addClass('--js-val-not-empty');
+    } else {
+      $(this).removeClass('--js-val-not-empty');
+    }
+  });
+
+  // ===========================================================================
+  // === функции
+  // ===========================================================================
+
+  //
+  //
+  // === позволяет узнать ширину вертикальной полосы прокрутки
+  // =============================================================================
+  function getScrollWidth() {
+    let windowWidth = window.innerWidth;
+    // ширина окна браузера
+    let viewPortWidth = document.body.offsetWidth;
+    // ширина вьюпорта
+    let scrollWidth = windowWidth - viewPortWidth;
+    // ширина полосы прокрутки
+    return scrollWidth;
+  }
+
+  //
+  //
+  // === функция проставления дата атрибута data-primary-height
+  // во все блоки динамичной высоты
+  function addDataAttrPrimaryHeight(selector) {
+    $(selector).each(function (index, element) {
+      let primaryHeight = $(element).prop('clientHeight');
+      $(element).attr('data-primary-height', `${primaryHeight}`);
+    });
+  }
 });

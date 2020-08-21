@@ -45,7 +45,7 @@ body.--js-scroll-hidden {
   overflow-y: auto;
   overflow-x: hidden;
 
-  transition: all 0.3s ease 0s;
+  transition: all 0.5s ease 0s;
   opacity: 0;
   transform: perspective(200px) translate(0px, -100%) rotateX(45deg)
 }
@@ -250,7 +250,7 @@ body.--js-scroll-hidden {
   transition: all 0.3s ease 0s;
 
   &:hover {
-    transform: scale(1.4);
+    opacity: 0.6;
   }
 }
 
@@ -259,7 +259,6 @@ body.--js-scroll-hidden {
     .modal-body-heading-tab-list {
       position: relative;
       display: flex;
-      // justify-content: flex-start;
 
       .modal-body-heading-tab-item__btn {
         position: relative;
@@ -314,6 +313,15 @@ body.--js-scroll-hidden {
         top: 2px;
       }
     }
+  }
+}
+
+.modal-body__btn-send {
+  transition: all 0.3s ease 0s;
+
+  &:hover {
+    opacity: 0.6;
+    animation: none;
   }
 }
 

@@ -122,9 +122,10 @@
     }
   }
 
-  @media(max-width: 568px) {
+  @media(max-width: 800px) {
     .section-heading {
       flex-direction: column;
+      flex-direction: column-reverse;
 
       .section-heading__title {
         align-self: flex-start;
@@ -137,7 +138,52 @@
       }
 
       .btn-main {
-        align-self: flex-end;
+        height: auto;
+
+        margin-left: auto;
+        position: relative;
+
+        display: inline-flex;
+        padding-left: 18px;
+        padding-right: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        background: none;
+        color: $color-black-1;
+        border: none;
+        margin-bottom: 0.5em;
+
+
+        font-size: 16px;
+        text-transform: uppercase;
+
+        white-space: nowrap;
+        transition: all 0.3s ease 0s;
+
+
+        &:hover {
+          color: $color-green-1;
+        }
+
+        // === точка
+        &::before {
+          content: "";
+          position: absolute;
+          top: 35%;
+          left: 0;
+          width: 7px;
+          height: 7px;
+          border-radius: 50%;
+          background-color: $color-green-1;
+        }
+      }
+    }
+  }
+
+  @media(max-width: 374px) {
+    .section-heading {
+      .btn-main {
+        font-size: 14px;
       }
     }
   }

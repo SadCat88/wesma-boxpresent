@@ -113,8 +113,8 @@
   .promotions-list-card__time-left {
     position: absolute;
     z-index: 2;
-    top: 0;
-    right: 0;
+    top: -1px;
+    right: -1px;
     height: 43;
 
     display: inline-flex;

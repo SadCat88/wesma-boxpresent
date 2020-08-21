@@ -299,7 +299,8 @@
 
   .footer-soc-icons-item {
     transition: all 0.3s ease 0s;
-    &:hover{
+
+    &:hover {
       opacity: 0.7;
     }
 
@@ -310,6 +311,10 @@
 @media(max-width: 1280px) {
 
   .s-footer {
+    .w-footer-logotype {
+      padding-top: 0;
+    }
+
     .w-footer-navigation-group {
 
       .footer-title {
@@ -388,7 +393,6 @@
 
   @media(max-width: 840px) {
     padding-top: 4%;
-    padding-bottom: 4%;
 
     .footer-container-01 {
       flex-wrap: wrap;
@@ -417,9 +421,7 @@
 
   @media(max-width: 490px) {
     .footer-container-01 {
-      .w-contact-info-group {
-        margin-left: auto;
-      }
+      display: none;
     }
   }
 

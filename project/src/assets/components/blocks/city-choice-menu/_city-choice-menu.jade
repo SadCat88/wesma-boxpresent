@@ -18,8 +18,7 @@ nav.component-city-choice-menu.js-component-city-choice-menu
 
         form(method="post" action="https://echo.htmlacademy.ru").form-city-choice-search
           label.component-input-text.js-component-input-text.--style-02.--local-style
-            input.input-text-form(type="text" name="username").js-input
-            span.input-text-label Поиск города:
+            input.input-text-form(type="text" name="username" autocomplete="off" placeholder="Поиск города:").js-c-city-search
 
           button(type="submit").btn-as-wrapper.btn-search #[span.visually-hidden Поиск]
 
@@ -407,8 +406,6 @@ nav.component-city-choice-menu.js-component-city-choice-menu
               li.small-city-letter-list-item
                 a(href="#").small-city-list__item-link.js-city-name Серпухов
               li.small-city-letter-list-item
-                a(href="#").small-city-list__item-link.js-city-name Ростов-на-Дону
-              li.small-city-letter-list-item
                 a(href="#").small-city-list__item-link.js-city-name Славянск-на-Кубани
               li.small-city-letter-list-item
                 a(href="#").small-city-list__item-link.js-city-name Смоленск
@@ -542,3 +539,5 @@ nav.component-city-choice-menu.js-component-city-choice-menu
                 a(href="#").small-city-list__item-link.js-city-name Якутск
               li.small-city-letter-list-item
                 a(href="#").small-city-list__item-link.js-city-name Ярославль
+
+        span.city-not-found По заданному запросу город не найден.
